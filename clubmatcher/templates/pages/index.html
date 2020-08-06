@@ -1,13 +1,16 @@
 {% extends 'components/layout.html' %}
 {% block content %}
-    <img src="{{ url_for('static', filename='images/usc_logo.png') }}" alt="">
-    <h1>Welcome To USC's Club Matcher</h1>
-    <h2>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua.
-    </h2>
-    <h3>Find Your New Club:</h3>
-    <button>
-        <a href="#">Start Quiz</a>
-    </button>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/usc_logo.png') }}" alt="">
+        <h1>Welcome To USC's Club Matcher</h1>
+        <h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua.
+        </h2>
+        <h3>Find Your New Club:</h3>
+        <button>
+            <a href="#">Start Quiz</a>
+        </button>
+    </div>
 {% endblock content %}

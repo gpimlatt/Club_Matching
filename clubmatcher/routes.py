@@ -1,5 +1,5 @@
 from flask import render_template
-from clubquiz import app
+from clubmatcher import app
 
 
 @app.route("/")

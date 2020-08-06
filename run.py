@@ -1,4 +1,4 @@
-from clubquiz import app
+from clubmatcher import app
 
 if __name__ == '__main__':
     app.run(debug=True)
