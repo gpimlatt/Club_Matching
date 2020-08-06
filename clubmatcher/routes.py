@@ -74,3 +74,24 @@ def results():
             'pages/user_results.html',
             title='Results'
         )
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('account'))
+    return render_template(
+        'pages/login.html',
+        title='Sign in'
+    )
+
+@app.route("/logout")
+def logout():
+    login_user()
+    return redirect(url_for('index'))
+
+@app.route("/account")
+def account():
+    return render_template(
+        'pages/account.html',
+        title='Club Information'
+    )
