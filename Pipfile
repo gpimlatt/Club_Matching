@@ -12,6 +12,7 @@ flask-sqlalchemy = "*"
 flask-bcrypt = "*"
 flask-login = "*"
 flask-mail = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.8"
