@@ -1,7 +1,9 @@
 from flask import render_template, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user, login_required
-from clubmatcher import app, db, bcrypt
-from clubmatcher.forms import ClubForm, QuizForm, LoginForm
+from flask_mail import Message
+from clubmatcher import app, db, bcrypt, mail
+from clubmatcher.forms import (ClubForm, QuizForm, LoginForm,
+                               RequestResetPasswordForm, ResetPasswordForm)
 from clubmatcher.models import Club
 
 
@@ -64,6 +66,7 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
+
 @app.route("/account")
 @login_required
 def account():
@@ -105,3 +108,57 @@ def results():
             'pages/user_results.html',
             title='Results'
         )
+
+
+def send_reset_email(club):
+    token = club.get_reset_token()
+    message = Message(
+        'Password Reset Request',
+        sender='noreply.westernusc.timeline@gmail.com',
+        recipients=[club.email]
+    )
+    message.body = f'''
+To reset your password, visit the following link:
+
+{url_for('reset_password', token=token, _external=True)}
+
+If you did not make this request then simply ignore this email and no changes will be made.
+'''
+    mail.send(message)
+
+
+@app.route("/forgot", methods=['GET', 'POST'])
+def reset_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('account'))
+    form = RequestResetPasswordForm()
+    if form.validate_on_submit():
+        club = Club.query.filter_by(email=form.email.data).first()
+        send_reset_email(club)
+        return redirect(url_for('login'))
+    return render_template(
+        'pages/reset_request.html',
+        title='Request Password Reset',
+        form=form
+    )
+
+
+@app.route("/reset/<token>", methods=['GET', 'POST'])
+def reset_password(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    club = Club.verify_reset_token(token)
+    if not club:
+        return redirect(url_for('reset_request'))
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        club.password = hashed_password
+        db.session.commit()
+        login_user(club)
+        return redirect(url_for('account'))
+    return render_template(
+        'pages/reset_password.html',
+        title='Reset Password',
+        form=form
+    )

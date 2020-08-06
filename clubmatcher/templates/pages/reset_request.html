@@ -1,11 +1,10 @@
 {% extends 'components/layout.html' %}
 {% block content %}
-    <h1>Sign In</h1>
     <div>
         <form action="" method="POST">
             {{ form.hidden_tag() }}
             <fieldset>
-                <legend>Sign In</legend>
+                <legend>Reset Password</legend>
                 <div>
                     {{ form.email.label() }}
                     {% if form.email.errors %}
@@ -19,24 +18,11 @@
                         {{ form.email() }}
                     {% endif %}
                 </div>
-                <div>
-                    {{ form.password.label() }}
-                    {% if form.password.errors %}
-                        {{ form.password(class="alert-error") }}
-                        <div>
-                            {% for error in form.password.errors %}
-                                <span class="alert-error">{{ error }}</span><br>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.password() }}
-                    {% endif %}
-                </div>
             </fieldset>
             <div>
                 {{ form.submit() }}
             </div>
-            <a href="{{ url_for('reset_request') }}">Forgot Password?</a>
         </form>
     </div>
 {% endblock content %}
+
