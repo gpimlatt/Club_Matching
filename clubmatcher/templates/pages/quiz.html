@@ -1,4 +1,54 @@
 {% extends 'components/layout.html' %}
 {% block content %}
     <h1>Quiz</h1>
+    <div>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>Quiz</legend>
+                <div>
+                    {{ form.q1.label() }}
+                    {% if form.q1.errors %}
+                        {{ form.q1(class="alert-error") }}
+                        <div>
+                            {% for error in form.q1.errors %}
+                                <span class="alert-error">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.q1() }}
+                    {% endif %}
+                </div>
+                <div>
+                    {{ form.q2.label() }}
+                    {% if form.q2.errors %}
+                        {{ form.q2(class="alert-error") }}
+                        <div>
+                            {% for error in form.q2.errors %}
+                                <span class="alert-error">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.q2() }}
+                    {% endif %}
+                </div>
+                <div>
+                    {{ form.q3.label() }}
+                    {% if form.q3.errors %}
+                        {{ form.q3(class="alert-error") }}
+                        <div>
+                            {% for error in form.q3.errors %}
+                                <span class="alert-error">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.q3() }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
+    </div>
 {% endblock content %}

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, RadioField
 from wtforms.fields.html5 import EmailField, URLField
 from wtforms.validators import DataRequired, Length, EqualTo
 
@@ -61,6 +61,42 @@ class ClubForm(FlaskForm):
         'Club Website',
         validators=[
             Length(max=2083)
+        ]
+    )
+    submit = SubmitField(
+        'Submit'
+    )
+
+
+class QuizForm(FlaskForm):
+    q1 = RadioField(
+        'Question 1',
+        validators=[DataRequired()],
+        choices=[
+            (1, 'Answer 1'),
+            (2, 'Answer 2'),
+            (3, 'Answer 3'),
+            (4, 'Answer 4')
+        ]
+    )
+    q2 = RadioField(
+        'Question 2',
+        validators=[DataRequired()],
+        choices=[
+            (1, 'Answer 1'),
+            (2, 'Answer 2'),
+            (3, 'Answer 3'),
+            (4, 'Answer 4')
+        ]
+    )
+    q3 = RadioField(
+        'Question 3',
+        validators=[DataRequired()],
+        choices=[
+            (1, 'Answer 1'),
+            (2, 'Answer 2'),
+            (3, 'Answer 3'),
+            (4, 'Answer 4')
         ]
     )
     submit = SubmitField(

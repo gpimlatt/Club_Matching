@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for
 from clubmatcher import app, db, bcrypt
-from clubmatcher.forms import ClubForm
+from clubmatcher.forms import ClubForm, QuizForm
 from clubmatcher.models import Club
 
 
@@ -21,12 +21,15 @@ def register():
             name=form.name.data,
             email=form.email.data,
             password=hashed_password,
-            ecommerce=form.ecommerce.data,
             facebook=form.facebook.data,
             instagram=form.instagram.data,
             twitter=form.twitter.data,
             website=form.website.data
         )
+        if form.ecommerce.data:
+            club.ecommerce = form.ecommerce.data
+        db.session.add(club)
+        db.session.commit()
         return redirect(url_for('quiz'))
     return render_template(
         'pages/register.html',
@@ -34,9 +37,13 @@ def register():
         form=form
     )
 
-@app.route("/quiz")
+@app.route("/quiz", methods=['GET', 'POST'])
 def quiz():
+    form = QuizForm()
+    if form.validate_on_submit():
+        return redirect(url_for('index'))
     return render_template(
         'pages/quiz.html',
-        title='Quiz'
+        title='Quiz',
+        form=form
     )
