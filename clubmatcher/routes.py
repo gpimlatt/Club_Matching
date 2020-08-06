@@ -1,7 +1,7 @@
-from flask import render_template, redirect, url_for
-from flask_login import login_user, current_user
+from flask import render_template, redirect, url_for, request
+from flask_login import login_user, current_user, logout_user, login_required
 from clubmatcher import app, db, bcrypt
-from clubmatcher.forms import ClubForm, QuizForm
+from clubmatcher.forms import ClubForm, QuizForm, LoginForm
 from clubmatcher.models import Club
 
 
@@ -42,6 +42,37 @@ def register():
     )
 
 
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('account'))
+    form = LoginForm()
+    if form.validate_on_submit():
+        club = Club.query.filter_by(email=form.email.data).first()
+        if club and bcrypt.check_password_hash(club.password, form.password.data):
+            login_user(club)
+            return redirect(url_for('account'))
+    return render_template(
+        'pages/login.html',
+        title='Login',
+        form=form
+    )
+
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+@app.route("/account")
+@login_required
+def account():
+    return render_template(
+        'pages/account.html',
+        title='Club Information'
+    )
+
+
 @app.route("/quiz", methods=['GET', 'POST'])
 def quiz():
     form = QuizForm()
@@ -74,24 +105,3 @@ def results():
             'pages/user_results.html',
             title='Results'
         )
-
-@app.route("/login", methods=['GET', 'POST'])
-def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('account'))
-    return render_template(
-        'pages/login.html',
-        title='Sign in'
-    )
-
-@app.route("/logout")
-def logout():
-    login_user()
-    return redirect(url_for('index'))
-
-@app.route("/account")
-def account():
-    return render_template(
-        'pages/account.html',
-        title='Club Information'
-    )

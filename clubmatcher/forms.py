@@ -102,3 +102,21 @@ class QuizForm(FlaskForm):
     submit = SubmitField(
         'Submit'
     )
+
+
+class LoginForm(FlaskForm):
+    email = EmailField(
+        'Email',
+        validators=[
+            DataRequired()
+        ]
+    )
+    password = PasswordField(
+        'Password',
+        validators=[
+            DataRequired()
+        ]
+    )
+    submit = SubmitField(
+        'Login'
+    )

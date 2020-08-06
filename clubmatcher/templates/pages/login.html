@@ -1,4 +1,41 @@
 {% extends 'components/layout.html' %}
 {% block content %}
     <h1>Sign In</h1>
+    <div>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>Sign In</legend>
+                <div>
+                    {{ form.email.label() }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="alert-error") }}
+                        <div>
+                            {% for error in form.email.errors %}
+                                <span class="alert-error">{{ error }}</span><br>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email() }}
+                    {% endif %}
+                </div>
+                <div>
+                    {{ form.password.label() }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="alert-error") }}
+                        <div>
+                            {% for error in form.password.errors %}
+                                <span class="alert-error">{{ error }}</span><br>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password() }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit(class="css-class-name") }}
+            </div>
+        </form>
+    </div>
 {% endblock content %}
