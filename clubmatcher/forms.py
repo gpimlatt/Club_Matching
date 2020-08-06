@@ -6,14 +6,14 @@ from wtforms.validators import DataRequired, Length, EqualTo
 
 class ClubForm(FlaskForm):
     name = StringField(
-        'Name',
+        'Club Name',
         validators=[
             DataRequired(),
             Length(max=120)
         ]
     )
     email = EmailField(
-        'Email',
+        'Club Admin Email',
         validators=[
             DataRequired(),
             Length(max=120)
@@ -34,7 +34,7 @@ class ClubForm(FlaskForm):
         ]
     )
     ecommerce = URLField(
-        'eCommerce Page',
+        'Western Store',
         validators=[
             Length(max=2083)
         ]

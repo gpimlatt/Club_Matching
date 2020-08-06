@@ -45,6 +45,14 @@ def register():
 def quiz():
     form = QuizForm()
     if form.validate_on_submit():
+        answers = form.q1.data + ',' \
+                  + form.q2.data + ',' \
+                  + form.q3.data
+        if current_user.is_authenticated:
+            current_user.answers = answers
+            db.session.commit()
+        else:
+            pass  # record student quiz
         return redirect(url_for('index'))
     return render_template(
         'pages/quiz.html',
