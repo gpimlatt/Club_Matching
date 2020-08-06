@@ -41,6 +41,7 @@ def register():
         form=form
     )
 
+
 @app.route("/quiz", methods=['GET', 'POST'])
 def quiz():
     form = QuizForm()
@@ -53,9 +54,23 @@ def quiz():
             db.session.commit()
         else:
             pass  # record student quiz
-        return redirect(url_for('index'))
+        return redirect(url_for('results'))
     return render_template(
         'pages/quiz.html',
         title='Quiz',
         form=form
     )
+
+
+@app.route("/results", methods=['GET', 'POST'])
+def results():
+    if current_user.is_authenticated:
+        return render_template(
+            'pages/club_results.html',
+            title='Results'
+        )
+    else:
+        return render_template(
+            'pages/user_results.html',
+            title='Results'
+        )
