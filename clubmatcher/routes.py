@@ -1,4 +1,5 @@
 from flask import render_template, redirect, url_for
+from flask_login import login_user
 from clubmatcher import app, db, bcrypt
 from clubmatcher.forms import ClubForm, QuizForm
 from clubmatcher.models import Club
@@ -30,6 +31,7 @@ def register():
             club.ecommerce = form.ecommerce.data
         db.session.add(club)
         db.session.commit()
+        login_user(club)
         return redirect(url_for('quiz'))
     return render_template(
         'pages/register.html',
