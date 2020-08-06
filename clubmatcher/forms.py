@@ -68,6 +68,16 @@ class ClubForm(FlaskForm):
         'Submit'
     )
 
+    def validate_name(self, name):
+        club = Club.query.filter_by(name=name.data).first()
+        if club:
+            raise ValidationError('That name is taken. Please choose another.')
+
+    def validate_email(self, email):
+        club = Club.query.filter_by(email=email.data).first()
+        if club:
+            raise ValidationError('That email is taken. Please choose another.')
+
 
 class QuizForm(FlaskForm):
     q1 = RadioField(
