@@ -27,9 +27,16 @@ def register():
             twitter=form.twitter.data,
             website=form.website.data
         )
-        return redirect(url_for('index'))
+        return redirect(url_for('quiz'))
     return render_template(
         'pages/register.html',
         title='Register Your Club',
         form=form
+    )
+
+@app.route("/quiz")
+def quiz():
+    return render_template(
+        'pages/quiz.html',
+        title='Quiz'
     )
