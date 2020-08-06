@@ -7,3 +7,6 @@
 ### NPM Packages ###
 node_modules/
 
+### SQLite Database ###
+site.db
+

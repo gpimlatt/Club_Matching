@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for
-from flask_login import login_user
+from flask_login import login_user, current_user
 from clubmatcher import app, db, bcrypt
 from clubmatcher.forms import ClubForm, QuizForm
 from clubmatcher.models import Club
@@ -15,6 +15,8 @@ def index():
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('quiz'))
     form = ClubForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
