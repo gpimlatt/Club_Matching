@@ -35,31 +35,31 @@ class ClubForm(FlaskForm):
     ecommerce = URLField(
         'eCommerce Page',
         validators=[
-            Length(max=120)
+            Length(max=2083)
         ]
     )
     facebook = URLField(
         'Facebook',
         validators=[
-            Length(max=120)
+            Length(max=2083)
         ]
     )
     instagram = URLField(
         'Instagram',
         validators=[
-            Length(max=120)
+            Length(max=2083)
         ]
     )
     twitter = URLField(
         'Twitter',
         validators=[
-            Length(max=120)
+            Length(max=2083)
         ]
     )
     website = URLField(
         'Club Website',
         validators=[
-            Length(max=120)
+            Length(max=2083)
         ]
     )
     submit = SubmitField(
