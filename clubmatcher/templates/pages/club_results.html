@@ -1,11 +1,11 @@
 {% extends 'components/layout.html' %}
 {% block content %}
     <h1>Thank you, your club's answer have been recorded!</h1>
-    <h2>You may now <a href="#">logout</a>.</h2>
+    <h2>You may now <a href="{{ url_for('logout') }}">logout</a>.</h2>
     <button>
-        <a href="#">Retake Quiz</a>
+        <a href="{{ url_for('quiz') }}">Retake Quiz</a>
     </button>
     <button>
-        <a href="#">Update Club Information</a>
+        <a href="{{ url_for('account') }}">Update Club Information</a>
     </button>
 {% endblock content %}

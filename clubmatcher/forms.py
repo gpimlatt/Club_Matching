@@ -110,6 +110,26 @@ class QuizForm(FlaskForm):
             (4, 'Answer 4')
         ]
     )
+    q4 = RadioField(
+        'Question 4',
+        validators=[DataRequired()],
+        choices=[
+            (1, 'Answer 1'),
+            (2, 'Answer 2'),
+            (3, 'Answer 3'),
+            (4, 'Answer 4')
+        ]
+    )
+    q5 = RadioField(
+        'Question 5',
+        validators=[DataRequired()],
+        choices=[
+            (1, 'Answer 1'),
+            (2, 'Answer 2'),
+            (3, 'Answer 3'),
+            (4, 'Answer 4')
+        ]
+    )
     submit = SubmitField(
         'Submit'
     )

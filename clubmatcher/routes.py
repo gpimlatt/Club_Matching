@@ -1,3 +1,4 @@
+import numpy
 from flask import render_template, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
@@ -75,6 +76,10 @@ def account():
         title='Club Information'
     )
 
+def euclidean_distance(user_answers, club_answers):
+    for name in club_answers:
+        distance = numpy.linalg.norm(user_answers-club_answers[name])
+        print(name, distance)
 
 @app.route("/quiz", methods=['GET', 'POST'])
 def quiz():
@@ -82,12 +87,30 @@ def quiz():
     if form.validate_on_submit():
         answers = form.q1.data + ',' \
                   + form.q2.data + ',' \
-                  + form.q3.data
+                  + form.q3.data + ',' \
+                  + form.q4.data + ',' \
+                  + form.q5.data
         if current_user.is_authenticated:
             current_user.answers = answers
             db.session.commit()
         else:
-            pass  # record student quiz
+            user_answers = numpy.array((
+                int(form.q1.data),
+                int(form.q2.data),
+                int(form.q3.data),
+                int(form.q4.data),
+                int(form.q5.data)
+            ))
+            all_club_answers= {}
+            clubs = Club.query.all()
+            for club in clubs:
+                split_answers = club.answers.split(',')
+                club_answers = ()
+                for answer in split_answers:
+                    club_answers += (int(answer),)
+                all_club_answers[club.name] = numpy.array(club_answers)
+            euclidean_distance(user_answers, all_club_answers)
+
         return redirect(url_for('results'))
     return render_template(
         'pages/quiz.html',

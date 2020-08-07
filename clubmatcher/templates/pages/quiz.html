@@ -45,6 +45,32 @@
                         {{ form.q3() }}
                     {% endif %}
                 </div>
+                <div>
+                    {{ form.q4.label() }}
+                    {% if form.q4.errors %}
+                        {{ form.q4(class="alert-error") }}
+                        <div>
+                            {% for error in form.q4.errors %}
+                                <span class="alert-error">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.q4() }}
+                    {% endif %}
+                </div>
+                <div>
+                    {{ form.q5.label() }}
+                    {% if form.q5.errors %}
+                        {{ form.q5(class="alert-error") }}
+                        <div>
+                            {% for error in form.q5.errors %}
+                                <span class="alert-error">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.q5() }}
+                    {% endif %}
+                </div>
             </fieldset>
             <div>
                 {{ form.submit() }}
