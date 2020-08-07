@@ -44,7 +44,6 @@ def register():
         form=form
     )
 
-
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -73,13 +72,16 @@ def logout():
 def account():
     return render_template(
         'pages/account.html',
-        title='Club Information'
+        title='Club Information',
+        club=current_user
     )
 
 def euclidean_distance(user_answers, club_answers):
+    results = []
     for name in club_answers:
         distance = numpy.linalg.norm(user_answers-club_answers[name])
-        print(name, distance)
+        results.append((name, distance))
+    return results
 
 @app.route("/quiz", methods=['GET', 'POST'])
 def quiz():
@@ -93,6 +95,10 @@ def quiz():
         if current_user.is_authenticated:
             current_user.answers = answers
             db.session.commit()
+            return render_template(
+                'pages/club_results.html',
+                title='Quiz Completed'
+            )
         else:
             user_answers = numpy.array((
                 int(form.q1.data),
@@ -109,9 +115,12 @@ def quiz():
                 for answer in split_answers:
                     club_answers += (int(answer),)
                 all_club_answers[club.name] = numpy.array(club_answers)
-            euclidean_distance(user_answers, all_club_answers)
-
-        return redirect(url_for('results'))
+            results = euclidean_distance(user_answers, all_club_answers)
+            return render_template(
+                'pages/user_results.html',
+                title='Results',
+                results=results
+            )
     return render_template(
         'pages/quiz.html',
         title='Quiz',
@@ -119,18 +128,18 @@ def quiz():
     )
 
 
-@app.route("/results", methods=['GET', 'POST'])
-def results():
-    if current_user.is_authenticated:
-        return render_template(
-            'pages/club_results.html',
-            title='Results'
-        )
-    else:
-        return render_template(
-            'pages/user_results.html',
-            title='Results'
-        )
+# @app.route("/results", methods=['GET', 'POST'])
+# def results():
+#     if current_user.is_authenticated:
+#         return render_template(
+#             'pages/club_results.html',
+#             title='Results'
+#         )
+#     else:
+#         return render_template(
+#             'pages/user_results.html',
+#             title='Results'
+#         )
 
 
 def send_reset_email(club):
