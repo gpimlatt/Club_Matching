@@ -10,3 +10,6 @@ node_modules/
 ### SQLite Database ###
 site.db
 
+### Compiled Python Files ###
+*.pyc
+
