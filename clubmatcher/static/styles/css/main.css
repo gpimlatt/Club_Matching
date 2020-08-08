@@ -1,0 +1,22 @@
+.header {
+  height: 3.75rem; }
+
+.nav {
+  margin: auto;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.nav-logo-container {
+  height: 100%; }
+
+.nav-logo {
+  height: 100%; }
+
+.nav-link {
+  margin-left: 1rem;
+  text-decoration: none; }
+  .nav-link:hover {
+    text-decoration: underline; }
