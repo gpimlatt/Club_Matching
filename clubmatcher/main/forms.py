@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, RadioField
 from wtforms.fields.html5 import EmailField, URLField
 from wtforms.validators import DataRequired, Length, EqualTo, ValidationError
-from clubmatcher.models import Club
+from clubmatcher.main.models import Club
 
 
 class ClubForm(FlaskForm):

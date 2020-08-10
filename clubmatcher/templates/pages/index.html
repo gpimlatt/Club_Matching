@@ -12,11 +12,11 @@
         </h2>
         <h3>Find Your New Club:</h3>
         <button>
-            <a href="{{ url_for('quiz') }}">Start Quiz</a>
+            <a href="{{ url_for('main.quiz') }}">Start Quiz</a>
         </button>
         {% if not current_user.is_authenticated %}
             <br>
-            <small>Looking to add your club? <a href="{{ url_for('register') }}">Click Here</a></small>
+            <small>Looking to add your club? <a href="{{ url_for('main.register') }}">Click Here</a></small>
         {% endif %}
     </div>
 {% endblock content %}
