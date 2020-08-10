@@ -1,0 +1,21 @@
+.index-container {
+  margin: auto;
+  width: 95%;
+
+  @include for-desktop-up {
+    width: pxToRem(1100px);
+  }
+
+  @include for-lg-desktop-up {
+    width: pxToRem(1720px);
+  }
+}
+
+.usc-logo-container {
+  margin: auto;
+  width: 20vw;
+}
+
+.usc-logo {
+  width: 100%;
+}

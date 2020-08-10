@@ -1,7 +1,9 @@
 {% extends 'components/layout.html' %}
 {% block content %}
-    <div class="container">
-        <img src="{{ url_for('static', filename='images/usc_logo.png') }}" alt="">
+    <div class="index-container">
+        <div class="usc-logo-container">
+            <img class="usc-logo" src="{{ url_for('static', filename='images/usc_logo.png') }}" alt="usc logo">
+        </div>
         <h1>Welcome To USC's Club Matcher</h1>
         <h2>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
