@@ -1,39 +1,11 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, RadioField
+from wtforms import PasswordField, SubmitField, RadioField
 from wtforms.fields.html5 import EmailField, URLField
-from wtforms.validators import DataRequired, Length, EqualTo, ValidationError
+from wtforms.validators import DataRequired, Length
 from clubmatcher.main.models import Club
 
 
-class ClubForm(FlaskForm):
-    name = StringField(
-        'Club Name',
-        validators=[
-            DataRequired(),
-            Length(max=120)
-        ]
-    )
-    email = EmailField(
-        'Club Admin Email',
-        validators=[
-            DataRequired(),
-            Length(max=120)
-        ]
-    )
-    password = PasswordField(
-        'Password',
-        validators=[
-            DataRequired(),
-            Length(min=8, max=30)
-        ]
-    )
-    confirm_password = PasswordField(
-        'Confirm Password',
-        validators=[
-            DataRequired(),
-            EqualTo('password')
-        ]
-    )
+class EditClubForm(FlaskForm):
     ecommerce = URLField(
         'Western Store',
         validators=[
@@ -67,16 +39,6 @@ class ClubForm(FlaskForm):
     submit = SubmitField(
         'Submit'
     )
-
-    def validate_name(self, name):
-        club = Club.query.filter_by(name=name.data).first()
-        if club:
-            raise ValidationError('That name is taken. Please choose another.')
-
-    def validate_email(self, email):
-        club = Club.query.filter_by(email=email.data).first()
-        if club:
-            raise ValidationError('That email is taken. Please choose another.')
 
 
 class QuizForm(FlaskForm):
@@ -150,38 +112,4 @@ class LoginForm(FlaskForm):
     )
     submit = SubmitField(
         'Login'
-    )
-
-
-class RequestResetPasswordForm(FlaskForm):
-    email = EmailField(
-        'Email',
-        validators=[DataRequired()])
-    submit = SubmitField(
-        'Submit'
-    )
-
-    def validate_email(self, email):
-        club = Club.query.filter_by(email=email.data).first()
-        if not club:
-            raise ValidationError('There is no account with that email.')
-
-
-class ResetPasswordForm(FlaskForm):
-    password = PasswordField(
-        'Password',
-        validators=[
-            DataRequired(),
-            Length(min=8, max=30)
-        ]
-    )
-    confirm_password = PasswordField(
-        'Confirm Password',
-        validators=[
-            DataRequired(),
-            EqualTo('password')
-        ]
-    )
-    submit = SubmitField(
-        'Reset'
     )
