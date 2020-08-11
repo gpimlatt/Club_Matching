@@ -1,13 +1,12 @@
 {% extends 'components/layout.html' %}
 {% block content %}
-    <h1>Sign In</h1>
-    <div>
-        <form action="" method="POST">
+    <div class="container club-login-form-container">
+        <form action="" method="POST" class="club-login-form">
             {{ form.hidden_tag() }}
             <fieldset>
-                <legend>Sign In</legend>
-                <div>
-                    {{ form.email.label() }}
+                <legend class="club-login-form-legend">Sign In</legend>
+                <div class="club-login-form-input-container">
+                    {{ form.email.label(class= "club-login-form-label") }}
                     {% if form.email.errors %}
                         {{ form.email(class="alert-error") }}
                         <div>
@@ -16,11 +15,11 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.email() }}
+                        {{ form.email(class="club-login-form-input") }}
                     {% endif %}
                 </div>
-                <div>
-                    {{ form.password.label() }}
+                <div class="club-login-form-input-container">
+                    {{ form.password.label(class="club-login-form-label") }}
                     {% if form.password.errors %}
                         {{ form.password(class="alert-error") }}
                         <div>
@@ -29,12 +28,12 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.password() }}
+                        {{ form.password(class="club-login-form-input") }}
                     {% endif %}
                 </div>
             </fieldset>
             <div>
-                {{ form.submit() }}
+                {{ form.submit(class="club-login-btn") }}
             </div>
         </form>
     </div>

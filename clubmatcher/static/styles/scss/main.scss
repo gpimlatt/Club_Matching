@@ -3,39 +3,8 @@
 @import "variables";
 @import "functions";
 @import "mixins";
-
-h1, h2, h3, h4, h5, h6, p, a {
-  font-family: "Open Sans", sans-serif;
-}
-
-h1 {
-  font-size: $h1;
-}
-
-h2 {
-  font-size: $h2;
-}
-
-h3 {
-  font-size: $h3;
-}
-
-h4 {
-  font-size: $h4;
-}
-
-h5 {
-  font-size: $h5;
-}
-
-h6 {
-  font-size: $h6;
-}
-
-body {
-  background-color: #F9F8F8;
-}
+@import "global";
 
 @import "components/header";
-
 @import "pages/index";
+@import "pages/login";

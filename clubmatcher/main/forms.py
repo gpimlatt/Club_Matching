@@ -99,13 +99,13 @@ class QuizForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     email = EmailField(
-        'Email',
+        'Email:',
         validators=[
             DataRequired()
         ]
     )
     password = PasswordField(
-        'Password',
+        'Password:',
         validators=[
             DataRequired()
         ]

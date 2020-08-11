@@ -1,0 +1,32 @@
+.club-login-form-container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.club-login-form-legend {
+  margin: 3vh 0;
+  font-size: $h2;
+}
+
+.club-login-form-input-container {
+  margin: 2rem 0;
+}
+
+.club-login-form-label {
+  display: inline-block;
+  width: pxToRem(140px);
+  text-align: left;
+  font-size: $h5;
+}
+
+.club-login-form-input {
+  @include text-input;
+  width: 25rem;
+}
+
+.club-login-btn {
+  @include btn;
+  font-size: $h6;
+}
+
