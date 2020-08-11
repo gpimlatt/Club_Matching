@@ -14,15 +14,30 @@
 }
 
 .club-login-form-label {
+  margin-bottom: 1rem;
   display: inline-block;
-  width: pxToRem(140px);
+  width: 100%;
   text-align: left;
   font-size: $h5;
+
+  @include for-tablet-portrait-up {
+    margin-bottom: 0;
+    display: inline-block;
+    width: pxToRem(140px);
+    text-align: left;
+    font-size: $h5;
+  }
 }
 
 .club-login-form-input {
   @include text-input;
-  width: 25rem;
+  width: 100%;
+  font-size: $h6;
+
+  @include for-tablet-portrait-up {
+    width: 25rem;
+    font-size: $h6;
+  }
 }
 
 .club-login-btn {

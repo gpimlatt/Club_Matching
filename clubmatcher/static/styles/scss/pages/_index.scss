@@ -1,6 +1,21 @@
 .usc-logo-container {
   margin: 1rem auto 0 auto;
-  width: 20vw;
+
+  @include for-phone-only {
+    width: 7rem;
+  }
+
+  @include for-tablet-portrait-up {
+    width: 10rem;
+  }
+
+  @include for-desktop-up {
+    width: 15rem;
+  }
+
+  @include for-lg-desktop-up {
+    width: 20rem;
+  }
 }
 
 .usc-logo {
@@ -8,6 +23,7 @@
 }
 
 .index-content-container {
+  position: relative;
   width: 100%;
   text-align: center;
 }
@@ -17,11 +33,19 @@
   font-size: $h3;
   font-weight: 700;
 
+  @include for-phone-only {
+    font-size: $h4;
+  }
+
   @include for-tablet-landscape-up {
-    font-size: $h2;
+    font-size: $h3;
   }
 
   @include for-desktop-up {
+    font-size: $h2;
+  }
+
+  @include for-lg-desktop-up {
     font-size: $h1;
   }
 }
@@ -31,12 +55,20 @@
   font-size: $h4;
   font-weight: 400;
 
-  @include for-tablet-landscape-up {
-    font-size: $h3;
+  @include for-phone-only {
+    font-size: $h5;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: $h5;
   }
 
   @include for-desktop-up {
-    font-size: $h2;
+    font-size: $h4;
+  }
+
+  @include for-lg-desktop-up {
+    font-size: $h3;
   }
 }
 

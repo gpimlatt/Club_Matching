@@ -27,12 +27,23 @@ h6 {
 }
 
 body {
-  background-color: #F9F8F8;
+  background-color: $off-white;
 }
 
 .container {
   margin: auto;
-  width: 90%;
+
+  @include for-phone-only {
+    width: 95%;
+  }
+
+  @include for-tablet-portrait-up {
+    width: 85%;
+  }
+
+  @include for-tablet-landscape-up {
+    width: pxToRem(800px);
+  }
 
   @include for-desktop-up {
     width: pxToRem(1100px);

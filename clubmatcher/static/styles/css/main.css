@@ -61,8 +61,16 @@ body {
   background-color: #F9F8F8; }
 
 .container {
-  margin: auto;
-  width: 90%; }
+  margin: auto; }
+  @media (max-width: 599px) {
+    .container {
+      width: 95%; } }
+  @media (min-width: 600px) {
+    .container {
+      width: 85%; } }
+  @media (min-width: 900px) {
+    .container {
+      width: 50rem; } }
   @media (min-width: 1200px) {
     .container {
       width: 68.75rem; } }
@@ -90,18 +98,31 @@ body {
 
 .nav-link {
   margin-left: 1rem;
-  text-decoration: none; }
+  text-decoration: none;
+  color: #000000; }
   .nav-link:hover {
     text-decoration: underline; }
 
 .usc-logo-container {
-  margin: 1rem auto 0 auto;
-  width: 20vw; }
+  margin: 1rem auto 0 auto; }
+  @media (max-width: 599px) {
+    .usc-logo-container {
+      width: 7rem; } }
+  @media (min-width: 600px) {
+    .usc-logo-container {
+      width: 10rem; } }
+  @media (min-width: 1200px) {
+    .usc-logo-container {
+      width: 15rem; } }
+  @media (min-width: 1920px) {
+    .usc-logo-container {
+      width: 20rem; } }
 
 .usc-logo {
   width: 100%; }
 
 .index-content-container {
+  position: relative;
   width: 100%;
   text-align: center; }
 
@@ -109,10 +130,16 @@ body {
   margin-top: 4vh;
   font-size: 2.369rem;
   font-weight: 700; }
+  @media (max-width: 599px) {
+    .index-main-header {
+      font-size: 1.777rem; } }
   @media (min-width: 900px) {
     .index-main-header {
-      font-size: 3.157rem; } }
+      font-size: 2.369rem; } }
   @media (min-width: 1200px) {
+    .index-main-header {
+      font-size: 3.157rem; } }
+  @media (min-width: 1920px) {
     .index-main-header {
       font-size: 4.209rem; } }
 
@@ -120,12 +147,18 @@ body {
   margin: 4vh auto 0 auto;
   font-size: 1.777rem;
   font-weight: 400; }
-  @media (min-width: 900px) {
+  @media (max-width: 599px) {
     .index-sub-header {
-      font-size: 2.369rem; } }
+      font-size: 1.333rem; } }
+  @media (min-width: 600px) {
+    .index-sub-header {
+      font-size: 1.333rem; } }
   @media (min-width: 1200px) {
     .index-sub-header {
-      font-size: 3.157rem; } }
+      font-size: 1.777rem; } }
+  @media (min-width: 1920px) {
+    .index-sub-header {
+      font-size: 2.369rem; } }
 
 .index-btn-header {
   margin-top: 4vh;
@@ -166,16 +199,29 @@ body {
   margin: 2rem 0; }
 
 .club-login-form-label {
+  margin-bottom: 1rem;
   display: inline-block;
-  width: 8.75rem;
+  width: 100%;
   text-align: left;
   font-size: 1.333rem; }
+  @media (min-width: 600px) {
+    .club-login-form-label {
+      margin-bottom: 0;
+      display: inline-block;
+      width: 8.75rem;
+      text-align: left;
+      font-size: 1.333rem; } }
 
 .club-login-form-input {
   border: 2px solid #000000;
   border-radius: 50px;
   padding: 0.75rem;
-  width: 25rem; }
+  width: 100%;
+  font-size: 1rem; }
+  @media (min-width: 600px) {
+    .club-login-form-input {
+      width: 25rem;
+      font-size: 1rem; } }
 
 .club-login-btn {
   display: inline-block;
