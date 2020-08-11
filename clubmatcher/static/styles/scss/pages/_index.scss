@@ -1,6 +1,6 @@
 .index-container {
   margin: auto;
-  width: 95%;
+  width: 90%;
 
   @include for-desktop-up {
     width: pxToRem(1100px);
@@ -12,10 +12,64 @@
 }
 
 .usc-logo-container {
-  margin: auto;
+  margin: 1rem auto 0 auto;
   width: 20vw;
 }
 
 .usc-logo {
   width: 100%;
+}
+
+.index-content-container {
+  width: 100%;
+  text-align: center;
+}
+
+.index-main-header {
+  margin-top: 4vh;
+  font-size: $h3;
+  font-weight: 700;
+
+  @include for-tablet-landscape-up {
+    font-size: $h2;
+  }
+
+  @include for-desktop-up {
+    font-size: $h1;
+  }
+}
+
+.index-sub-header {
+  margin: 4vh auto 0 auto;
+  font-size: $h4;
+  font-weight: 400;
+
+  @include for-tablet-landscape-up {
+    font-size: $h3;
+  }
+
+  @include for-desktop-up {
+    font-size: $h2;
+  }
+}
+
+.index-btn-header {
+  margin-top: 4vh;
+  font-size: $h5;
+  font-weight: 700;
+
+  @include for-tablet-landscape-up {
+    font-size: $h4;
+  }
+
+  @include for-desktop-up {
+    font-size: $h3;
+  }
+}
+
+.find-club-btn-link {
+  @include btn;
+  margin-top: 4vh;
+  font-size: $h5;
+  text-decoration: none;
 }

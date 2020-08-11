@@ -27,3 +27,17 @@
     @content;
   }
 }
+
+@mixin btn {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border: pxToRem(3px) solid $black;
+  border-radius: pxToRem(50px);
+  background-color: $western-purple;
+  color: $off-white;
+
+  &:hover {
+    background-color: lighten($western-purple, 10%);
+    color: $off-white;
+  }
+}

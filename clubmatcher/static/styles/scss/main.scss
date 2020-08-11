@@ -4,6 +4,10 @@
 @import "functions";
 @import "mixins";
 
+h1, h2, h3, h4, h5, h6, p, a {
+  font-family: "Open Sans", sans-serif;
+}
+
 h1 {
   font-size: $h1;
 }
@@ -26,6 +30,10 @@ h5 {
 
 h6 {
   font-size: $h6;
+}
+
+body {
+  background-color: #F9F8F8;
 }
 
 @import "components/header";

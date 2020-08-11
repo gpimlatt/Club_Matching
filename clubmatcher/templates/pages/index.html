@@ -4,15 +4,14 @@
         <div class="usc-logo-container">
             <img class="usc-logo" src="{{ url_for('static', filename='images/usc_logo.png') }}" alt="usc logo">
         </div>
-        <h1>Welcome To USC's Club Matcher</h1>
-        <h2>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua.
-        </h2>
-        <h3>Find Your New Club:</h3>
-        <button>
-            <a href="{{ url_for('main.quiz') }}">Start Quiz</a>
-        </button>
+        <div class="index-content-container">
+            <h1 class="index-main-header">Welcome To USC's Club Matcher</h1>
+            <h2 class="index-sub-header">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+            </h2>
+            <h3 class="index-btn-header">Find Your New Club:</h3>
+            <a class="find-club-btn-link" href="{{ url_for('main.quiz') }}">Start Quiz</a>
+        </div>
     </div>
 {% endblock content %}
