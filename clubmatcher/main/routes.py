@@ -20,7 +20,10 @@ def index():
 @main.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('main.account'))
+        if current_user.quiz_completed:
+            return redirect(url_for('main.account'))
+        else:
+            return redirect(url_for('main.quiz'))
     form = LoginForm()
     if form.validate_on_submit():
         club = Club.query.filter_by(email=form.email.data).first()
@@ -81,7 +84,7 @@ def quiz():
             flash('You have successfully completed the quiz!', 'success')
             return render_template(
                 'pages/club_results.html',
-                title='Quiz Completed'
+                title='Confirmation'
             )
         else:
             user_answers = numpy.array((
@@ -112,13 +115,17 @@ def quiz():
         form=form
     )
 
-# @app.route("/results", methods=['GET', 'POST'])
+
+# @main.route("/results", methods=['GET', 'POST'])
 # def results():
 #     if current_user.is_authenticated:
-#         return render_template(
-#             'pages/club_results.html',
-#             title='Results'
-#         )
+#         if current_user.quiz_completed:
+#             return render_template(
+#                 'pages/club_results.html',
+#                 title='Results'
+#             )
+#         else:
+#             return redirect(url_for('main.quiz'))
 #     else:
 #         return render_template(
 #             'pages/user_results.html',
