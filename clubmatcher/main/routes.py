@@ -17,35 +17,6 @@ def index():
     )
 
 
-@main.route("/register", methods=['GET', 'POST'])
-def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('main.quiz'))
-    form = ClubForm()
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        club = Club(
-            name=form.name.data,
-            email=form.email.data,
-            password=hashed_password,
-            facebook=form.facebook.data,
-            instagram=form.instagram.data,
-            twitter=form.twitter.data,
-            website=form.website.data
-        )
-        if form.ecommerce.data:
-            club.ecommerce = form.ecommerce.data
-        db.session.add(club)
-        db.session.commit()
-        login_user(club)
-        return redirect(url_for('main.quiz'))
-    return render_template(
-        'pages/register.html',
-        title='Register Your Club',
-        form=form
-    )
-
-
 @main.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -56,7 +27,7 @@ def login():
         if club and bcrypt.check_password_hash(club.password, form.password.data):
             login_user(club)
             flash('You have been logged in!', 'success')
-            if club.quiz_taken:
+            if club.quiz_completed:
                 return redirect(url_for('main.account'))
             else:
                 return redirect(url_for('main.quiz'))
@@ -141,7 +112,6 @@ def quiz():
         form=form
     )
 
-
 # @app.route("/results", methods=['GET', 'POST'])
 # def results():
 #     if current_user.is_authenticated:
@@ -154,57 +124,3 @@ def quiz():
 #             'pages/user_results.html',
 #             title='Results'
 #         )
-
-
-def send_reset_email(club):
-    token = club.get_reset_token()
-    message = Message(
-        'Password Reset Request',
-        sender='noreply.westernusc.timeline@gmail.com',
-        recipients=[club.email]
-    )
-    message.body = f'''
-To reset your password, visit the following link:
-
-{url_for('main.reset_password', token=token, _external=True)}
-
-If you did not make this request then simply ignore this email and no changes will be made.
-'''
-    mail.send(message)
-
-
-@main.route("/forgot", methods=['GET', 'POST'])
-def reset_request():
-    if current_user.is_authenticated:
-        return redirect(url_for('main.account'))
-    form = RequestResetPasswordForm()
-    if form.validate_on_submit():
-        club = Club.query.filter_by(email=form.email.data).first()
-        send_reset_email(club)
-        return redirect(url_for('main.login'))
-    return render_template(
-        'pages/reset_request.html',
-        title='Request Password Reset',
-        form=form
-    )
-
-
-@main.route("/reset/<token>", methods=['GET', 'POST'])
-def reset_password(token):
-    if current_user.is_authenticated:
-        return redirect(url_for('main.index'))
-    club = Club.verify_reset_token(token)
-    if not club:
-        return redirect(url_for('main.reset_request'))
-    form = ResetPasswordForm()
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        club.password = hashed_password
-        db.session.commit()
-        login_user(club)
-        return redirect(url_for('main.account'))
-    return render_template(
-        'pages/reset_password.html',
-        title='Reset Password',
-        form=form
-    )
