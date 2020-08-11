@@ -1,7 +1,6 @@
 from flask import current_app
 from clubmatcher import db, login_manager
 from flask_login import UserMixin
-from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 
 @login_manager.user_loader
@@ -29,19 +28,6 @@ class Club(db.Model, UserMixin):
     website = db.Column(db.Text)
     answers = db.Column(db.String(60), nullable=False, default='')
     quiz_completed = db.Column(db.Boolean, nullable=False, default=False)
-
-    def get_reset_token(self, expires_sec=1800):
-        serializer = Serializer(current_app.config['SECRET_KEY'], expires_sec)
-        return serializer.dumps({'user_id': self.id}).decode('utf-8')
-
-    @staticmethod
-    def verify_reset_token(token):
-        serializer = Serializer(current_app.config['SECRET_KEY'])
-        try:
-            user_id = serializer.loads(token)['user_id']
-        except:
-            return None
-        return Club.query.get(user_id)
 
     def __repr__(self):
         return f"Club(name='{self.name}', answers=[{self.answers}])"
