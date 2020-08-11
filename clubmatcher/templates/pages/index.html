@@ -14,9 +14,5 @@
         <button>
             <a href="{{ url_for('main.quiz') }}">Start Quiz</a>
         </button>
-        {% if not current_user.is_authenticated %}
-            <br>
-            <small>Looking to add your club? <a href="{{ url_for('main.register') }}">Click Here</a></small>
-        {% endif %}
     </div>
 {% endblock content %}
