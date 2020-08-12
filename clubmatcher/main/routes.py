@@ -87,27 +87,39 @@ def quiz():
                 title='Confirmation'
             )
         else:
-            user_answers = numpy.array((
-                int(form.q1.data),
-                int(form.q2.data),
-                int(form.q3.data),
-                int(form.q4.data),
-                int(form.q5.data)
-            ))
-            all_club_answers = {}
-            clubs = Club.query.all()
-            for club in clubs:
-                split_answers = club.answers.split(',')
-                club_answers = ()
-                for answer in split_answers:
-                    club_answers += (int(answer),)
-                all_club_answers[club.name] = numpy.array(club_answers)
-            results = euclidean_distance(user_answers, all_club_answers)
+            # user_answers = numpy.array((
+            #     int(form.q1.data),
+            #     int(form.q2.data),
+            #     int(form.q3.data),
+            #     int(form.q4.data),
+            #     int(form.q5.data)
+            # ))
+            # all_club_answers = {}
+            # clubs = Club.query.all()
+            # for club in clubs:
+            #     split_answers = club.answers.split(',')
+            #     club_answers = ()
+            #     for answer in split_answers:
+            #         club_answers += (int(answer),)
+            #     all_club_answers[club.name] = numpy.array(club_answers)
+            # results = euclidean_distance(user_answers, all_club_answers)
+            results = Club.query.all()
+            socials = {}
+            for club in results:
+                if club.facebook:
+                    socials['facebook'] = club.facebook
+                if club.instagram:
+                    socials['instagram'] = club.instagram
+                if club.twitter:
+                    socials['twitter'] = club.twitter
+                if club.website:
+                    socials['website'] = club.website
             flash('You have successfully completed the quiz!', 'success')
             return render_template(
                 'pages/user_results.html',
                 title='Results',
-                results=results
+                results=results,
+                socials=socials
             )
     return render_template(
         'pages/quiz.html',

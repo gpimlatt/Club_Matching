@@ -1,3 +1,4 @@
+import flask
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, SubmitField, RadioField
 from wtforms.fields.html5 import EmailField, URLField
@@ -42,58 +43,64 @@ class EditClubForm(FlaskForm):
 
 
 class QuizForm(FlaskForm):
+    q1_text = 'What is your favorite thing to do on campus?'
+    q2_text = 'What is your favorite color?'
+    q3_text = 'What is your favorite thing about Western?'
+    q4_text = 'Which faculty are you apart of?'
+    q5_text = 'What year are you currently in?'
+
     q1 = RadioField(
-        'Question 1',
+        flask.Markup(f'<b>Question 1:</b> {q1_text}'),
         validators=[DataRequired()],
         choices=[
-            (1, 'Answer 1'),
-            (2, 'Answer 2'),
-            (3, 'Answer 3'),
-            (4, 'Answer 4')
+            (1, flask.Markup('<span>Answer 1</span>')),
+            (2, flask.Markup('<span>Answer 2</span>')),
+            (3, flask.Markup('<span>Answer 3</span>')),
+            (4, flask.Markup('<span>Answer 4</span>'))
         ]
     )
     q2 = RadioField(
-        'Question 2',
+        flask.Markup(f"<b>Question 2:</b> {q2_text}"),
         validators=[DataRequired()],
         choices=[
-            (1, 'Answer 1'),
-            (2, 'Answer 2'),
-            (3, 'Answer 3'),
-            (4, 'Answer 4')
+            (1, flask.Markup('<span>Answer 1</span>')),
+            (2, flask.Markup('<span>Answer 2</span>')),
+            (3, flask.Markup('<span>Answer 3</span>')),
+            (4, flask.Markup('<span>Answer 4</span>'))
         ]
     )
     q3 = RadioField(
-        'Question 3',
+        flask.Markup(f"<b>Question 3:</b> {q3_text}"),
         validators=[DataRequired()],
         choices=[
-            (1, 'Answer 1'),
-            (2, 'Answer 2'),
-            (3, 'Answer 3'),
-            (4, 'Answer 4')
+            (1, flask.Markup('<span>Answer 1</span>')),
+            (2, flask.Markup('<span>Answer 2</span>')),
+            (3, flask.Markup('<span>Answer 3</span>')),
+            (4, flask.Markup('<span>Answer 4</span>'))
         ]
     )
     q4 = RadioField(
-        'Question 4',
+        flask.Markup(f"<b>Question 4:</b> {q4_text}"),
         validators=[DataRequired()],
         choices=[
-            (1, 'Answer 1'),
-            (2, 'Answer 2'),
-            (3, 'Answer 3'),
-            (4, 'Answer 4')
+            (1, flask.Markup('<span>Answer 1</span>')),
+            (2, flask.Markup('<span>Answer 2</span>')),
+            (3, flask.Markup('<span>Answer 3</span>')),
+            (4, flask.Markup('<span>Answer 4</span>'))
         ]
     )
     q5 = RadioField(
-        'Question 5',
+        flask.Markup(f"<b>Question 5:</b> {q5_text}"),
         validators=[DataRequired()],
         choices=[
-            (1, 'Answer 1'),
-            (2, 'Answer 2'),
-            (3, 'Answer 3'),
-            (4, 'Answer 4')
+            (1, flask.Markup('<span>Answer 1</span>')),
+            (2, flask.Markup('<span>Answer 2</span>')),
+            (3, flask.Markup('<span>Answer 3</span>')),
+            (4, flask.Markup('<span>Answer 4</span>'))
         ]
     )
     submit = SubmitField(
-        'Submit'
+        'Submit Quiz'
     )
 
 

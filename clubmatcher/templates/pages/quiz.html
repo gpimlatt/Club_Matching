@@ -1,13 +1,12 @@
 {% extends 'components/layout.html' %}
 {% block content %}
-    <h1>Quiz</h1>
-    <div>
+    <div class="quiz-page-container">
         <form action="" method="POST">
             {{ form.hidden_tag() }}
             <fieldset>
-                <legend>Quiz</legend>
-                <div>
-                    {{ form.q1.label() }}
+                <legend class="quiz-legend">Quiz</legend>
+                <div class="question-container">
+                    {{ form.q1.label(class="question-header") }}
                     {% if form.q1.errors %}
                         {{ form.q1(class="alert-error") }}
                         <div>
@@ -16,11 +15,11 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.q1() }}
+                        {{ form.q1(class="question") }}
                     {% endif %}
                 </div>
-                <div>
-                    {{ form.q2.label() }}
+                <div class="question-container">
+                    {{ form.q2.label(class="question-header") }}
                     {% if form.q2.errors %}
                         {{ form.q2(class="alert-error") }}
                         <div>
@@ -29,11 +28,11 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.q2() }}
+                        {{ form.q2(class="question") }}
                     {% endif %}
                 </div>
-                <div>
-                    {{ form.q3.label() }}
+                <div class="question-container">
+                    {{ form.q3.label(class="question-header") }}
                     {% if form.q3.errors %}
                         {{ form.q3(class="alert-error") }}
                         <div>
@@ -42,11 +41,11 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.q3() }}
+                        {{ form.q3(class="question") }}
                     {% endif %}
                 </div>
-                <div>
-                    {{ form.q4.label() }}
+                <div class="question-container">
+                    {{ form.q4.label(class="question-header") }}
                     {% if form.q4.errors %}
                         {{ form.q4(class="alert-error") }}
                         <div>
@@ -55,11 +54,11 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.q4() }}
+                        {{ form.q4(class="question") }}
                     {% endif %}
                 </div>
-                <div>
-                    {{ form.q5.label() }}
+                <div class="question-container">
+                    {{ form.q5.label(class="question-header") }}
                     {% if form.q5.errors %}
                         {{ form.q5(class="alert-error") }}
                         <div>
@@ -68,12 +67,12 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.q5() }}
+                        {{ form.q5(class="question") }}
                     {% endif %}
                 </div>
             </fieldset>
-            <div>
-                {{ form.submit() }}
+            <div class="submit-quiz-btn-container">
+                {{ form.submit(class="submit-quiz-btn") }}
             </div>
         </form>
     </div>
