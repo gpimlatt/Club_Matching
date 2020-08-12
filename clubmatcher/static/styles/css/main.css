@@ -235,3 +235,118 @@ body {
     background-color: #6733ab;
     color: #F9F8F8;
     cursor: pointer; }
+
+.recommended-clubs-page-container {
+  margin: 3rem auto 0 auto;
+  width: 90%; }
+
+.recommended-clubs-page-heading {
+  margin-bottom: 3rem;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.777rem; }
+  @media (max-width: 599px) {
+    .recommended-clubs-page-heading {
+      font-size: 1.333rem; } }
+
+.recommended-clubs {
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 5rem; }
+  @media (min-width: 900px) {
+    .recommended-clubs {
+      width: 50rem; } }
+  @media (min-width: 1200px) {
+    .recommended-clubs {
+      width: 50rem; } }
+
+.recommended-club {
+  padding: 3rem 3rem;
+  border: 0.125rem solid black;
+  border-radius: 1.5625rem;
+  box-shadow: 11px 11px 26px -6px rgba(0, 0, 0, 0.56); }
+  @media (max-width: 599px) {
+    .recommended-club {
+      padding: 3rem 1rem; } }
+
+.club-name {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 3.157rem; }
+  @media (max-width: 599px) {
+    .club-name {
+      font-size: 2.369rem; } }
+
+.club-description-header {
+  margin-bottom: 1.5rem; }
+  @media (max-width: 599px) {
+    .club-description-header {
+      text-align: center;
+      font-size: 1.333rem; } }
+  @media (min-width: 600px) {
+    .club-description-header {
+      font-size: 1.777rem; } }
+  @media (min-width: 900px) {
+    .club-description-header {
+      font-size: 2.369rem; } }
+
+.club-description {
+  margin-bottom: 3rem; }
+  @media (max-width: 599px) {
+    .club-description {
+      text-align: center; } }
+
+.learn-more-container {
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 1.5rem; }
+  @media (min-width: 900px) {
+    .learn-more-container {
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 0; } }
+
+.learn-more-header {
+  display: inline-block; }
+  @media (max-width: 599px) {
+    .learn-more-header {
+      text-align: center;
+      font-size: 1.333rem; } }
+  @media (min-width: 600px) {
+    .learn-more-header {
+      font-size: 1.777rem; } }
+  @media (min-width: 900px) {
+    .learn-more-header {
+      font-size: 2.369rem; } }
+
+.learn-more-links {
+  display: inline-flex;
+  justify-content: space-around; }
+
+.learn-more-link {
+  height: 3.125rem;
+  width: 3.125rem; }
+  @media (max-width: 599px) {
+    .learn-more-link {
+      height: 2.125rem;
+      width: 2.125rem; } }
+
+.learn-more-icon {
+  height: 100%; }
+
+.purchase-membership-btn-container {
+  text-align: center; }
+
+.purchase-membership-btn {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border: 0.1875rem solid #000000;
+  border-radius: 3.125rem;
+  background-color: #4F2784;
+  color: #F9F8F8; }
+  .purchase-membership-btn:hover {
+    background-color: #6733ab;
+    color: #F9F8F8;
+    cursor: pointer; }

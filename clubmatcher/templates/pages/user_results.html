@@ -1,12 +1,61 @@
 {% extends 'components/layout.html' %}
 {% block content %}
-    <h1>User Results</h1>
-    <ul>
-        {% for result in results %}
-            <li>{{ result }}</li>
-        {% endfor %}
-    </ul>
-    <button>
-        <a href="{{ url_for('main.quiz') }}">Retake Quiz</a>
-    </button>
+    <div class="recommended-clubs-page-container">
+        <h1 class="recommended-clubs-page-heading">Based on your answers, we think these clubs will be a great fit!</h1>
+        <div class="recommended-clubs">
+            {% for club in results %}
+                <div class="recommended-club">
+                    <h1 class="club-name">{{ club.name }}</h1>
+                    <h2 class="club-description-header">Description</h2>
+                    <p class="club-description">{{ club.description }}</p>
+                    {% if club.facebook or club.instagram or club.twitter or club.website %}
+                    <div class="learn-more-container">
+                        <h2 class="learn-more-header">Learn More:</h2>
+                        <div class="learn-more-links">
+                            {% if club.facebook %}
+                                <a class="learn-more-link" href="{{ club.facebook }}">
+                                    <img class="learn-more-icon"
+                                         src="{{ url_for('static', filename='images/social-media/facebook.svg') }}"
+                                         alt="link to Facebook page"
+                                    >
+                                </a>
+                            {% endif %}
+                            {% if club.instagram %}
+                                <a class="learn-more-link" href="{{ club.instagram }}">
+                                    <img class="learn-more-icon"
+                                         src="{{ url_for('static', filename='images/social-media/instagram.svg') }}"
+                                         alt="link to Instagram page"
+                                    >
+                                </a>
+                            {% endif %}
+                            {% if club.twitter %}
+                                <a class="learn-more-link" href="{{ club.twitter }}">
+                                    <img class="learn-more-icon"
+                                         src="{{ url_for('static', filename='images/social-media/twitter.svg') }}"
+                                         alt="link to Twitter page"
+                                    >
+                                </a>
+                            {% endif %}
+                            {% if club.website %}
+                                <a class="learn-more-link" href="{{ club.website }}">
+                                    <img class="learn-more-icon"
+                                         src="{{ url_for('static',
+                                         filename='images/social-media/website.svg') }}"
+                                         alt="link to Club website"
+                                    >
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="purchase-membership-btn-container">
+                        <a class="purchase-membership-btn" href="{{ club.ecommerce }}">Purchase Membership</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <button>
+            <a href="{{ url_for('main.quiz') }}">Retake Quiz</a>
+        </button>
+    </div>
 {% endblock content %}

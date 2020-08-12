@@ -1,0 +1,135 @@
+.recommended-clubs-page-container {
+  margin: 3rem auto 0 auto;
+  width: 90%;
+}
+
+.recommended-clubs-page-heading {
+  margin-bottom: 3rem;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: $h4;
+
+  @include for-phone-only {
+    font-size: $h5;
+  }
+}
+
+.recommended-clubs {
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 5rem;
+
+  @include for-tablet-landscape-up {
+    width: pxToRem(800px);
+  }
+
+  @include for-desktop-up {
+    width: pxToRem(800px);
+  }
+}
+
+.recommended-club {
+  padding: 3rem 3rem;
+  border: pxToRem(2px) solid black;
+  border-radius: pxToRem(25px);
+  box-shadow: 11px 11px 26px -6px rgba(0, 0, 0, 0.56);
+
+  @include for-phone-only {
+    padding: 3rem 1rem;
+  }
+}
+
+.club-name {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: $h2;
+
+  @include for-phone-only {
+    font-size: $h3;
+  }
+}
+
+.club-description-header {
+  margin-bottom: 1.5rem;
+
+  @include for-phone-only {
+    text-align: center;
+    font-size: $h5;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: $h4;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: $h3;
+  }
+}
+
+.club-description {
+  margin-bottom: 3rem;
+
+  @include for-phone-only {
+    text-align: center;
+  }
+}
+
+.learn-more-container {
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 1.5rem;
+
+  @include for-tablet-landscape-up {
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 0;
+  }
+}
+
+.learn-more-header {
+  display: inline-block;
+
+  @include for-phone-only {
+    text-align: center;
+    font-size: $h5;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: $h4;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: $h3;
+  }
+}
+
+.learn-more-links {
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+.learn-more-link {
+  height: pxToRem(50px);
+  width: pxToRem(50px);
+
+  @include for-phone-only {
+    height: pxToRem(34px);
+    width: pxToRem(34px);
+  }
+}
+
+.learn-more-icon {
+  height: 100%;
+}
+
+.purchase-membership-btn-container {
+  text-align: center;
+}
+
+.purchase-membership-btn {
+  @include btn;
+}
+
+
