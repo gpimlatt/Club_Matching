@@ -20,7 +20,18 @@
 
 .quiz-legend {
   margin-bottom: 3rem;
-  font-size: $h1;
+
+  @include for-phone-only {
+    font-size: $h2;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: $h2;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: $h1;
+  }
 }
 
 .question-container {
@@ -28,7 +39,18 @@
 }
 
 .question-header {
-  font-size: $h3;
+
+  @include for-phone-only {
+    font-size: $h5;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: $h4;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: $h3;
+  }
 }
 
 .question {
@@ -72,4 +94,5 @@
 
 .submit-quiz-btn {
   @include btn;
+  font-size: $h5;
 }

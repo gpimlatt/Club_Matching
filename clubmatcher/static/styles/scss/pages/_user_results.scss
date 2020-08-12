@@ -145,5 +145,6 @@
 
 .retake-quiz-btn {
   @include btn;
+  font-size: $h5;
   text-decoration: none;
 }
