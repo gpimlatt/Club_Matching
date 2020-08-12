@@ -48,19 +48,28 @@ def import_generic_clubs():
     club_1 = Club(
         name='Club One',
         email='noreply.westernusc.timeline+1@gmail.com',
-        password=hashed_password
+        password=hashed_password,
+        description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur deleniti maxime quas quisquam reprehenderit voluptatibus. Beatae consectetur dolor inventore itaque laudantium quod. Commodi cumque ipsam iure nostrum provident voluptates!',
+        facebook='https://www.facebook.com',
+        instagram='https://www.instagram.com',
+        twitter='https://www.twitter.com',
+        website='https://www.espn.com'
     )
 
     club_2 = Club(
         name='Club Two',
         email='noreply.westernusc.timeline+2@gmail.com',
-        password=hashed_password
+        password=hashed_password,
+        description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur deleniti maxime quas quisquam reprehenderit voluptatibus. Beatae consectetur dolor inventore itaque laudantium quod. Commodi cumque ipsam iure nostrum provident voluptates!'
     )
 
     club_3 = Club(
         name='Club Three',
         email='noreply.westernusc.timeline+3@gmail.com',
-        password=hashed_password
+        password=hashed_password,
+        description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur deleniti maxime quas quisquam reprehenderit voluptatibus. Beatae consectetur dolor inventore itaque laudantium quod. Commodi cumque ipsam iure nostrum provident voluptates!',
+        facebook='https://www.facebook.com',
+        instagram='https://www.instagram.com'
     )
     db.session.add(club_1)
     db.session.add(club_2)
