@@ -54,8 +54,8 @@
                 </div>
             {% endfor %}
         </div>
-        <button>
-            <a href="{{ url_for('main.quiz') }}">Retake Quiz</a>
-        </button>
+        <div class="retake-quiz-btn-container">
+            <a class="retake-quiz-btn" href="{{ url_for('main.quiz') }}">Retake Quiz</a>
+        </div>
     </div>
 {% endblock content %}

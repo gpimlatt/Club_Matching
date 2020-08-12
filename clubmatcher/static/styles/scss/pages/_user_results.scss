@@ -111,8 +111,8 @@
 }
 
 .learn-more-link {
-  height: pxToRem(50px);
-  width: pxToRem(50px);
+  height: pxToRem(42px);
+  width: pxToRem(42px);
 
   @include for-phone-only {
     height: pxToRem(34px);
@@ -130,6 +130,20 @@
 
 .purchase-membership-btn {
   @include btn;
+  text-decoration: none;
+  font-size: $h5;
+
+  @include for-phone-only {
+    font-size: $base;
+  }
 }
 
+.retake-quiz-btn-container {
+  margin: 5rem 0;
+  text-align: center;
+}
 
+.retake-quiz-btn {
+  @include btn;
+  text-decoration: none;
+}

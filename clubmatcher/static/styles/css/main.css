@@ -326,8 +326,8 @@ body {
   justify-content: space-around; }
 
 .learn-more-link {
-  height: 3.125rem;
-  width: 3.125rem; }
+  height: 2.625rem;
+  width: 2.625rem; }
   @media (max-width: 599px) {
     .learn-more-link {
       height: 2.125rem;
@@ -345,8 +345,30 @@ body {
   border: 0.1875rem solid #000000;
   border-radius: 3.125rem;
   background-color: #4F2784;
-  color: #F9F8F8; }
+  color: #F9F8F8;
+  text-decoration: none;
+  font-size: 1.333rem; }
   .purchase-membership-btn:hover {
+    background-color: #6733ab;
+    color: #F9F8F8;
+    cursor: pointer; }
+  @media (max-width: 599px) {
+    .purchase-membership-btn {
+      font-size: 1rem; } }
+
+.retake-quiz-btn-container {
+  margin: 5rem 0;
+  text-align: center; }
+
+.retake-quiz-btn {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border: 0.1875rem solid #000000;
+  border-radius: 3.125rem;
+  background-color: #4F2784;
+  color: #F9F8F8;
+  text-decoration: none; }
+  .retake-quiz-btn:hover {
     background-color: #6733ab;
     color: #F9F8F8;
     cursor: pointer; }
