@@ -13,7 +13,7 @@
                         <h2 class="learn-more-header">Learn More:</h2>
                         <div class="learn-more-links">
                             {% if club.facebook %}
-                                <a class="learn-more-link" href="{{ club.facebook }}">
+                                <a class="learn-more-link" href="{{ club.facebook }}" target="_blank" rel="noopener noreferrer">
                                     <img class="learn-more-icon"
                                          src="{{ url_for('static', filename='images/social-media/facebook.svg') }}"
                                          alt="link to Facebook page"
@@ -21,7 +21,7 @@
                                 </a>
                             {% endif %}
                             {% if club.instagram %}
-                                <a class="learn-more-link" href="{{ club.instagram }}">
+                                <a class="learn-more-link" href="{{ club.instagram }}" target="_blank" rel="noopener noreferrer">
                                     <img class="learn-more-icon"
                                          src="{{ url_for('static', filename='images/social-media/instagram.svg') }}"
                                          alt="link to Instagram page"
@@ -29,7 +29,7 @@
                                 </a>
                             {% endif %}
                             {% if club.twitter %}
-                                <a class="learn-more-link" href="{{ club.twitter }}">
+                                <a class="learn-more-link" href="{{ club.twitter }}" target="_blank" rel="noopener noreferrer">
                                     <img class="learn-more-icon"
                                          src="{{ url_for('static', filename='images/social-media/twitter.svg') }}"
                                          alt="link to Twitter page"
@@ -37,7 +37,7 @@
                                 </a>
                             {% endif %}
                             {% if club.website %}
-                                <a class="learn-more-link" href="{{ club.website }}">
+                                <a class="learn-more-link" href="{{ club.website }}" target="_blank" rel="noopener noreferrer">
                                     <img class="learn-more-icon"
                                          src="{{ url_for('static',
                                          filename='images/social-media/website.svg') }}"
@@ -49,7 +49,7 @@
                     </div>
                     {% endif %}
                     <div class="purchase-membership-btn-container">
-                        <a class="purchase-membership-btn" href="{{ club.ecommerce }}">Purchase Membership</a>
+                        <a class="purchase-membership-btn" href="{{ club.ecommerce }}" target="_blank" rel="noopener noreferrer">Purchase Membership</a>
                     </div>
                 </div>
             {% endfor %}
