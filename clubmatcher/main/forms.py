@@ -6,33 +6,33 @@ from wtforms.validators import DataRequired, Length
 from clubmatcher.main.models import Club
 
 
-class EditClubForm(FlaskForm):
+class UpdateClubForm(FlaskForm):
     ecommerce = URLField(
-        'Western Store',
+        'Western Store:',
         validators=[
             Length(max=2083)
         ]
     )
     facebook = URLField(
-        'Facebook',
+        'Facebook:',
         validators=[
             Length(max=2083)
         ]
     )
     instagram = URLField(
-        'Instagram',
+        'Instagram:',
         validators=[
             Length(max=2083)
         ]
     )
     twitter = URLField(
-        'Twitter',
+        'Twitter:',
         validators=[
             Length(max=2083)
         ]
     )
     website = URLField(
-        'Club Website',
+        'Club Website:',
         validators=[
             Length(max=2083)
         ]

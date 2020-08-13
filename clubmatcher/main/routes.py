@@ -3,7 +3,7 @@ from flask import render_template, redirect, url_for, request, flash, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
 from clubmatcher import db, bcrypt, mail
-from clubmatcher.main.forms import EditClubForm, QuizForm, LoginForm
+from clubmatcher.main.forms import UpdateClubForm, QuizForm, LoginForm
 from clubmatcher.main.models import Club
 
 main = Blueprint('main', __name__)
@@ -54,6 +54,32 @@ def account():
         'pages/account.html',
         title='Club Information',
         club=current_user
+    )
+
+
+@main.route("/account/update", methods=['GET', 'POST'])
+@login_required
+def update_account():
+    form = UpdateClubForm()
+    if form.validate_on_submit():
+        current_user.ecommerce = form.ecommerce.data
+        current_user.facebook = form.facebook.data
+        current_user.instagram = form.instagram.data
+        current_user.twitter = form.twitter.data
+        current_user.website = form.website.data
+        db.session.commit()
+        flash('Your club information has been updated!', 'success')
+        return redirect(url_for('main.account'))
+    elif request.method == 'GET':
+        form.ecommerce.data = current_user.ecommerce
+        form.facebook.data = current_user.facebook
+        form.instagram.data = current_user.instagram
+        form.twitter.data = current_user.twitter
+        form.website.data = current_user.website
+    return render_template(
+        'pages/update_account.html',
+        title='Update Club Information',
+        form=form
     )
 
 

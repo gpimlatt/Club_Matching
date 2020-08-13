@@ -1,0 +1,66 @@
+{% extends 'components/layout.html' %}
+{% block content %}
+    <div class="container update-account-container">
+        <form action="" method="POST" class="update-account-form">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend class="update-account-legend">Account Information</legend>
+                <div class="update-account-input-container">
+                    {{ form.ecommerce.label(class="update-account-label") }}
+                    {% if form.ecommerce.errors %}
+                        {{ form.ecommerce(class="alert-error") }}
+                        <div>
+                            {% for error in form.ecommerce.errors %}
+                                <span class="alert-error">{{ error }}</span><br>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.ecommerce(class="update-account-input") }}
+                    {% endif %}
+                </div>
+                <div class="update-account-input-container">
+                    {{ form.facebook.label(class="update-account-label") }}
+                    {% if form.facebook.errors %}
+                        {{ form.facebook(class="alert-error") }}
+                        <div>
+                            {% for error in form.facebook.errors %}
+                                <span class="alert-error">{{ error }}</span><br>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.facebook(class="update-account-input") }}
+                    {% endif %}
+                </div>
+                <div class="update-account-input-container">
+                    {{ form.twitter.label(class="update-account-label") }}
+                    {% if form.twitter.errors %}
+                        {{ form.twitter(class="alert-error") }}
+                        <div>
+                            {% for error in form.twitter.errors %}
+                                <span class="alert-error">{{ error }}</span><br>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.twitter(class="update-account-input") }}
+                    {% endif %}
+                </div>
+                <div class="update-account-input-container">
+                    {{ form.website.label(class="update-account-label") }}
+                    {% if form.website.errors %}
+                        {{ form.website(class="alert-error") }}
+                        <div>
+                            {% for error in form.website.errors %}
+                                <span class="alert-error">{{ error }}</span><br>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.website(class="update-account-input") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="update-account-btn-container">
+                {{ form.submit(class="update-account-btn") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
