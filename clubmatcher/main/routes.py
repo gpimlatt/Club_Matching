@@ -132,34 +132,34 @@ def results():
     if request.method == 'GET':
         flash("You must complete the quiz first.")
         return redirect(url_for('main.quiz'))
-    student_form = LoginForm(request.form)
-    club_form =
-    if request.method == 'POST' and not (LoginForm(request.form).validate_on_submit() or QuizForm(request.form).validate_on_submit()):
-        return redirect(url_for('main.quiz'))
-    if current_user.is_authenticated:
-        form = QuizForm(request.form)
-        if form.validate_on_submit():
-            return render_template(
-                'pages/club_results.html',
-                title='Results'
-            )
+    elif current_user.is_authenticated and QuizForm(request.form).validate_on_submit():
+        return render_template(
+            'pages/club_results.html',
+            title='Results'
+        )
+    elif QuizForm(request.form).validate_on_submit():
+        results = Club.query.all()
+        socials = {}
+        for club in results:
+            if club.facebook:
+                socials['facebook'] = club.facebook
+            if club.instagram:
+                socials['instagram'] = club.instagram
+            if club.twitter:
+                socials['twitter'] = club.twitter
+            if club.website:
+                socials['website'] = club.website
+        return render_template(
+            'pages/user_results.html',
+            title='Results',
+            results=results,
+            socials=socials
+        )
     else:
-        form = QuizForm(request.form)
-        if form.validate_on_submit():
-            results = Club.query.all()
-            socials = {}
-            for club in results:
-                if club.facebook:
-                    socials['facebook'] = club.facebook
-                if club.instagram:
-                    socials['instagram'] = club.instagram
-                if club.twitter:
-                    socials['twitter'] = club.twitter
-                if club.website:
-                    socials['website'] = club.website
-            return render_template(
-                'pages/user_results.html',
-                title='Results',
-                results=results,
-                socials=socials
-            )
+        form = QuizForm()
+        flash('Please answer all quiz questions.')
+        return render_template(
+            'pages/quiz.html',
+            title='Quiz',
+            form=form
+        )
