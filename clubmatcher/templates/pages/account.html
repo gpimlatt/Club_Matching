@@ -1,8 +1,39 @@
 {% extends 'components/layout.html' %}
 {% block content %}
-    <h1>Account Information: {{ club.name }}</h1>
-    <div>
-        <p>Name: {{ club.name }}</p>
+    <div class="container">
+        <h1 class="account-info-header">Account Information: {{ club.name }}</h1>
+        <div class="account-info-container">
+            <h2 class="account-info-subheader">Description:</h2>
+            <p class="account-info">{{ club.description }}</p>
+            <h2 class="account-info-subheader">eCommerce:</h2>
+            <a class="account-info" href="{{ club.ecommerce }} " target="_blank" rel="noopener noreferrer">{{ club.ecommerce }}</a>
+            <h2 class="account-info-subheader">Facebook:</h2>
+            {% if club.facebook %}
+                <a class="account-info" href="{{ club.facebook }}" target="_blank" rel="noopener noreferrer">{{ club.facebook }}</a>
+            {% else %}
+                <p class="account-info">No Facebook Link Provided</p>
+            {% endif %}
+            <h2 class="account-info-subheader">Instagram:</h2>
+            {% if club.instagram %}
+                <a class="account-info" href="{{ club.instagram }}" target="_blank" rel="noopener noreferrer">{{ club.instagram }}</a>
+            {% else %}
+                <p class="account-info">No Instagram Link Provided</p>
+            {% endif %}
+            <h2 class="account-info-subheader">Twitter:</h2>
+            {% if club.twitter %}
+                <a class="account-info" href="{{ club.twitter }}" target="_blank" rel="noopener noreferrer">{{ club.twitter }}</a>
+            {% else %}
+                <p class="account-info">No Twitter Link Provided</p>
+            {% endif %}
+            <h2 class="account-info-subheader">Website:</h2>
+            {% if club.website %}
+                <a class="account-info" href="{{ club.website }}" target="_blank" rel="noopener noreferrer">{{ club.website }}</a>
+            {% else %}
+                <p class="account-info">No Website Link Provided</p>
+            {% endif %}
+        </div>
+        <div class="account-info-btn-container">
+            <a class="account-info-btn" href="#">Update</a>
+        </div>
     </div>
 {% endblock content %}
-

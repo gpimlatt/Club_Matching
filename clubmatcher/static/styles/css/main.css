@@ -457,3 +457,49 @@ body {
     background-color: #6733ab;
     color: #F9F8F8;
     cursor: pointer; }
+
+.account-info-header {
+  margin: 3rem 0;
+  text-align: center;
+  font-size: 1.777rem; }
+  @media (max-width: 599px) {
+    .account-info-header {
+      font-size: 1.333rem; } }
+
+.account-info-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem; }
+  @media (max-width: 599px) {
+    .account-info-container {
+      grid-template-columns: 1fr;
+      grid-row-gap: 1.5rem; } }
+
+.account-info-subheader {
+  text-align: right;
+  font-size: 1rem; }
+  @media (max-width: 599px) {
+    .account-info-subheader {
+      text-align: center; } }
+
+@media (max-width: 599px) {
+  .account-info {
+    text-align: center; } }
+
+.account-info-btn-container {
+  margin: 5rem;
+  text-align: center; }
+
+.account-info-btn {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border: 0.1875rem solid #000000;
+  border-radius: 3.125rem;
+  background-color: #4F2784;
+  color: #F9F8F8;
+  text-decoration: none; }
+  .account-info-btn:hover {
+    background-color: #6733ab;
+    color: #F9F8F8;
+    cursor: pointer; }
