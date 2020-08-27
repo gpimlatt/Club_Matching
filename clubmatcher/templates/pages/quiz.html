@@ -6,68 +6,68 @@
             <fieldset>
                 <legend class="quiz-legend">Quiz</legend>
                 <div class="question-container">
-                    {{ form.q1.label(class="question-header") }}
-                    {% if form.q1.errors %}
-                        {{ form.q1(class="alert-error") }}
+                    {{ form.q1_field.label(class="question-header") }}
+                    {% if form.q1_field.errors %}
+                        {{ form.q1_field(class="alert-error") }}
                         <div>
-                            {% for error in form.q1.errors %}
+                            {% for error in form.q1_field.errors %}
                                 <span class="alert-error">{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.q1(class="question") }}
+                        {{ form.q1_field(class="question") }}
                     {% endif %}
                 </div>
                 <div class="question-container">
-                    {{ form.q2.label(class="question-header") }}
-                    {% if form.q2.errors %}
-                        {{ form.q2(class="alert-error") }}
+                    {{ form.q2_field.label(class="question-header") }}
+                    {% if form.q2_field.errors %}
+                        {{ form.q2_field(class="alert-error") }}
                         <div>
-                            {% for error in form.q2.errors %}
+                            {% for error in form.q2_field.errors %}
                                 <span class="alert-error">{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.q2(class="question") }}
+                        {{ form.q2_field(class="question") }}
                     {% endif %}
                 </div>
                 <div class="question-container">
-                    {{ form.q3.label(class="question-header") }}
-                    {% if form.q3.errors %}
-                        {{ form.q3(class="alert-error") }}
+                    {{ form.q3_field.label(class="question-header") }}
+                    {% if form.q3_field.errors %}
+                        {{ form.q3_field(class="alert-error") }}
                         <div>
-                            {% for error in form.q3.errors %}
+                            {% for error in form.q3_field.errors %}
                                 <span class="alert-error">{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.q3(class="question") }}
+                        {{ form.q3_field(class="question") }}
                     {% endif %}
                 </div>
                 <div class="question-container">
-                    {{ form.q4.label(class="question-header") }}
-                    {% if form.q4.errors %}
-                        {{ form.q4(class="alert-error") }}
+                    {{ form.q4_field.label(class="question-header") }}
+                    {% if form.q4_field.errors %}
+                        {{ form.q4_field(class="alert-error") }}
                         <div>
-                            {% for error in form.q4.errors %}
+                            {% for error in form.q4_field.errors %}
                                 <span class="alert-error">{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.q4(class="question") }}
+                        {{ form.q4_field(class="question") }}
                     {% endif %}
                 </div>
                 <div class="question-container">
-                    {{ form.q5.label(class="question-header") }}
-                    {% if form.q5.errors %}
-                        {{ form.q5(class="alert-error") }}
+                    {{ form.q5_field.label(class="question-header") }}
+                    {% if form.q5_field.errors %}
+                        {{ form.q5_field(class="alert-error") }}
                         <div>
-                            {% for error in form.q5.errors %}
+                            {% for error in form.q5_field.errors %}
                                 <span class="alert-error">{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.q5(class="question") }}
+                        {{ form.q5_field(class="question") }}
                     {% endif %}
                 </div>
             </fieldset>

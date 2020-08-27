@@ -4,6 +4,7 @@ from wtforms import PasswordField, SubmitField, RadioField
 from wtforms.fields.html5 import EmailField, URLField
 from wtforms.validators import DataRequired, Length
 from clubmatcher.main.models import Club
+from clubmatcher.main.questions import *
 
 
 class UpdateClubForm(FlaskForm):
@@ -43,60 +44,59 @@ class UpdateClubForm(FlaskForm):
 
 
 class QuizForm(FlaskForm):
-    q1_text = 'What is your favorite thing to do on campus?'
-    q2_text = 'What is your favorite color?'
-    q3_text = 'What is your favorite thing about Western?'
-    q4_text = 'Which faculty are you apart of?'
-    q5_text = 'What year are you currently in?'
-
-    q1 = RadioField(
-        flask.Markup(f'<b>Question 1:</b> {q1_text}'),
+    q1_field = RadioField(
+        flask.Markup(f'<b>Question 1:</b> {q1}'),
         validators=[DataRequired()],
         choices=[
-            (1, flask.Markup('<span>Answer 1</span>')),
-            (2, flask.Markup('<span>Answer 2</span>')),
-            (3, flask.Markup('<span>Answer 3</span>')),
-            (4, flask.Markup('<span>Answer 4</span>'))
+            ([1, 0, 0, 0], flask.Markup(f'<span>{q1_a1}</span>')),
+            ([0, 1, 0, 0], flask.Markup(f'<span>{q1_a2}</span>')),
+            ([0, 0, 1, 0], flask.Markup(f'<span>{q1_a3}</span>')),
+            ([0, 0, 0, 1], flask.Markup(f'<span>{q1_a4}</span>'))
         ]
     )
-    q2 = RadioField(
-        flask.Markup(f"<b>Question 2:</b> {q2_text}"),
+    q2_field = RadioField(
+        flask.Markup(f"<b>Question 2:</b> {q2}"),
         validators=[DataRequired()],
         choices=[
-            (1, flask.Markup('<span>Answer 1</span>')),
-            (2, flask.Markup('<span>Answer 2</span>')),
-            (3, flask.Markup('<span>Answer 3</span>')),
-            (4, flask.Markup('<span>Answer 4</span>'))
+            ([1,0,0,0,0,0,0,0,0], flask.Markup(f'<span>{q2_a1}</span>')),
+            ([0,1,0,0,0,0,0,0,0], flask.Markup(f'<span>{q2_a2}</span>')),
+            ([0,0,1,0,0,0,0,0,0], flask.Markup(f'<span>{q2_a3}</span>')),
+            ([0,0,0,1,0,0,0,0,0], flask.Markup(f'<span>{q2_a4}</span>')),
+            ([0,0,0,0,1,0,0,0,0], flask.Markup(f'<span>{q2_a5}</span>')),
+            ([0,0,0,0,0,1,0,0,0], flask.Markup(f'<span>{q2_a6}</span>')),
+            ([0,0,0,0,0,0,1,0,0], flask.Markup(f'<span>{q2_a7}</span>')),
+            ([0,0,0,0,0,0,0,1,0], flask.Markup(f'<span>{q2_a8}</span>')),
+            ([0,0,0,0,0,0,0,0,1], flask.Markup(f'<span>{q2_a9}</span>'))
         ]
     )
-    q3 = RadioField(
-        flask.Markup(f"<b>Question 3:</b> {q3_text}"),
+    q3_field = RadioField(
+        flask.Markup(f"<b>Question 3:</b> {q3}"),
         validators=[DataRequired()],
         choices=[
-            (1, flask.Markup('<span>Answer 1</span>')),
-            (2, flask.Markup('<span>Answer 2</span>')),
-            (3, flask.Markup('<span>Answer 3</span>')),
-            (4, flask.Markup('<span>Answer 4</span>'))
+            (1, flask.Markup(f'<span>{q3_a1}</span>')),
+            (2, flask.Markup(f'<span>{q3_a2}</span>')),
+            (3, flask.Markup(f'<span>{q3_a3}</span>')),
+            # (4, flask.Markup(f'<span>{q3_a4}</span>'))
         ]
     )
-    q4 = RadioField(
-        flask.Markup(f"<b>Question 4:</b> {q4_text}"),
+    q4_field = RadioField(
+        flask.Markup(f"<b>Question 4:</b> {q4}"),
         validators=[DataRequired()],
         choices=[
-            (1, flask.Markup('<span>Answer 1</span>')),
-            (2, flask.Markup('<span>Answer 2</span>')),
-            (3, flask.Markup('<span>Answer 3</span>')),
-            (4, flask.Markup('<span>Answer 4</span>'))
+            (1, flask.Markup(f'<span>{q4_a1}</span>')),
+            (2, flask.Markup(f'<span>{q4_a2}</span>')),
+            (3, flask.Markup(f'<span>{q4_a3}</span>')),
+            # (4, flask.Markup(f'<span>{q4_a4}</span>'))
         ]
     )
-    q5 = RadioField(
-        flask.Markup(f"<b>Question 5:</b> {q5_text}"),
+    q5_field = RadioField(
+        flask.Markup(f"<b>Question 5:</b> {q5}"),
         validators=[DataRequired()],
         choices=[
-            (1, flask.Markup('<span>Answer 1</span>')),
-            (2, flask.Markup('<span>Answer 2</span>')),
-            (3, flask.Markup('<span>Answer 3</span>')),
-            (4, flask.Markup('<span>Answer 4</span>'))
+            (1, flask.Markup(f'<span>{q5_a1}</span>')),
+            (2, flask.Markup(f'<span>{q5_a2}</span>')),
+            (3, flask.Markup(f'<span>{q5_a3}</span>')),
+            # (4, flask.Markup(f'<span>{q5_a4}</span>'))
         ]
     )
     submit = SubmitField(

@@ -1,4 +1,5 @@
-import numpy
+from numpy import dot
+from numpy.linalg import norm
 from flask import render_template, redirect, url_for, request, flash, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
@@ -98,11 +99,11 @@ def quiz():
     else:
         form = QuizForm()
     if form.validate_on_submit():
-        answers = form.q1.data + ',' \
-                  + form.q2.data + ',' \
-                  + form.q3.data + ',' \
-                  + form.q4.data + ',' \
-                  + form.q5.data
+        answers = form.q1_field.data + ',' \
+                  + form.q2_field.data + ',' \
+                  + form.q3_field.data + ',' \
+                  + form.q4_field.data + ',' \
+                  + form.q5_field.data
         if current_user.is_authenticated:
             current_user.answers = answers
             db.session.commit()
@@ -153,6 +154,9 @@ def quiz():
     )
 
 
+def similarity(student, club):
+    return dot(student, club) / (norm(student) * norm(club))
+
 @main.route("/results", methods=['GET', 'POST'])
 def results():
     if request.method == 'GET':
@@ -164,6 +168,14 @@ def results():
             title='Results'
         )
     elif QuizForm(request.form).validate_on_submit():
+        form = QuizForm(request.form)
+        q1_answers = form.q1_field.data[1:-1].split(',')
+        q2_answers = form.q2_field.data[1:-1].split(',')
+        q3_answers = form.q3_field.data
+        q4_answers = form.q4_field.data
+        q5_answers = form.q5_field.data
+        print(q1_answers)
+
         results = Club.query.all()
         socials = {}
         for club in results:
