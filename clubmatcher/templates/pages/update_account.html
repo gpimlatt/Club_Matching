@@ -32,6 +32,19 @@
                     {% endif %}
                 </div>
                 <div class="update-account-input-container">
+                    {{ form.instagram.label(class="update-account-label") }}
+                    {% if form.instagram.errors %}
+                        {{ form.instagram(class="alert-error") }}
+                        <div>
+                            {% for error in form.instagram.errors %}
+                                <span class="alert-error">{{ error }}</span><br>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.instagram(class="update-account-input") }}
+                    {% endif %}
+                </div>
+                <div class="update-account-input-container">
                     {{ form.twitter.label(class="update-account-label") }}
                     {% if form.twitter.errors %}
                         {{ form.twitter(class="alert-error") }}
