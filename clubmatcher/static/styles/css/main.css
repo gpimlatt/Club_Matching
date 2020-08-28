@@ -487,9 +487,14 @@ body {
   .account-info {
     text-align: center; } }
 
+.account-btn-container {
+  margin: 5rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
 .account-info-btn-container {
-  margin: 5rem;
-  text-align: center; }
+  margin: 1rem; }
 
 .account-info-btn {
   display: inline-block;
@@ -500,6 +505,22 @@ body {
   color: #F9F8F8;
   text-decoration: none; }
   .account-info-btn:hover {
+    background-color: #6733ab;
+    color: #F9F8F8;
+    cursor: pointer; }
+
+.account-retake-quiz-btn-container {
+  margin: 1rem; }
+
+.account-retake-quiz-btn {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border: 0.1875rem solid #000000;
+  border-radius: 3.125rem;
+  background-color: #4F2784;
+  color: #F9F8F8;
+  text-decoration: none; }
+  .account-retake-quiz-btn:hover {
     background-color: #6733ab;
     color: #F9F8F8;
     cursor: pointer; }
