@@ -1,0 +1,36 @@
+.confirmation-msg {
+  margin-top: 3rem;
+  font-size: $h3;
+  text-align: center;
+}
+
+.logout-msg {
+  margin-top: 1rem;
+  font-size: $h4;
+  text-align: center;
+}
+
+.club-results-btn-container {
+  margin: 5rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.club-results-retake-quiz-btn-container {
+  margin: 1rem;
+}
+
+.club-results-retake-quiz-btn {
+  @include btn;
+  text-decoration: none;
+}
+
+.club-results-update-account-btn-container {
+  margin: 1rem;
+}
+
+.club-results-update-account-btn {
+  @include btn;
+  text-decoration: none;
+}

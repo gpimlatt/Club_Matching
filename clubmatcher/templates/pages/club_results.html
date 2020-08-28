@@ -1,11 +1,15 @@
 {% extends 'components/layout.html' %}
 {% block content %}
-    <h1>Thank you, your club's answer have been recorded!</h1>
-    <h2>You may now <a href="{{ url_for('main.logout') }}">logout</a>.</h2>
-    <button>
-        <a href="{{ url_for('main.quiz') }}">Retake Quiz</a>
-    </button>
-    <button>
-        <a href="{{ url_for('main.account') }}">Update Club Information</a>
-    </button>
+    <div class="container club-results-container">
+        <h1 class="confirmation-msg">Thank you, your club's answer have been recorded!</h1>
+        <h2 class="logout-msg">You may now <a href="{{ url_for('main.logout') }}">logout</a>.</h2>
+        <div class="club-results-btn-container">
+            <div class="club-results-retake-quiz-btn-container">
+                <a class="club-results-retake-quiz-btn" href="{{ url_for('main.quiz') }}">Retake Quiz</a>
+            </div>
+            <div class="club-results-update-account-btn-container">
+                <a class="club-results-update-account-btn" href="{{ url_for('main.account') }}">Update Club Information</a>
+            </div>
+        </div>
+    </div>
 {% endblock content %}

@@ -566,3 +566,51 @@ body {
     background-color: #6733ab;
     color: #F9F8F8;
     cursor: pointer; }
+
+.confirmation-msg {
+  margin-top: 3rem;
+  font-size: 2.369rem;
+  text-align: center; }
+
+.logout-msg {
+  margin-top: 1rem;
+  font-size: 1.777rem;
+  text-align: center; }
+
+.club-results-btn-container {
+  margin: 5rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
+.club-results-retake-quiz-btn-container {
+  margin: 1rem; }
+
+.club-results-retake-quiz-btn {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border: 0.1875rem solid #000000;
+  border-radius: 3.125rem;
+  background-color: #4F2784;
+  color: #F9F8F8;
+  text-decoration: none; }
+  .club-results-retake-quiz-btn:hover {
+    background-color: #6733ab;
+    color: #F9F8F8;
+    cursor: pointer; }
+
+.club-results-update-account-btn-container {
+  margin: 1rem; }
+
+.club-results-update-account-btn {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border: 0.1875rem solid #000000;
+  border-radius: 3.125rem;
+  background-color: #4F2784;
+  color: #F9F8F8;
+  text-decoration: none; }
+  .club-results-update-account-btn:hover {
+    background-color: #6733ab;
+    color: #F9F8F8;
+    cursor: pointer; }
