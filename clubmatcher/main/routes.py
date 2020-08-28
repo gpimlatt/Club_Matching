@@ -1,3 +1,4 @@
+import re
 from numpy import dot
 from numpy.linalg import norm
 from flask import render_template, redirect, url_for, request, flash, Blueprint
@@ -21,7 +22,7 @@ def index():
 @main.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        if current_user.quiz_completed:
+        if current_user.answers:
             return redirect(url_for('main.account'))
         else:
             return redirect(url_for('main.quiz'))
@@ -30,8 +31,7 @@ def login():
         club = Club.query.filter_by(email=form.email.data).first()
         if club and bcrypt.check_password_hash(club.password, form.password.data):
             login_user(club)
-            flash('You have been logged in!', 'success')
-            if club.quiz_completed:
+            if club.answers:
                 return redirect(url_for('main.account'))
             else:
                 return redirect(url_for('main.quiz'))
@@ -94,59 +94,7 @@ def euclidean_distance(user_answers, club_answers):
 
 @main.route("/quiz", methods=['GET', 'POST'])
 def quiz():
-    if current_user.is_authenticated:
-        form = QuizForm()
-    else:
-        form = QuizForm()
-    if form.validate_on_submit():
-        answers = form.q1_field.data + ',' \
-                  + form.q2_field.data + ',' \
-                  + form.q3_field.data + ',' \
-                  + form.q4_field.data + ',' \
-                  + form.q5_field.data
-        if current_user.is_authenticated:
-            current_user.answers = answers
-            db.session.commit()
-            flash('You have successfully completed the quiz!', 'success')
-            return render_template(
-                'pages/club_results.html',
-                title='Confirmation'
-            )
-        else:
-            # user_answers = numpy.array((
-            #     int(form.q1.data),
-            #     int(form.q2.data),
-            #     int(form.q3.data),
-            #     int(form.q4.data),
-            #     int(form.q5.data)
-            # ))
-            # all_club_answers = {}
-            # clubs = Club.query.all()
-            # for club in clubs:
-            #     split_answers = club.answers.split(',')
-            #     club_answers = ()
-            #     for answer in split_answers:
-            #         club_answers += (int(answer),)
-            #     all_club_answers[club.name] = numpy.array(club_answers)
-            # results = euclidean_distance(user_answers, all_club_answers)
-            results = Club.query.all()
-            socials = {}
-            for club in results:
-                if club.facebook:
-                    socials['facebook'] = club.facebook
-                if club.instagram:
-                    socials['instagram'] = club.instagram
-                if club.twitter:
-                    socials['twitter'] = club.twitter
-                if club.website:
-                    socials['website'] = club.website
-            flash('You have successfully completed the quiz!', 'success')
-            return render_template(
-                'pages/user_results.html',
-                title='Results',
-                results=results,
-                socials=socials
-            )
+    form = QuizForm()
     return render_template(
         'pages/quiz.html',
         title='Quiz',
@@ -154,45 +102,69 @@ def quiz():
     )
 
 
-def similarity(student, club):
-    return dot(student, club) / (norm(student) * norm(club))
+def cosines_similarity(student_answers, club_answers):
+    return dot(student_answers, club_answers) / (norm(student_answers) * norm(club_answers))
+
 
 @main.route("/results", methods=['GET', 'POST'])
 def results():
     if request.method == 'GET':
         flash("You must complete the quiz first.")
         return redirect(url_for('main.quiz'))
-    elif current_user.is_authenticated and QuizForm(request.form).validate_on_submit():
-        return render_template(
-            'pages/club_results.html',
-            title='Results'
-        )
     elif QuizForm(request.form).validate_on_submit():
         form = QuizForm(request.form)
-        q1_answers = form.q1_field.data[1:-1].split(',')
-        q2_answers = form.q2_field.data[1:-1].split(',')
-        q3_answers = form.q3_field.data
-        q4_answers = form.q4_field.data
-        q5_answers = form.q5_field.data
-        print(q1_answers)
-
-        results = Club.query.all()
-        socials = {}
-        for club in results:
-            if club.facebook:
-                socials['facebook'] = club.facebook
-            if club.instagram:
-                socials['instagram'] = club.instagram
-            if club.twitter:
-                socials['twitter'] = club.twitter
-            if club.website:
-                socials['website'] = club.website
-        return render_template(
-            'pages/user_results.html',
-            title='Results',
-            results=results,
-            socials=socials
-        )
+        q1 = form.q1_field.data[1:-1].split(',')
+        q2 = form.q2_field.data[1:-1].split(',')
+        q3 = form.q3_field.data
+        q4 = form.q4_field.data
+        q5 = form.q5_field.data
+        if current_user.is_authenticated:
+            club_answers = ''.join(q1).replace(' ', ',') + ',' + \
+                           ''.join(q2).replace(' ', ',') + ',' + \
+                           q3 + ',' + q4 + ',' + q5
+            current_user.answers = club_answers
+            current_user.quiz_completed = True
+            db.session.commit()
+            return render_template(
+                'pages/club_results.html',
+                title='Results'
+            )
+        else:
+            student_answers = q1 + q2
+            student_answers.extend([q3, q4, q5])
+            student_answers = [int(answer) for answer in student_answers]
+            recommended_club_ids = {}
+            clubs = Club.query.all()
+            for club in clubs:
+                if club.answers:
+                    club_answers = club.answers.split(',')
+                    club_answers = [int(answer) for answer in club_answers]
+                    similarity_score = cosines_similarity(student_answers, club_answers)
+                    if len(recommended_club_ids) < 3:
+                        recommended_club_ids[club.id] = similarity_score
+                        recommended_club_ids = {k: v for k, v in sorted(
+                            recommended_club_ids.items(),
+                            key=lambda item: item[1],
+                            reverse=True
+                        )}
+                    else:
+                        for club_id in recommended_club_ids:
+                            if recommended_club_ids[club_id] < similarity_score:
+                                del recommended_club_ids[club_id]
+                                recommended_club_ids[club.id] = similarity_score
+                                recommended_club_ids = {k: v for k, v in sorted(
+                                    recommended_club_ids.items(),
+                                    key=lambda item: item[1],
+                                    reverse=True
+                                )}
+            recommended_clubs = []
+            for id in recommended_club_ids:
+                recommended_clubs.append(Club.query.get(id))
+            return render_template(
+                'pages/user_results.html',
+                title='Results',
+                recommended_clubs=recommended_clubs,
+            )
     else:
         form = QuizForm()
         flash('Please answer all quiz questions.')
