@@ -551,9 +551,12 @@ body {
   margin-left: 1rem;
   width: 25rem; }
 
+.btn-container {
+  display: flex;
+  justify-content: center; }
+
 .update-account-btn-container {
-  margin: 5rem 0;
-  text-align: center; }
+  margin: 5rem 0 5rem 1rem; }
 
 .update-account-btn {
   display: inline-block;
@@ -563,6 +566,22 @@ body {
   background-color: #4F2784;
   color: #F9F8F8; }
   .update-account-btn:hover {
+    background-color: #6733ab;
+    color: #F9F8F8;
+    cursor: pointer; }
+
+.cancel-update-btn-container {
+  margin: 5rem 0 5rem 1rem; }
+
+.cancel-update-btn {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border: 0.1875rem solid #000000;
+  border-radius: 3.125rem;
+  background-color: #4F2784;
+  color: #F9F8F8;
+  text-decoration: none; }
+  .cancel-update-btn:hover {
     background-color: #6733ab;
     color: #F9F8F8;
     cursor: pointer; }

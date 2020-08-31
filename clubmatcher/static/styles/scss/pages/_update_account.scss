@@ -27,11 +27,24 @@
   width: 25rem;
 }
 
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
 .update-account-btn-container {
-  margin: 5rem 0;
-  text-align: center;
+  margin: 5rem 0 5rem 1rem;
 }
 
 .update-account-btn {
   @include btn;
+}
+
+.cancel-update-btn-container {
+  margin: 5rem 0 5rem 1rem;
+}
+
+.cancel-update-btn {
+  @include btn;
+  text-decoration: none;
 }

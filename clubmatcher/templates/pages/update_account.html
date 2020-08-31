@@ -71,8 +71,13 @@
                     {% endif %}
                 </div>
             </fieldset>
-            <div class="update-account-btn-container">
-                {{ form.submit(class="update-account-btn") }}
+            <div class="btn-container">
+                <div class="update-account-btn-container">
+                    {{ form.submit(class="update-account-btn") }}
+                </div>
+                <div class="cancel-update-btn-container">
+                    <a class="cancel-update-btn" href="{{ url_for('main.account') }}">Cancel</a>
+                </div>
             </div>
         </form>
     </div>
