@@ -15,15 +15,20 @@
 }
 
 .update-account-label {
-  display: inline-block;
+  display: block;
   width: pxToRem(140px);
-  text-align: right;
+  text-align: left;
   font-weight: 700;
+  margin-bottom: 1rem;
+
+  @include for-desktop-up {
+    display: inline-block;
+    margin: 0 0 0 1rem;
+  }
 }
 
 .update-account-input {
   @include text-input;
-  margin-left: 1rem;
   width: 25rem;
 }
 
@@ -38,6 +43,7 @@
 
 .update-account-btn {
   @include btn;
+  font-size: $base;
 }
 
 .cancel-update-btn-container {

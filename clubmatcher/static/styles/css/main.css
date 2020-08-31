@@ -539,16 +539,20 @@ body {
   text-align: center; }
 
 .update-account-label {
-  display: inline-block;
+  display: block;
   width: 8.75rem;
-  text-align: right;
-  font-weight: 700; }
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 1rem; }
+  @media (min-width: 1200px) {
+    .update-account-label {
+      display: inline-block;
+      margin: 0 0 0 1rem; } }
 
 .update-account-input {
   border: 2px solid #000000;
   border-radius: 50px;
   padding: 0.75rem;
-  margin-left: 1rem;
   width: 25rem; }
 
 .btn-container {
@@ -564,7 +568,8 @@ body {
   border: 0.1875rem solid #000000;
   border-radius: 3.125rem;
   background-color: #4F2784;
-  color: #F9F8F8; }
+  color: #F9F8F8;
+  font-size: 1rem; }
   .update-account-btn:hover {
     background-color: #6733ab;
     color: #F9F8F8;
