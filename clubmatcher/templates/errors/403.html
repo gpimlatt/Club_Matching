@@ -1,4 +1,8 @@
 {% extends "components/layout.html" %}
 {% block content %}
-<h1>Permission Denied</h1>
+    <div class="container error-container">
+        <h1 class="error-heading">403: Forbidden</h1>
+        <p class="error-description">Sorry, you do not have permission to access this page.</p>
+        <a class="error-return-home-link" href="{{ url_for('main.index') }}">Return To The Homepage</a>
+    </div>
 {% endblock %}

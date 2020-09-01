@@ -638,3 +638,15 @@ body {
     background-color: #6733ab;
     color: #F9F8F8;
     cursor: pointer; }
+
+.error-container {
+  margin-top: 5rem; }
+
+.error-heading {
+  margin-bottom: 2rem; }
+
+.error-description {
+  margin-bottom: 1.5rem; }
+
+.error-return-home-link {
+  color: #4F2784; }
