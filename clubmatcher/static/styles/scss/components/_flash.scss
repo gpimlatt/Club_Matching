@@ -1,6 +1,7 @@
 .alert {
-  font-size: $h4;
   margin: 2rem auto 0 auto;
+  font-size: $h4;
+  text-align: center;
 
   @include for-phone-only {
     width: 95%;
@@ -29,4 +30,8 @@
 
 .alert-message {
   color: $western-purple;
+}
+
+.alert-success {
+  color: $success-green;
 }
