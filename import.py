@@ -3,9 +3,6 @@ import json
 from clubmatcher import create_app, db, bcrypt
 from clubmatcher.main.models import Club, Tag
 
-password = os.environ.get('USC_CLUB_MATCHER_PASSWORD')
-hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-
 
 def add_tag_to_db(name):
     if not Tag.query.filter_by(name=name).first():
@@ -21,10 +18,12 @@ def import_tags(filepath):
 
 
 def import_clubs(filepath):
+    password = os.environ.get('USC_CLUB_MATCHER_PASSWORD')
     with open(filepath) as file:
         clubs = json.load(file)
     for club in clubs:
         if not Club.query.filter_by(email=club['Email']).first():
+            hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
             new_club = Club(
                 name=club['Name'],
                 email=club['Email'],
@@ -44,42 +43,8 @@ def import_clubs(filepath):
     db.session.commit()
 
 
-def import_generic_clubs():
-    club_1 = Club(
-        name='Club One',
-        email='noreply.westernusc.timeline+1@gmail.com',
-        password=hashed_password,
-        description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur deleniti maxime quas quisquam reprehenderit voluptatibus. Beatae consectetur dolor inventore itaque laudantium quod. Commodi cumque ipsam iure nostrum provident voluptates!',
-        facebook='https://www.facebook.com',
-        instagram='https://www.instagram.com',
-        twitter='https://www.twitter.com',
-        website='https://www.espn.com'
-    )
-
-    club_2 = Club(
-        name='Club Two',
-        email='noreply.westernusc.timeline+2@gmail.com',
-        password=hashed_password,
-        description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur deleniti maxime quas quisquam reprehenderit voluptatibus. Beatae consectetur dolor inventore itaque laudantium quod. Commodi cumque ipsam iure nostrum provident voluptates!'
-    )
-
-    club_3 = Club(
-        name='Club Three',
-        email='noreply.westernusc.timeline+3@gmail.com',
-        password=hashed_password,
-        description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur deleniti maxime quas quisquam reprehenderit voluptatibus. Beatae consectetur dolor inventore itaque laudantium quod. Commodi cumque ipsam iure nostrum provident voluptates!',
-        facebook='https://www.facebook.com',
-        instagram='https://www.instagram.com'
-    )
-    db.session.add(club_1)
-    db.session.add(club_2)
-    db.session.add(club_3)
-    db.session.commit()
-
-
 app = create_app()
 if __name__ == '__main__':
     with app.app_context():
-        import_generic_clubs()
-        # import_tags('data/tags.json')
-        # import_clubs('data/clubs-2.json')
+        import_tags('data/tags.json')
+        import_clubs('data/sample-clubs.json')
