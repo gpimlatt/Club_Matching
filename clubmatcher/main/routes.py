@@ -102,7 +102,7 @@ def quiz():
     )
 
 
-def cosines_similarity(student_answers, club_answers):
+def cosine_similarity(student_answers, club_answers):
     return dot(student_answers, club_answers) / (norm(student_answers) * norm(club_answers))
 
 
@@ -139,25 +139,31 @@ def results():
                 if club.answers:
                     club_answers = club.answers.split(',')
                     club_answers = [int(answer) for answer in club_answers]
-                    similarity_score = cosines_similarity(student_answers, club_answers)
+                    similarity_score = cosine_similarity(student_answers, club_answers)
                     if len(recommended_club_ids) < 3:
                         recommended_club_ids[club.id] = similarity_score
                         recommended_club_ids = {k: v for k, v in sorted(
                             recommended_club_ids.items(),
-                            key=lambda item: item[1],
-                            reverse=True
+                            key=lambda item: item[1]
                         )}
                     else:
-                        for club_id in recommended_club_ids:
+                        for club_id in list(recommended_club_ids):
                             if recommended_club_ids[club_id] < similarity_score:
+                                print(recommended_club_ids)
                                 del recommended_club_ids[club_id]
                                 recommended_club_ids[club.id] = similarity_score
                                 recommended_club_ids = {k: v for k, v in sorted(
                                     recommended_club_ids.items(),
-                                    key=lambda item: item[1],
-                                    reverse=True
+                                    key=lambda item: item[1]
                                 )}
+                                print(recommended_club_ids)
+                                break
             recommended_clubs = []
+            recommended_club_ids = {k: v for k, v in sorted(
+                recommended_club_ids.items(),
+                key=lambda item: item[1],
+                reverse=True
+            )}
             for id in recommended_club_ids:
                 recommended_clubs.append(Club.query.get(id))
             return render_template(
