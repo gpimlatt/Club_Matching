@@ -1,0 +1,32 @@
+.alert {
+  font-size: $h4;
+  margin: 2rem auto 0 auto;
+
+  @include for-phone-only {
+    width: 95%;
+  }
+
+  @include for-tablet-portrait-up {
+    width: 85%;
+  }
+
+  @include for-tablet-landscape-up {
+    width: pxToRem(800px);
+  }
+
+  @include for-desktop-up {
+    width: pxToRem(1100px);
+  }
+
+  @include for-lg-desktop-up {
+    width: pxToRem(1720px);
+  }
+}
+
+.alert-error {
+  color: $error-red;
+}
+
+.alert-message {
+  color: $western-purple;
+}

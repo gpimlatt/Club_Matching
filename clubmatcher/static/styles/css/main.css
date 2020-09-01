@@ -103,6 +103,31 @@ body {
   .nav-link:hover {
     text-decoration: underline; }
 
+.alert {
+  font-size: 1.777rem;
+  margin: 2rem auto 0 auto; }
+  @media (max-width: 599px) {
+    .alert {
+      width: 95%; } }
+  @media (min-width: 600px) {
+    .alert {
+      width: 85%; } }
+  @media (min-width: 900px) {
+    .alert {
+      width: 50rem; } }
+  @media (min-width: 1200px) {
+    .alert {
+      width: 68.75rem; } }
+  @media (min-width: 1920px) {
+    .alert {
+      width: 107.5rem; } }
+
+.alert-error {
+  color: #E50000; }
+
+.alert-message {
+  color: #4F2784; }
+
 .usc-logo-container {
   margin: 1rem auto 0 auto; }
   @media (max-width: 599px) {
