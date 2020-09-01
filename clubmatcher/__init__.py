@@ -29,6 +29,8 @@ def create_app():
     mail.init_app(app)
 
     from clubmatcher.main.routes import main
+    from clubmatcher.errors.handlers import errors
     app.register_blueprint(main)
+    app.register_blueprint(errors)
 
     return app
