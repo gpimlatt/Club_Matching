@@ -1,12 +1,10 @@
-import re
-from numpy import dot
-from numpy.linalg import norm
 from flask import render_template, redirect, url_for, request, flash, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
 from clubmatcher import db, bcrypt, mail
 from clubmatcher.main.forms import UpdateClubForm, QuizForm, LoginForm
 from clubmatcher.main.models import Club
+from clubmatcher.main.utils import cosine_similarity
 
 main = Blueprint('main', __name__)
 
@@ -35,6 +33,8 @@ def login():
                 return redirect(url_for('main.account'))
             else:
                 return redirect(url_for('main.quiz'))
+        else:
+            flash('Login unsuccessful. Please check email and password.', 'error')
     return render_template(
         'pages/login.html',
         title='Login',
@@ -84,14 +84,6 @@ def update_account():
     )
 
 
-def euclidean_distance(user_answers, club_answers):
-    results = []
-    for name in club_answers:
-        distance = numpy.linalg.norm(user_answers - club_answers[name])
-        results.append((name, distance))
-    return results
-
-
 @main.route("/quiz", methods=['GET', 'POST'])
 def quiz():
     form = QuizForm()
@@ -102,14 +94,10 @@ def quiz():
     )
 
 
-def cosine_similarity(student_answers, club_answers):
-    return dot(student_answers, club_answers) / (norm(student_answers) * norm(club_answers))
-
-
 @main.route("/results", methods=['GET', 'POST'])
 def results():
     if request.method == 'GET':
-        flash("You must complete the quiz first.")
+        flash("You must complete the quiz first.", "error")
         return redirect(url_for('main.quiz'))
     elif QuizForm(request.form).validate_on_submit():
         form = QuizForm(request.form)
@@ -149,14 +137,12 @@ def results():
                     else:
                         for club_id in list(recommended_club_ids):
                             if recommended_club_ids[club_id] < similarity_score:
-                                print(recommended_club_ids)
                                 del recommended_club_ids[club_id]
                                 recommended_club_ids[club.id] = similarity_score
                                 recommended_club_ids = {k: v for k, v in sorted(
                                     recommended_club_ids.items(),
                                     key=lambda item: item[1]
                                 )}
-                                print(recommended_club_ids)
                                 break
             recommended_clubs = []
             recommended_club_ids = {k: v for k, v in sorted(
