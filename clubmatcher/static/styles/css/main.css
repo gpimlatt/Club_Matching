@@ -39,6 +39,9 @@ ol, ul {
 h1, h2, h3, h4, h5, h6, p, a, fieldset {
   font-family: "Open Sans", sans-serif; }
 
+h1, h2, h3, h4, h5, h6, p {
+  line-height: 140%; }
+
 h1 {
   font-size: 4.209rem; }
 
@@ -102,6 +105,50 @@ body {
   color: #000000; }
   .nav-link:hover {
     text-decoration: underline; }
+
+.footer {
+  border-top: 0.125rem solid #000000; }
+
+.footer-grid-container {
+  margin-top: 2rem;
+  width: 100%;
+  display: grid;
+  justify-content: space-between; }
+  @media (max-width: 599px) {
+    .footer-grid-container {
+      grid-template-columns: 1fr;
+      grid-row-gap: 2rem; } }
+  @media (min-width: 600px) {
+    .footer-grid-container {
+      grid-template-columns: 1fr 1fr; } }
+
+@media (max-width: 599px) {
+  .footer-usc-info {
+    justify-self: center;
+    text-align: center; } }
+
+@media (min-width: 600px) {
+  .footer-usc-info {
+    justify-self: left; } }
+
+.footer-social-icon-container {
+  display: flex;
+  align-items: center;
+  justify-self: end; }
+  @media (max-width: 599px) {
+    .footer-social-icon-container {
+      justify-self: center; } }
+  @media (min-width: 600px) {
+    .footer-social-icon-container {
+      justify-self: end; } }
+
+.footer-social-icon {
+  margin-left: 1.25rem;
+  height: 1.5625rem;
+  width: 1.5625rem; }
+
+.social-icon-img {
+  width: 100%; }
 
 .alert {
   margin: 2rem auto 0 auto;

@@ -2,6 +2,10 @@ h1, h2, h3, h4, h5, h6, p, a, fieldset {
   font-family: "Open Sans", sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  line-height: 140%;
+}
+
 h1 {
   font-size: $h1;
 }

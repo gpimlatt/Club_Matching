@@ -1,0 +1,54 @@
+.footer {
+  border-top: pxToRem(2px) solid $black;
+}
+
+.footer-grid-container {
+  margin-top: 2rem;
+  width: 100%;
+  display: grid;
+  justify-content: space-between;
+
+  @include for-phone-only {
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
+  }
+
+  @include for-tablet-portrait-up {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.footer-usc-info {
+  @include for-phone-only {
+    justify-self: center;
+    text-align: center;
+  }
+
+  @include for-tablet-portrait-up {
+    justify-self: left;
+  }
+}
+
+.footer-social-icon-container {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+
+  @include for-phone-only {
+    justify-self: center;
+  }
+
+  @include for-tablet-portrait-up {
+    justify-self: end;
+  }
+}
+
+.footer-social-icon {
+  margin-left: 1.25rem;
+  height: pxToRem(25px);
+  width: pxToRem(25px);
+}
+
+.social-icon-img {
+  width: 100%;
+}
