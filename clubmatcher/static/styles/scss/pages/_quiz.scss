@@ -63,6 +63,10 @@
   color: #FFFFFF;
   font-size: $h5;
 
+  @include for-phone-only {
+    font-size: $base;
+  }
+
   & > li {
     height: pxToRem(200px);
     display: flex;
@@ -83,6 +87,11 @@
       align-items: center;
       background-color: $dark-grey;
       cursor: pointer;
+
+      @include for-phone-only {
+        padding: 0;
+        line-height: 1.25rem;
+      }
     }
 
     & > input:checked + label {

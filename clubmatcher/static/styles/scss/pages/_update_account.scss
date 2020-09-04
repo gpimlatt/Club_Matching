@@ -30,6 +30,10 @@
 .update-account-input {
   @include text-input;
   width: 25rem;
+
+  @include for-phone-only {
+    width: 20rem;
+  }
 }
 
 .btn-container {

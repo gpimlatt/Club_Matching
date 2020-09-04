@@ -316,6 +316,9 @@ body {
   grid-row-gap: 1rem;
   color: #FFFFFF;
   font-size: 1.333rem; }
+  @media (max-width: 599px) {
+    .question {
+      font-size: 1rem; } }
   .question > li {
     height: 12.5rem;
     display: flex; }
@@ -333,6 +336,10 @@ body {
       align-items: center;
       background-color: #495057;
       cursor: pointer; }
+      @media (max-width: 599px) {
+        .question > li > label {
+          padding: 0;
+          line-height: 1.25rem; } }
     .question > li > input:checked + label {
       background-color: #4F2784; }
 
@@ -587,6 +594,9 @@ body {
   border-radius: 50px;
   padding: 0.75rem;
   width: 25rem; }
+  @media (max-width: 599px) {
+    .update-account-input {
+      width: 20rem; } }
 
 .btn-container {
   display: flex;
