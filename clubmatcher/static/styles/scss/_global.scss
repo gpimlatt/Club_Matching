@@ -31,14 +31,14 @@ h6 {
 }
 
 body {
-  background-color: $off-white;
+  background-color: $white;
 }
 
 .container {
   margin: auto;
 
   @include for-phone-only {
-    width: 95%;
+    width: 90%;
   }
 
   @include for-tablet-portrait-up {
