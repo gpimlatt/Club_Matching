@@ -1,8 +1,8 @@
-<header class="container">
+<header class="header container">
+    <a class="nav-logo-container" href="{{ url_for('main.index') }}">
+        <img class="nav-logo" src="{{ url_for('static', filename='images/usc_logo.png') }}" alt="usc logo">
+    </a>
     <nav class="nav">
-        <a class="nav-logo-container" href="{{ url_for('main.index') }}">
-            <img class="nav-logo" src="{{ url_for('static', filename='images/usc_logo.png') }}" alt="usc logo">
-        </a>
         <div class="nav-links-container">
             {% if current_user.is_authenticated %}
                 <a class="nav-link" href="{{ url_for('main.account') }}">Account</a>

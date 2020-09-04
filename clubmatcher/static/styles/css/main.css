@@ -81,12 +81,11 @@ body {
     .container {
       width: 107.5rem; } }
 
-.nav {
-  margin: auto;
+.header {
   height: 6.25rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: center; }
 
 .nav-logo-container {
   height: 3.125rem;
