@@ -1,37 +1,75 @@
-h1, h2, h3, h4, h5, h6, p, a, fieldset {
-  font-family: "Open Sans", sans-serif;
+body {
+  background-color: $white;
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  line-height: 140%;
+  font-family: "Open Sans", sans-serif;
+  line-height: $line-height;
+  margin-bottom: 1.25rem;
+}
+
+a {
+  font-family: "Open Sans", sans-serif;
 }
 
 h1 {
-  font-size: $h1;
+  @include for-phone-only {
+    font-size: $h1-small;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: $h1-small;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: $h1-large;
+  }
 }
 
 h2 {
-  font-size: $h2;
+  @include for-phone-only {
+    font-size: $h2-small;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: $h2-small;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: $h2-large;
+  }
 }
 
 h3 {
-  font-size: $h3;
+  @include for-phone-only {
+    font-size: $h3-small;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: $h3-small;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: $h3-large;
+  }
 }
 
 h4 {
-  font-size: $h4;
+  @include for-phone-only {
+    font-size: $h4-small;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: $h4-small;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: $h4-large;
+  }
 }
 
-h5 {
-  font-size: $h5;
-}
-
-h6 {
-  font-size: $h6;
-}
-
-body {
-  background-color: $white;
+p {
+  font-size: $base;
 }
 
 .container {
@@ -51,9 +89,5 @@ body {
 
   @include for-desktop-up {
     width: pxToRem(1100px);
-  }
-
-  @include for-lg-desktop-up {
-    width: pxToRem(1720px);
   }
 }

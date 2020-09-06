@@ -1,15 +1,29 @@
-$h1: 4.209rem;
-$h2: 3.157rem;
-$h3: 2.369rem;
-$h4: 1.777rem;
-$h5: 1.333rem;
+$base: 16px;
+
+$h1-large: 4rem;
+$h2-large: 3rem;
+$h3-large: 2rem;
+$h4-large: 1.5rem;
+
+$h1-small: 3rem;
+$h2-small: 2rem;
+$h3-small: 1.5rem;
+$h4-small: 1.25rem;
+
+$h1: 1rem;
+$h2: 1rem;
+$h3: 1rem;
+$h4: 1rem;
+$h5: 1rem;
 $h6: 1rem;
-$base: 1rem;
+
+$line-height: 140%;
 
 $black: #000000;
 $white: #FFFFFF;
 $western-purple: #4F2784;
 $off-white: #F9F8F8;
+$light-grey: #e5e5e5;
 $dark-grey: #495057;
 $error-red: #E50000;
 $success-green: #327F3E;
