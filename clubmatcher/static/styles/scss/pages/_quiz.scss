@@ -1,74 +1,63 @@
-.quiz-page-container {
-  margin: 3rem auto 0 auto;
-
-  @include for-phone-only {
-    width: 90%;
-  }
-
-  @include for-tablet-portrait-up {
-    width: 85%;
-  }
-
-  @include for-tablet-landscape-up {
-    width: pxToRem(800px);
-  }
-
-  @include for-desktop-up {
-    width: pxToRem(1100px);
-  }
+.quiz-form {
+  font-family: "Roboto", sans-serif;
 }
 
 .quiz-legend {
-  margin-bottom: 3rem;
+  display: none;
+}
 
+.individual-question-container {
+  border-bottom: pxToRem(1px) solid $light-grey;
   @include for-phone-only {
-    font-size: $h2;
+    padding: 3rem 0;
   }
 
   @include for-tablet-portrait-up {
-    font-size: $h2;
-  }
-
-  @include for-tablet-landscape-up {
-    font-size: $h1;
+    padding: 4rem 0;
   }
 }
 
-.question-container {
-  margin-bottom: 6rem;
+.question-number {
+  text-align: center;
 }
 
 .question-header {
+  display: block;
+  padding-bottom: 1.25rem;
+  font-weight: 700;
+  line-height: $line-height;
+  text-align: center;
 
   @include for-phone-only {
-    font-size: $h5;
+    font-size: $h4-small;
   }
 
   @include for-tablet-portrait-up {
-    font-size: $h4;
+    font-size: $h4-small;
   }
 
   @include for-tablet-landscape-up {
-    font-size: $h3;
+    font-size: $h4-large;
   }
 }
 
 .question {
-  margin: 2rem auto 0 auto;
-  width: 80%;
+  margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  justify-content: center;
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
-  color: #FFFFFF;
-  font-size: $h5;
 
   @include for-phone-only {
-    font-size: $base;
+    grid-template-columns: 1fr;
+  }
+
+  @include for-tablet-portrait-up {
+    grid-template-columns: 1fr 1fr;
   }
 
   & > li {
-    height: pxToRem(200px);
+    height: 12rem;
     display: flex;
 
     & > input {
@@ -77,35 +66,43 @@
     }
 
     & > label {
-      padding: 1rem;
-      text-align: center;
-      line-height: 1.75rem;
       width: 100%;
-      height: 100%;
+      background-color: $white;
+      border: 1px solid $black;
+      border-radius: pxToRem(10px);
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: $dark-grey;
+      color: $black;
+      text-align: center;
       cursor: pointer;
 
-      @include for-phone-only {
-        padding: 0;
-        line-height: 1.25rem;
+      &:hover {
+        border: 2px solid $western-purple;
+        color: $western-purple;
       }
     }
 
     & > input:checked + label {
       background-color: $western-purple;
+      border-color: $western-purple;
+      color: $white;
+      font-weight: 700;
+      transition: 0.1s;
     }
   }
 }
 
 .submit-quiz-btn-container {
-  margin-bottom: 5rem;
+  padding: 5rem 0;
   text-align: center;
 }
 
 .submit-quiz-btn {
-  @include btn;
-  font-size: $h5;
+  @include btn-primary-lg;
+  font-size: $base;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

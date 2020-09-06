@@ -45,7 +45,7 @@ class UpdateClubForm(FlaskForm):
 
 class QuizForm(FlaskForm):
     q1_field = RadioField(
-        flask.Markup(f'<b>Question 1:</b> {q1}'),
+        flask.Markup(f"{q1}"),
         validators=[DataRequired()],
         choices=[
             ([1, 0, 0, 0], flask.Markup(f'<span>{q1_a1}</span>')),
@@ -55,7 +55,7 @@ class QuizForm(FlaskForm):
         ]
     )
     q2_field = RadioField(
-        flask.Markup(f"<b>Question 2:</b> {q2}"),
+        flask.Markup(f"{q2}"),
         validators=[DataRequired()],
         choices=[
             ([1,0,0,0,0,0,0,0,0], flask.Markup(f'<span>{q2_a1}</span>')),
@@ -70,7 +70,7 @@ class QuizForm(FlaskForm):
         ]
     )
     q3_field = RadioField(
-        flask.Markup(f"<b>Question 3:</b> {q3}"),
+        flask.Markup(f"{q3}"),
         validators=[DataRequired()],
         choices=[
             (1, flask.Markup(f'<span>{q3_a1}</span>')),
@@ -80,7 +80,7 @@ class QuizForm(FlaskForm):
         ]
     )
     q4_field = RadioField(
-        flask.Markup(f"<b>Question 4:</b> {q4}"),
+        flask.Markup(f"{q4}"),
         validators=[DataRequired()],
         choices=[
             (1, flask.Markup(f'<span>{q4_a1}</span>')),
@@ -90,7 +90,7 @@ class QuizForm(FlaskForm):
         ]
     )
     q5_field = RadioField(
-        flask.Markup(f"<b>Question 5:</b> {q5}"),
+        flask.Markup(f"{q5}"),
         validators=[DataRequired()],
         choices=[
             (1, flask.Markup(f'<span>{q5_a1}</span>')),

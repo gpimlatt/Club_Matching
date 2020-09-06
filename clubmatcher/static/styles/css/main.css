@@ -1,18 +1,18 @@
 @font-face {
-  font-family: "Open Sans";
-  src: url("../../fonts/open-sans/regular/OpenSans-Regular.woff2") format("woff2"), url("../../fonts/open-sans/regular/OpenSans-Regular.woff") format("woff");
+  font-family: "Roboto";
+  src: url("../../fonts/roboto/regular/Roboto-Regular.woff2") format("woff2"), url("../../fonts/roboto/regular/Roboto-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal; }
 
 @font-face {
-  font-family: "Open Sans";
-  src: url("../../fonts/open-sans/italic/OpenSans-Italic.woff2") format("woff2"), url("../../fonts/open-sans/italic/OpenSans-Italic.woff") format("woff");
+  font-family: "Roboto";
+  src: url("../../fonts/roboto/italic/Roboto-Italic.woff2") format("woff2"), url("../../fonts/roboto/italic/Roboto-Italic.woff") format("woff");
   font-weight: 400;
   font-style: italic; }
 
 @font-face {
-  font-family: "Open Sans";
-  src: url("../../fonts/open-sans/bold/OpenSans-Bold.woff2") format("woff2"), url("../../fonts/open-sans/bold/OpenSans-Bold.woff") format("woff");
+  font-family: "Roboto";
+  src: url("../../fonts/roboto/bold/Roboto-Bold.woff2") format("woff2"), url("../../fonts/roboto/bold/Roboto-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal; }
 
@@ -37,15 +37,15 @@ ol, ul {
   box-sizing: inherit; }
 
 body {
-  background-color: #FFFFFF; }
+  background-color: #FAFAFA; }
 
 h1, h2, h3, h4, h5, h6, p {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 140%;
   margin-bottom: 1.25rem; }
 
 a {
-  font-family: "Open Sans", sans-serif; }
+  font-family: "Roboto", sans-serif; }
 
 @media (max-width: 599px) {
   h1 {
@@ -137,7 +137,7 @@ p {
   display: inline-block;
   border: 0.125rem solid #000000;
   border-radius: 0.375rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   text-decoration: none;
   background-color: #FFFFFF;
   color: #000000;
@@ -151,7 +151,7 @@ p {
     transition: 0.3s; }
 
 .footer {
-  border-top: 0.125rem solid #000000; }
+  border-top: 0.0625rem solid #E5E5E5; }
 
 .footer-grid-container {
   margin-top: 2rem;
@@ -193,7 +193,7 @@ p {
   width: 1.875rem;
   border-radius: 50%; }
   .footer-social-icon:hover {
-    background: #e5e5e5;
+    background: #E5E5E5;
     margin-bottom: 0.3125rem; }
 
 .social-icon-img {
@@ -281,6 +281,14 @@ p {
   .index-content-container {
     text-align: center; } }
 
+@media (min-width: 600px) {
+  .index-content-container {
+    text-align: center; } }
+
+@media (min-width: 900px) {
+  .index-content-container {
+    text-align: left; } }
+
 .index-header {
   text-transform: capitalize; }
 
@@ -291,7 +299,7 @@ p {
   display: inline-block;
   border: 0.125rem solid #4F2784;
   border-radius: 0.375rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   text-decoration: none;
   background-color: #4F2784;
   color: #FFFFFF;
@@ -330,7 +338,7 @@ p {
     .more-info-item {
       border-radius: 0.625rem; }
       .more-info-item:nth-of-type(odd) {
-        background-color: #e5e5e5; } }
+        background-color: #E5E5E5; } }
 
 .club-login-form-container {
   margin-top: 3rem;
@@ -375,108 +383,108 @@ p {
   border: 0.1875rem solid #000000;
   border-radius: 3.125rem;
   background-color: #4F2784;
-  color: #F9F8F8;
-  font-family: "Open Sans", sans-serif;
+  color: #FAFAFA;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem; }
   .club-login-btn:hover {
     background-color: #6733ab;
-    color: #F9F8F8;
+    color: #FAFAFA;
     cursor: pointer; }
 
-.quiz-page-container {
-  margin: 3rem auto 0 auto; }
-  @media (max-width: 599px) {
-    .quiz-page-container {
-      width: 90%; } }
-  @media (min-width: 600px) {
-    .quiz-page-container {
-      width: 85%; } }
-  @media (min-width: 900px) {
-    .quiz-page-container {
-      width: 50rem; } }
-  @media (min-width: 1200px) {
-    .quiz-page-container {
-      width: 68.75rem; } }
+.quiz-form {
+  font-family: "Roboto", sans-serif; }
 
 .quiz-legend {
-  margin-bottom: 3rem; }
+  display: none; }
+
+.individual-question-container {
+  border-bottom: 0.0625rem solid #E5E5E5; }
   @media (max-width: 599px) {
-    .quiz-legend {
-      font-size: 1rem; } }
+    .individual-question-container {
+      padding: 3rem 0; } }
   @media (min-width: 600px) {
-    .quiz-legend {
-      font-size: 1rem; } }
+    .individual-question-container {
+      padding: 4rem 0; } }
+
+.question-number {
+  text-align: center; }
+
+.question-header {
+  display: block;
+  padding-bottom: 1.25rem;
+  font-weight: 700;
+  line-height: 140%;
+  text-align: center; }
+  @media (max-width: 599px) {
+    .question-header {
+      font-size: 1.25rem; } }
+  @media (min-width: 600px) {
+    .question-header {
+      font-size: 1.25rem; } }
   @media (min-width: 900px) {
-    .quiz-legend {
-      font-size: 1rem; } }
-
-.question-container {
-  margin-bottom: 6rem; }
-
-@media (max-width: 599px) {
-  .question-header {
-    font-size: 1rem; } }
-
-@media (min-width: 600px) {
-  .question-header {
-    font-size: 1rem; } }
-
-@media (min-width: 900px) {
-  .question-header {
-    font-size: 1rem; } }
+    .question-header {
+      font-size: 1.5rem; } }
 
 .question {
-  margin: 2rem auto 0 auto;
-  width: 80%;
+  margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  justify-content: center;
   grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
-  color: #FFFFFF;
-  font-size: 1rem; }
+  grid-row-gap: 1rem; }
   @media (max-width: 599px) {
     .question {
-      font-size: 16px; } }
+      grid-template-columns: 1fr; } }
+  @media (min-width: 600px) {
+    .question {
+      grid-template-columns: 1fr 1fr; } }
   .question > li {
-    height: 12.5rem;
+    height: 12rem;
     display: flex; }
     .question > li > input {
       margin: 0;
       display: none; }
     .question > li > label {
-      padding: 1rem;
-      text-align: center;
-      line-height: 1.75rem;
       width: 100%;
-      height: 100%;
+      background-color: #FFFFFF;
+      border: 1px solid #000000;
+      border-radius: 0.625rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #495057;
+      color: #000000;
+      text-align: center;
       cursor: pointer; }
-      @media (max-width: 599px) {
-        .question > li > label {
-          padding: 0;
-          line-height: 1.25rem; } }
+      .question > li > label:hover {
+        border: 2px solid #4F2784;
+        color: #4F2784; }
     .question > li > input:checked + label {
-      background-color: #4F2784; }
+      background-color: #4F2784;
+      border-color: #4F2784;
+      color: #FFFFFF;
+      font-weight: 700;
+      transition: 0.1s; }
 
 .submit-quiz-btn-container {
-  margin-bottom: 5rem;
+  padding: 5rem 0;
   text-align: center; }
 
 .submit-quiz-btn {
   display: inline-block;
-  padding: 1rem 1.5rem;
-  border: 0.1875rem solid #000000;
-  border-radius: 3.125rem;
+  border: 0.125rem solid #4F2784;
+  border-radius: 0.375rem;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
   background-color: #4F2784;
-  color: #F9F8F8;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1rem; }
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 1rem;
+  font-size: 16px; }
   .submit-quiz-btn:hover {
-    background-color: #6733ab;
-    color: #F9F8F8;
+    background-color: #FFFFFF;
+    color: #4F2784;
+    border-color: #4F2784;
+    transition: 0.3s; }
+  .submit-quiz-btn:hover {
     cursor: pointer; }
 
 .recommended-clubs-page-container {
@@ -588,13 +596,13 @@ p {
   border: 0.1875rem solid #000000;
   border-radius: 3.125rem;
   background-color: #4F2784;
-  color: #F9F8F8;
-  font-family: "Open Sans", sans-serif;
+  color: #FAFAFA;
+  font-family: "Roboto", sans-serif;
   text-decoration: none;
   font-size: 1rem; }
   .purchase-membership-btn:hover {
     background-color: #6733ab;
-    color: #F9F8F8;
+    color: #FAFAFA;
     cursor: pointer; }
   @media (max-width: 599px) {
     .purchase-membership-btn {
@@ -610,13 +618,13 @@ p {
   border: 0.1875rem solid #000000;
   border-radius: 3.125rem;
   background-color: #4F2784;
-  color: #F9F8F8;
-  font-family: "Open Sans", sans-serif;
+  color: #FAFAFA;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   text-decoration: none; }
   .retake-quiz-btn:hover {
     background-color: #6733ab;
-    color: #F9F8F8;
+    color: #FAFAFA;
     cursor: pointer; }
 
 .account-info-header {
@@ -663,12 +671,12 @@ p {
   border: 0.1875rem solid #000000;
   border-radius: 3.125rem;
   background-color: #4F2784;
-  color: #F9F8F8;
-  font-family: "Open Sans", sans-serif;
+  color: #FAFAFA;
+  font-family: "Roboto", sans-serif;
   text-decoration: none; }
   .account-info-btn:hover {
     background-color: #6733ab;
-    color: #F9F8F8;
+    color: #FAFAFA;
     cursor: pointer; }
 
 .account-retake-quiz-btn-container {
@@ -680,12 +688,12 @@ p {
   border: 0.1875rem solid #000000;
   border-radius: 3.125rem;
   background-color: #4F2784;
-  color: #F9F8F8;
-  font-family: "Open Sans", sans-serif;
+  color: #FAFAFA;
+  font-family: "Roboto", sans-serif;
   text-decoration: none; }
   .account-retake-quiz-btn:hover {
     background-color: #6733ab;
-    color: #F9F8F8;
+    color: #FAFAFA;
     cursor: pointer; }
 
 .update-account-container {
@@ -734,12 +742,12 @@ p {
   border: 0.1875rem solid #000000;
   border-radius: 3.125rem;
   background-color: #4F2784;
-  color: #F9F8F8;
-  font-family: "Open Sans", sans-serif;
+  color: #FAFAFA;
+  font-family: "Roboto", sans-serif;
   font-size: 16px; }
   .update-account-btn:hover {
     background-color: #6733ab;
-    color: #F9F8F8;
+    color: #FAFAFA;
     cursor: pointer; }
 
 .cancel-update-btn-container {
@@ -751,12 +759,12 @@ p {
   border: 0.1875rem solid #000000;
   border-radius: 3.125rem;
   background-color: #4F2784;
-  color: #F9F8F8;
-  font-family: "Open Sans", sans-serif;
+  color: #FAFAFA;
+  font-family: "Roboto", sans-serif;
   text-decoration: none; }
   .cancel-update-btn:hover {
     background-color: #6733ab;
-    color: #F9F8F8;
+    color: #FAFAFA;
     cursor: pointer; }
 
 .confirmation-msg {
@@ -784,12 +792,12 @@ p {
   border: 0.1875rem solid #000000;
   border-radius: 3.125rem;
   background-color: #4F2784;
-  color: #F9F8F8;
-  font-family: "Open Sans", sans-serif;
+  color: #FAFAFA;
+  font-family: "Roboto", sans-serif;
   text-decoration: none; }
   .club-results-retake-quiz-btn:hover {
     background-color: #6733ab;
-    color: #F9F8F8;
+    color: #FAFAFA;
     cursor: pointer; }
 
 .club-results-update-account-btn-container {
@@ -801,12 +809,12 @@ p {
   border: 0.1875rem solid #000000;
   border-radius: 3.125rem;
   background-color: #4F2784;
-  color: #F9F8F8;
-  font-family: "Open Sans", sans-serif;
+  color: #FAFAFA;
+  font-family: "Roboto", sans-serif;
   text-decoration: none; }
   .club-results-update-account-btn:hover {
     background-color: #6733ab;
-    color: #F9F8F8;
+    color: #FAFAFA;
     cursor: pointer; }
 
 .error-container {
