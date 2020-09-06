@@ -9,21 +9,17 @@
   height: pxToRem(50px);
   border-radius: 50%;
 
-  &:hover {
-    height: pxToRem(52px);
-  }
-
   @include for-tablet-landscape-up {
     height: pxToRem(60px);
-
-    &:hover {
-      height: pxToRem(63px);
-    }
   }
 }
 
 .nav-logo {
   height: 100%;
+
+  &:hover {
+    height: 95%;
+  }
 }
 
 .nav-link {
