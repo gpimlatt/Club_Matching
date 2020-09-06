@@ -1,94 +1,114 @@
-.usc-logo-container {
-  margin: 1rem auto 0 auto;
+.banner-container {
+  display: flex;
+  align-items: center;
+
+  @include for-small-phone-only() {
+    height: 100vh;
+  }
+
+  @include for-phone-up {
+    height: 80vh;
+  }
+}
+
+.index-main-content {
+  display: grid;
 
   @include for-phone-only {
-    width: 7rem;
+    margin-bottom: 1rem;
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
+    justify-items: center;
   }
 
   @include for-tablet-portrait-up {
+    margin-bottom: 1rem;
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
+    justify-items: center;
+  }
+
+  @include for-tablet-landscape-up {
+    margin-bottom: 3rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+.index-usc-logo-container {
+  @include for-phone-only {
     width: 10rem;
   }
 
-  @include for-desktop-up {
+  @include for-tablet-portrait-up {
+    width: 13rem;
+  }
+
+  @include for-tablet-landscape-up {
     width: 15rem;
   }
 
-  @include for-lg-desktop-up {
-    width: 20rem;
+  @include for-desktop-up {
+    width: 18rem;
   }
-}
 
-.usc-logo {
-  width: 100%;
+  .usc-logo {
+    width: 100%;
+  }
 }
 
 .index-content-container {
-  position: relative;
-  width: 100%;
+  @include for-phone-only {
+    text-align: center;
+  }
+}
+
+.index-header {
+  text-transform: capitalize;
+}
+
+.index-start-quiz-btn-container {
   text-align: center;
 }
 
-.index-main-header {
-  margin-top: 4vh;
-  font-size: $h3;
-  font-weight: 700;
-
-  @include for-phone-only {
-    font-size: $h4;
-  }
-
-  @include for-tablet-landscape-up {
-    font-size: $h3;
-  }
-
-  @include for-desktop-up {
-    font-size: $h2;
-  }
-
-  @include for-lg-desktop-up {
-    font-size: $h1;
-  }
+.index-start-quiz-btn {
+  @include btn-primary-lg;
 }
 
-.index-sub-header {
-  margin: 4vh auto 0 auto;
-  font-size: $h4;
-  font-weight: 400;
+.index-down-arrow-container {
+  text-align: center;
+  min-height: 20vh;
+}
+
+.down-arrow {
+  height: 30px;
+}
+
+.index-more-info-container {
+  padding: 2rem 0;
+  display: grid;
 
   @include for-phone-only {
-    font-size: $h5;
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
   }
 
   @include for-tablet-portrait-up {
-    font-size: $h5;
+    grid-template-columns: 1fr 1fr;
   }
-
-  @include for-desktop-up {
-    font-size: $h4;
-  }
-
-  @include for-lg-desktop-up {
-    font-size: $h3;
-  }
-}
-
-.index-btn-header {
-  margin-top: 4vh;
-  font-size: $h5;
-  font-weight: 700;
 
   @include for-tablet-landscape-up {
-    font-size: $h4;
-  }
-
-  @include for-desktop-up {
-    font-size: $h3;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-.find-club-btn-link {
-  @include btn;
-  margin-top: 4vh;
-  font-size: $h5;
-  text-decoration: none;
+.more-info-item {
+  padding: 2rem;
+
+  @include for-phone-only {
+    border-radius: pxToRem(10px);
+    &:nth-of-type(odd) {
+      background-color: $light-grey;
+    }
+  }
 }

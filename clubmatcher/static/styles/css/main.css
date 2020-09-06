@@ -36,32 +36,67 @@ ol, ul {
 *, *::before, *::after {
   box-sizing: inherit; }
 
-h1, h2, h3, h4, h5, h6, p, a, fieldset {
-  font-family: "Open Sans", sans-serif; }
-
-h1, h2, h3, h4, h5, h6, p {
-  line-height: 140%; }
-
-h1 {
-  font-size: 4.209rem; }
-
-h2 {
-  font-size: 3.157rem; }
-
-h3 {
-  font-size: 2.369rem; }
-
-h4 {
-  font-size: 1.777rem; }
-
-h5 {
-  font-size: 1.333rem; }
-
-h6 {
-  font-size: 1rem; }
-
 body {
   background-color: #FFFFFF; }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: "Open Sans", sans-serif;
+  line-height: 140%;
+  margin-bottom: 1.25rem; }
+
+a {
+  font-family: "Open Sans", sans-serif; }
+
+@media (max-width: 599px) {
+  h1 {
+    font-size: 3rem; } }
+
+@media (min-width: 600px) {
+  h1 {
+    font-size: 3rem; } }
+
+@media (min-width: 900px) {
+  h1 {
+    font-size: 4rem; } }
+
+@media (max-width: 599px) {
+  h2 {
+    font-size: 2rem; } }
+
+@media (min-width: 600px) {
+  h2 {
+    font-size: 2rem; } }
+
+@media (min-width: 900px) {
+  h2 {
+    font-size: 3rem; } }
+
+@media (max-width: 599px) {
+  h3 {
+    font-size: 1.5rem; } }
+
+@media (min-width: 600px) {
+  h3 {
+    font-size: 1.5rem; } }
+
+@media (min-width: 900px) {
+  h3 {
+    font-size: 2rem; } }
+
+@media (max-width: 599px) {
+  h4 {
+    font-size: 1.25rem; } }
+
+@media (min-width: 600px) {
+  h4 {
+    font-size: 1.25rem; } }
+
+@media (min-width: 900px) {
+  h4 {
+    font-size: 1.5rem; } }
+
+p {
+  font-size: 16px; }
 
 .container {
   margin: auto; }
@@ -77,9 +112,6 @@ body {
   @media (min-width: 1200px) {
     .container {
       width: 68.75rem; } }
-  @media (min-width: 1920px) {
-    .container {
-      width: 107.5rem; } }
 
 .header {
   height: 6.25rem;
@@ -103,15 +135,19 @@ body {
 
 .nav-link {
   display: inline-block;
-  padding: 8px;
   border: 0.125rem solid #000000;
   border-radius: 0.375rem;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
   background-color: #FFFFFF;
   color: #000000;
-  text-decoration: none;
+  font-weight: 700;
+  padding: 0.5rem;
   margin-left: 1rem; }
   .nav-link:hover {
-    background-color: #f7f7f7;
+    background-color: #000000;
+    color: #FFFFFF;
+    border-color: #000000;
     transition: 0.3s; }
 
 .footer {
@@ -125,7 +161,8 @@ body {
   @media (max-width: 599px) {
     .footer-grid-container {
       grid-template-columns: 1fr;
-      grid-row-gap: 2rem; } }
+      grid-row-gap: 2rem;
+      margin-bottom: 3rem; } }
   @media (min-width: 600px) {
     .footer-grid-container {
       grid-template-columns: 1fr 1fr; } }
@@ -152,15 +189,19 @@ body {
 
 .footer-social-icon {
   margin-left: 1.25rem;
-  height: 1.5625rem;
-  width: 1.5625rem; }
+  height: 1.875rem;
+  width: 1.875rem;
+  border-radius: 50%; }
+  .footer-social-icon:hover {
+    background: #e5e5e5;
+    margin-bottom: 0.3125rem; }
 
 .social-icon-img {
   width: 100%; }
 
 .alert {
   margin: 2rem auto 0 auto;
-  font-size: 1.777rem;
+  font-size: 1rem;
   text-align: center; }
   @media (max-width: 599px) {
     .alert {
@@ -187,88 +228,109 @@ body {
 .alert-success {
   color: #327F3E; }
 
-.usc-logo-container {
-  margin: 1rem auto 0 auto; }
-  @media (max-width: 599px) {
-    .usc-logo-container {
-      width: 7rem; } }
-  @media (min-width: 600px) {
-    .usc-logo-container {
-      width: 10rem; } }
-  @media (min-width: 1200px) {
-    .usc-logo-container {
-      width: 15rem; } }
-  @media (min-width: 1920px) {
-    .usc-logo-container {
-      width: 20rem; } }
+.banner-container {
+  display: flex;
+  align-items: center; }
+  @media (max-width: 350px) {
+    .banner-container {
+      height: 100vh; } }
+  @media (min-width: 350px) {
+    .banner-container {
+      height: 80vh; } }
 
-.usc-logo {
+.index-main-content {
+  display: grid; }
+  @media (max-width: 599px) {
+    .index-main-content {
+      margin-bottom: 1rem;
+      grid-template-columns: 1fr;
+      grid-row-gap: 2rem;
+      justify-items: center; } }
+  @media (min-width: 600px) {
+    .index-main-content {
+      margin-bottom: 1rem;
+      grid-template-columns: 1fr;
+      grid-row-gap: 2rem;
+      justify-items: center; } }
+  @media (min-width: 900px) {
+    .index-main-content {
+      margin-bottom: 3rem;
+      grid-template-columns: 1fr 1fr;
+      align-items: center; } }
+
+@media (max-width: 599px) {
+  .index-usc-logo-container {
+    width: 10rem; } }
+
+@media (min-width: 600px) {
+  .index-usc-logo-container {
+    width: 13rem; } }
+
+@media (min-width: 900px) {
+  .index-usc-logo-container {
+    width: 15rem; } }
+
+@media (min-width: 1200px) {
+  .index-usc-logo-container {
+    width: 18rem; } }
+
+.index-usc-logo-container .usc-logo {
   width: 100%; }
 
-.index-content-container {
-  position: relative;
-  width: 100%;
+@media (max-width: 599px) {
+  .index-content-container {
+    text-align: center; } }
+
+.index-header {
+  text-transform: capitalize; }
+
+.index-start-quiz-btn-container {
   text-align: center; }
 
-.index-main-header {
-  margin-top: 4vh;
-  font-size: 2.369rem;
-  font-weight: 700; }
-  @media (max-width: 599px) {
-    .index-main-header {
-      font-size: 1.777rem; } }
-  @media (min-width: 900px) {
-    .index-main-header {
-      font-size: 2.369rem; } }
-  @media (min-width: 1200px) {
-    .index-main-header {
-      font-size: 3.157rem; } }
-  @media (min-width: 1920px) {
-    .index-main-header {
-      font-size: 4.209rem; } }
-
-.index-sub-header {
-  margin: 4vh auto 0 auto;
-  font-size: 1.777rem;
-  font-weight: 400; }
-  @media (max-width: 599px) {
-    .index-sub-header {
-      font-size: 1.333rem; } }
-  @media (min-width: 600px) {
-    .index-sub-header {
-      font-size: 1.333rem; } }
-  @media (min-width: 1200px) {
-    .index-sub-header {
-      font-size: 1.777rem; } }
-  @media (min-width: 1920px) {
-    .index-sub-header {
-      font-size: 2.369rem; } }
-
-.index-btn-header {
-  margin-top: 4vh;
-  font-size: 1.333rem;
-  font-weight: 700; }
-  @media (min-width: 900px) {
-    .index-btn-header {
-      font-size: 1.777rem; } }
-  @media (min-width: 1200px) {
-    .index-btn-header {
-      font-size: 2.369rem; } }
-
-.find-club-btn-link {
+.index-start-quiz-btn {
   display: inline-block;
-  padding: 1rem 1.5rem;
-  border: 0.1875rem solid #000000;
-  border-radius: 3.125rem;
+  border: 0.125rem solid #4F2784;
+  border-radius: 0.375rem;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
   background-color: #4F2784;
-  color: #F9F8F8;
-  margin-top: 4vh;
-  font-size: 1.333rem;
-  text-decoration: none; }
-  .find-club-btn-link:hover {
-    background-color: #6733ab;
-    color: #F9F8F8;
-    cursor: pointer; }
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 1rem; }
+  .index-start-quiz-btn:hover {
+    background-color: #FFFFFF;
+    color: #4F2784;
+    border-color: #4F2784;
+    transition: 0.3s; }
+
+.index-down-arrow-container {
+  text-align: center;
+  min-height: 20vh; }
+
+.down-arrow {
+  height: 30px; }
+
+.index-more-info-container {
+  padding: 2rem 0;
+  display: grid; }
+  @media (max-width: 599px) {
+    .index-more-info-container {
+      grid-template-columns: 1fr;
+      grid-row-gap: 2rem; } }
+  @media (min-width: 600px) {
+    .index-more-info-container {
+      grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 900px) {
+    .index-more-info-container {
+      grid-template-columns: 1fr 1fr; } }
+
+.more-info-item {
+  padding: 2rem; }
+  @media (max-width: 599px) {
+    .more-info-item {
+      border-radius: 0.625rem; }
+      .more-info-item:nth-of-type(odd) {
+        background-color: #e5e5e5; } }
 
 .club-login-form-container {
   margin-top: 3rem;
@@ -277,7 +339,7 @@ body {
 
 .club-login-form-legend {
   margin: 3vh 0;
-  font-size: 3.157rem; }
+  font-size: 1rem; }
 
 .club-login-form-input-container {
   margin: 2rem 0; }
@@ -287,14 +349,14 @@ body {
   display: inline-block;
   width: 100%;
   text-align: left;
-  font-size: 1.333rem; }
+  font-size: 1rem; }
   @media (min-width: 600px) {
     .club-login-form-label {
       margin-bottom: 0;
       display: inline-block;
       width: 8.75rem;
       text-align: left;
-      font-size: 1.333rem; } }
+      font-size: 1rem; } }
 
 .club-login-form-input {
   border: 2px solid #000000;
@@ -314,6 +376,7 @@ body {
   border-radius: 3.125rem;
   background-color: #4F2784;
   color: #F9F8F8;
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem; }
   .club-login-btn:hover {
     background-color: #6733ab;
@@ -339,28 +402,28 @@ body {
   margin-bottom: 3rem; }
   @media (max-width: 599px) {
     .quiz-legend {
-      font-size: 3.157rem; } }
+      font-size: 1rem; } }
   @media (min-width: 600px) {
     .quiz-legend {
-      font-size: 3.157rem; } }
+      font-size: 1rem; } }
   @media (min-width: 900px) {
     .quiz-legend {
-      font-size: 4.209rem; } }
+      font-size: 1rem; } }
 
 .question-container {
   margin-bottom: 6rem; }
 
 @media (max-width: 599px) {
   .question-header {
-    font-size: 1.333rem; } }
+    font-size: 1rem; } }
 
 @media (min-width: 600px) {
   .question-header {
-    font-size: 1.777rem; } }
+    font-size: 1rem; } }
 
 @media (min-width: 900px) {
   .question-header {
-    font-size: 2.369rem; } }
+    font-size: 1rem; } }
 
 .question {
   margin: 2rem auto 0 auto;
@@ -370,10 +433,10 @@ body {
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
   color: #FFFFFF;
-  font-size: 1.333rem; }
+  font-size: 1rem; }
   @media (max-width: 599px) {
     .question {
-      font-size: 1rem; } }
+      font-size: 16px; } }
   .question > li {
     height: 12.5rem;
     display: flex; }
@@ -409,7 +472,8 @@ body {
   border-radius: 3.125rem;
   background-color: #4F2784;
   color: #F9F8F8;
-  font-size: 1.333rem; }
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem; }
   .submit-quiz-btn:hover {
     background-color: #6733ab;
     color: #F9F8F8;
@@ -423,10 +487,10 @@ body {
   margin-bottom: 3rem;
   text-align: center;
   text-transform: capitalize;
-  font-size: 1.777rem; }
+  font-size: 1rem; }
   @media (max-width: 599px) {
     .recommended-clubs-page-heading {
-      font-size: 1.333rem; } }
+      font-size: 1rem; } }
 
 .recommended-clubs {
   margin: 0 auto;
@@ -453,23 +517,23 @@ body {
 .club-name {
   margin-bottom: 2rem;
   text-align: center;
-  font-size: 3.157rem; }
+  font-size: 1rem; }
   @media (max-width: 599px) {
     .club-name {
-      font-size: 2.369rem; } }
+      font-size: 1rem; } }
 
 .club-description-header {
   margin-bottom: 1.5rem; }
   @media (max-width: 599px) {
     .club-description-header {
       text-align: center;
-      font-size: 1.333rem; } }
+      font-size: 1rem; } }
   @media (min-width: 600px) {
     .club-description-header {
-      font-size: 1.777rem; } }
+      font-size: 1rem; } }
   @media (min-width: 900px) {
     .club-description-header {
-      font-size: 2.369rem; } }
+      font-size: 1rem; } }
 
 .club-description {
   margin-bottom: 3rem; }
@@ -492,13 +556,13 @@ body {
   @media (max-width: 599px) {
     .learn-more-header {
       text-align: center;
-      font-size: 1.333rem; } }
+      font-size: 1rem; } }
   @media (min-width: 600px) {
     .learn-more-header {
-      font-size: 1.777rem; } }
+      font-size: 1rem; } }
   @media (min-width: 900px) {
     .learn-more-header {
-      font-size: 2.369rem; } }
+      font-size: 1rem; } }
 
 .learn-more-links {
   display: inline-flex;
@@ -525,15 +589,16 @@ body {
   border-radius: 3.125rem;
   background-color: #4F2784;
   color: #F9F8F8;
+  font-family: "Open Sans", sans-serif;
   text-decoration: none;
-  font-size: 1.333rem; }
+  font-size: 1rem; }
   .purchase-membership-btn:hover {
     background-color: #6733ab;
     color: #F9F8F8;
     cursor: pointer; }
   @media (max-width: 599px) {
     .purchase-membership-btn {
-      font-size: 1rem; } }
+      font-size: 16px; } }
 
 .retake-quiz-btn-container {
   margin: 5rem 0;
@@ -546,7 +611,8 @@ body {
   border-radius: 3.125rem;
   background-color: #4F2784;
   color: #F9F8F8;
-  font-size: 1.333rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
   text-decoration: none; }
   .retake-quiz-btn:hover {
     background-color: #6733ab;
@@ -556,10 +622,10 @@ body {
 .account-info-header {
   margin: 3rem 0;
   text-align: center;
-  font-size: 1.777rem; }
+  font-size: 1rem; }
   @media (max-width: 599px) {
     .account-info-header {
-      font-size: 1.333rem; } }
+      font-size: 1rem; } }
 
 .account-info-container {
   display: grid;
@@ -598,6 +664,7 @@ body {
   border-radius: 3.125rem;
   background-color: #4F2784;
   color: #F9F8F8;
+  font-family: "Open Sans", sans-serif;
   text-decoration: none; }
   .account-info-btn:hover {
     background-color: #6733ab;
@@ -614,6 +681,7 @@ body {
   border-radius: 3.125rem;
   background-color: #4F2784;
   color: #F9F8F8;
+  font-family: "Open Sans", sans-serif;
   text-decoration: none; }
   .account-retake-quiz-btn:hover {
     background-color: #6733ab;
@@ -629,7 +697,7 @@ body {
   margin-top: 3rem; }
 
 .update-account-legend {
-  font-size: 1.777rem;
+  font-size: 1rem;
   font-weight: 700;
   text-align: center; }
 
@@ -667,7 +735,8 @@ body {
   border-radius: 3.125rem;
   background-color: #4F2784;
   color: #F9F8F8;
-  font-size: 1rem; }
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px; }
   .update-account-btn:hover {
     background-color: #6733ab;
     color: #F9F8F8;
@@ -683,6 +752,7 @@ body {
   border-radius: 3.125rem;
   background-color: #4F2784;
   color: #F9F8F8;
+  font-family: "Open Sans", sans-serif;
   text-decoration: none; }
   .cancel-update-btn:hover {
     background-color: #6733ab;
@@ -691,12 +761,12 @@ body {
 
 .confirmation-msg {
   margin-top: 3rem;
-  font-size: 2.369rem;
+  font-size: 1rem;
   text-align: center; }
 
 .logout-msg {
   margin-top: 1rem;
-  font-size: 1.777rem;
+  font-size: 1rem;
   text-align: center; }
 
 .club-results-btn-container {
@@ -715,6 +785,7 @@ body {
   border-radius: 3.125rem;
   background-color: #4F2784;
   color: #F9F8F8;
+  font-family: "Open Sans", sans-serif;
   text-decoration: none; }
   .club-results-retake-quiz-btn:hover {
     background-color: #6733ab;
@@ -731,6 +802,7 @@ body {
   border-radius: 3.125rem;
   background-color: #4F2784;
   color: #F9F8F8;
+  font-family: "Open Sans", sans-serif;
   text-decoration: none; }
   .club-results-update-account-btn:hover {
     background-color: #6733ab;
