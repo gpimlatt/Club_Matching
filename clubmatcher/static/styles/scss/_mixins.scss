@@ -47,7 +47,7 @@
   border-radius: pxToRem(50px);
   background-color: $western-purple;
   color: $off-white;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
 
   &:hover {
     background-color: lighten($western-purple, 10%);
@@ -64,7 +64,7 @@
   display: inline-block;
   border: pxToRem(2px) solid $border-color;
   border-radius: pxToRem(6px);
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   text-decoration: none;
   background-color: $background-color;
   color: $font-color;
