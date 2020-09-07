@@ -1,47 +1,72 @@
-.club-login-form-container {
-  margin-top: 3rem;
+.club-login-page {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 60vh;
 }
 
-.club-login-form-legend {
-  margin: 3vh 0;
-  font-size: $h2;
-}
+.club-login-container {
+  text-align: center;
 
-.club-login-form-input-container {
-  margin: 2rem 0;
-}
-
-.club-login-form-label {
-  margin-bottom: 1rem;
-  display: inline-block;
-  width: 100%;
-  text-align: left;
-  font-size: $h5;
+  @include for-phone-only {
+    border: none;
+  }
 
   @include for-tablet-portrait-up {
-    margin-bottom: 0;
-    display: inline-block;
-    width: pxToRem(140px);
-    text-align: left;
-    font-size: $h5;
+    padding: 3rem;
+    border: pxToRem(1px) solid $light-grey;
+    border-radius: $border-radius;
   }
 }
 
-.club-login-form-input {
+.login-usc-logo-container {
+  margin: 0 auto 1rem auto;
+  display: block;
+  height: pxToRem(75px);
+  width: pxToRem(75px);
+  border-radius: 50%;
+}
+
+.login-usc-logo {
+  height: 100%;
+
+  &:hover {
+    height: 95%;
+  }
+}
+
+.club-login-legend {
+  margin: 0 auto 0.5rem auto;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+
+  @include for-phone-only {
+    font-size: $h3-small;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: $h3-small;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: $h3-large;
+  }
+}
+
+.club-login-input-container {
+  margin-bottom: 1rem;
+}
+
+.club-login-input {
   @include text-input;
   width: 100%;
-  font-size: $h6;
 
   @include for-tablet-portrait-up {
     width: 25rem;
-    font-size: $h6;
   }
 }
 
 .club-login-btn {
-  @include btn;
-  font-size: $h6;
+  @include submit-input-primary;
+  margin-bottom: 1rem;
 }
-

@@ -1,40 +1,45 @@
 {% extends 'components/layout.html' %}
 {% block content %}
-    <div class="container club-login-form-container">
-        <form action="" method="POST" class="club-login-form">
-            {{ form.hidden_tag() }}
-            <fieldset>
-                <legend class="club-login-form-legend">Club Login</legend>
-                <div class="club-login-form-input-container">
-                    {{ form.email.label(class= "club-login-form-label") }}
-                    {% if form.email.errors %}
-                        {{ form.email(class="alert-error") }}
-                        <div>
-                            {% for error in form.email.errors %}
-                                <span class="alert-error">{{ error }}</span><br>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.email(class="club-login-form-input") }}
-                    {% endif %}
+    <div class="container club-login-page">
+        <div class="club-login-container">
+            <a class="login-usc-logo-container" href="{{ url_for('main.index') }}">
+                <img class="login-usc-logo" src="{{ url_for('static', filename='images/usc_logo.png') }}"
+                     alt="USC logo">
+            </a>
+            <form action="" method="POST" class="club-login-form">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend class="club-login-legend">Club Login</legend>
+                    <p class="pp">Add links to your club's social media profiles.</p>
+                    <div class="club-login-input-container">
+                        {% if form.email.errors %}
+                            {{ form.email(class="alert-error") }}
+                            <div>
+                                {% for error in form.email.errors %}
+                                    <span class="alert-error">{{ error }}</span><br>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class="club-login-input", placeholder="Email") }}
+                        {% endif %}
+                    </div>
+                    <div class="club-login-input-container">
+                        {% if form.password.errors %}
+                            {{ form.password(class="alert-error") }}
+                            <div>
+                                {% for error in form.password.errors %}
+                                    <span class="alert-error">{{ error }}</span><br>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.password(class="club-login-input", placeholder="Password") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div>
+                    {{ form.submit(class="club-login-btn") }}
                 </div>
-                <div class="club-login-form-input-container">
-                    {{ form.password.label(class="club-login-form-label") }}
-                    {% if form.password.errors %}
-                        {{ form.password(class="alert-error") }}
-                        <div>
-                            {% for error in form.password.errors %}
-                                <span class="alert-error">{{ error }}</span><br>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.password(class="club-login-form-input") }}
-                    {% endif %}
-                </div>
-            </fieldset>
-            <div>
-                {{ form.submit(class="club-login-btn") }}
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 {% endblock content %}
