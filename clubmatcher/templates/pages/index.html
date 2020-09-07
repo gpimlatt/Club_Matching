@@ -1,4 +1,7 @@
 {% extends 'components/layout.html' %}
+{% block header %}
+    {% include 'components/header.html' %}
+{% endblock header %}
 {% block content %}
     <div class="container">
         <div class="banner-container">
@@ -52,3 +55,6 @@
         </div>
     </div>
 {% endblock content %}
+{% block footer %}
+    {% include 'components/footer.html' %}
+{% endblock footer %}

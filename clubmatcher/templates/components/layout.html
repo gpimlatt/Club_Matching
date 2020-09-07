@@ -12,11 +12,11 @@
     {% endif %}
 </head>
 <body>
-{% include 'components/header.html' %}
+{% block header %}{% endblock header %}
 {% include 'components/flash_message.html' %}
 <main>
     {% block content %}{% endblock content %}
 </main>
-{% include 'components/footer.html' %}
+{% block footer %}{% endblock footer %}
 </body>
 </html>

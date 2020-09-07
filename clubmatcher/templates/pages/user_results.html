@@ -1,4 +1,7 @@
 {% extends 'components/layout.html' %}
+{% block header %}
+    {% include 'components/header.html' %}
+{% endblock header %}
 {% block content %}
     <div class="container">
         <h3 class="recommended-clubs-page-heading">
@@ -12,47 +15,52 @@
                     <h4 class="club-description-header">Description</h4>
                     <p class="club-description">{{ club.description }}</p>
                     {% if club.facebook or club.instagram or club.twitter or club.website %}
-                    <div class="learn-more-container">
-                        <h4 class="learn-more-header">Learn More</h4>
-                        <div class="learn-more-links">
-                            {% if club.facebook %}
-                                <a class="learn-more-link" href="{{ club.facebook }}" target="_blank" rel="noopener noreferrer">
-                                    <img class="learn-more-icon"
-                                         src="{{ url_for('static', filename='images/social-media/facebook.svg') }}"
-                                         alt="link to Facebook page"
-                                    >
-                                </a>
-                            {% endif %}
-                            {% if club.instagram %}
-                                <a class="learn-more-link" href="{{ club.instagram }}" target="_blank" rel="noopener noreferrer">
-                                    <img class="learn-more-icon"
-                                         src="{{ url_for('static', filename='images/social-media/instagram.svg') }}"
-                                         alt="link to Instagram page"
-                                    >
-                                </a>
-                            {% endif %}
-                            {% if club.twitter %}
-                                <a class="learn-more-link" href="{{ club.twitter }}" target="_blank" rel="noopener noreferrer">
-                                    <img class="learn-more-icon"
-                                         src="{{ url_for('static', filename='images/social-media/twitter.svg') }}"
-                                         alt="link to Twitter page"
-                                    >
-                                </a>
-                            {% endif %}
-                            {% if club.website %}
-                                <a class="learn-more-link" href="{{ club.website }}" target="_blank" rel="noopener noreferrer">
-                                    <img class="learn-more-icon"
-                                         src="{{ url_for('static',
+                        <div class="learn-more-container">
+                            <h4 class="learn-more-header">Learn More</h4>
+                            <div class="learn-more-links">
+                                {% if club.facebook %}
+                                    <a class="learn-more-link" href="{{ club.facebook }}" target="_blank"
+                                       rel="noopener noreferrer">
+                                        <img class="learn-more-icon"
+                                             src="{{ url_for('static', filename='images/social-media/facebook.svg') }}"
+                                             alt="link to Facebook page"
+                                        >
+                                    </a>
+                                {% endif %}
+                                {% if club.instagram %}
+                                    <a class="learn-more-link" href="{{ club.instagram }}" target="_blank"
+                                       rel="noopener noreferrer">
+                                        <img class="learn-more-icon"
+                                             src="{{ url_for('static', filename='images/social-media/instagram.svg') }}"
+                                             alt="link to Instagram page"
+                                        >
+                                    </a>
+                                {% endif %}
+                                {% if club.twitter %}
+                                    <a class="learn-more-link" href="{{ club.twitter }}" target="_blank"
+                                       rel="noopener noreferrer">
+                                        <img class="learn-more-icon"
+                                             src="{{ url_for('static', filename='images/social-media/twitter.svg') }}"
+                                             alt="link to Twitter page"
+                                        >
+                                    </a>
+                                {% endif %}
+                                {% if club.website %}
+                                    <a class="learn-more-link" href="{{ club.website }}" target="_blank"
+                                       rel="noopener noreferrer">
+                                        <img class="learn-more-icon"
+                                             src="{{ url_for('static',
                                          filename='images/club-website.svg') }}"
-                                         alt="Link to club website"
-                                    >
-                                </a>
-                            {% endif %}
+                                             alt="Link to club website"
+                                        >
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
                     {% endif %}
                     <div class="purchase-membership-btn-container">
-                        <a class="purchase-membership-btn" href="{{ club.ecommerce }}" target="_blank" rel="noopener noreferrer">Purchase Membership</a>
+                        <a class="purchase-membership-btn" href="{{ club.ecommerce }}" target="_blank"
+                           rel="noopener noreferrer">Purchase Membership</a>
                     </div>
                 </div>
             {% endfor %}
@@ -62,3 +70,6 @@
         </div>
     </div>
 {% endblock content %}
+{% block footer %}
+    {% include 'components/footer.html' %}
+{% endblock footer %}
