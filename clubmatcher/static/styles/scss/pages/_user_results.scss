@@ -18,7 +18,7 @@
 .recommended-club {
   padding: 3rem;
   border: pxToRem(1px) solid $light-grey;
-  border-radius: pxToRem(10px);
+  border-radius: $border-radius;
   box-shadow: 11px 11px 26px -6px rgba(0, 0, 0, 0.56);
 
   @include for-phone-only {

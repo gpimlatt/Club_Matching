@@ -134,7 +134,7 @@ p {
 .nav-link {
   display: inline-block;
   border: 0.125rem solid #000000;
-  border-radius: 0.375rem;
+  border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -296,7 +296,7 @@ p {
 .index-start-quiz-btn {
   display: inline-block;
   border: 0.125rem solid #4F2784;
-  border-radius: 0.375rem;
+  border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   background-color: #4F2784;
@@ -334,60 +334,83 @@ p {
   padding: 2rem; }
   @media (max-width: 599px) {
     .more-info-item {
-      border-radius: 0.625rem; }
+      border-radius: 4px; }
       .more-info-item:nth-of-type(odd) {
         background-color: #E5E5E5; } }
 
-.club-login-form-container {
-  margin-top: 3rem;
+.club-login-page {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center;
+  height: 60vh; }
 
-.club-login-form-legend {
-  margin: 3vh 0;
-  font-size: 1rem; }
-
-.club-login-form-input-container {
-  margin: 2rem 0; }
-
-.club-login-form-label {
-  margin-bottom: 1rem;
-  display: inline-block;
-  width: 100%;
-  text-align: left;
-  font-size: 1rem; }
+.club-login-container {
+  text-align: center; }
+  @media (max-width: 599px) {
+    .club-login-container {
+      border: none; } }
   @media (min-width: 600px) {
-    .club-login-form-label {
-      margin-bottom: 0;
-      display: inline-block;
-      width: 8.75rem;
-      text-align: left;
-      font-size: 1rem; } }
+    .club-login-container {
+      padding: 3rem;
+      border: 0.0625rem solid #E5E5E5;
+      border-radius: 4px; } }
 
-.club-login-form-input {
-  border: 2px solid #000000;
-  border-radius: 50px;
+.login-usc-logo-container {
+  margin: 0 auto 1rem auto;
+  display: block;
+  height: 4.6875rem;
+  width: 4.6875rem;
+  border-radius: 50%; }
+
+.login-usc-logo {
+  height: 100%; }
+  .login-usc-logo:hover {
+    height: 95%; }
+
+.club-login-legend {
+  margin: 0 auto 0.5rem auto;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700; }
+  @media (max-width: 599px) {
+    .club-login-legend {
+      font-size: 1.5rem; } }
+  @media (min-width: 600px) {
+    .club-login-legend {
+      font-size: 1.5rem; } }
+  @media (min-width: 900px) {
+    .club-login-legend {
+      font-size: 2rem; } }
+
+.club-login-input-container {
+  margin-bottom: 1rem; }
+
+.club-login-input {
+  border: 0.0625rem solid #495057;
+  background-color: #FAFAFA;
+  border-radius: 4px;
   padding: 0.75rem;
-  width: 100%;
-  font-size: 1rem; }
+  font-size: 16px;
+  width: 100%; }
   @media (min-width: 600px) {
-    .club-login-form-input {
-      width: 25rem;
-      font-size: 1rem; } }
+    .club-login-input {
+      width: 25rem; } }
 
 .club-login-btn {
-  display: inline-block;
-  padding: 1rem 1.5rem;
-  border: 0.1875rem solid #000000;
-  border-radius: 3.125rem;
+  width: 100%;
+  padding: 0.75rem;
+  border: 0.0625rem solid #4F2784;
+  border-radius: 4px;
   background-color: #4F2784;
-  color: #FAFAFA;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem; }
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 1rem; }
   .club-login-btn:hover {
-    background-color: #6733ab;
-    color: #FAFAFA;
-    cursor: pointer; }
+    background-color: #FAFAFA;
+    color: #4F2784;
+    border-color: #4F2784;
+    transition: 0.3s; }
 
 .quiz-form {
   font-family: "Roboto", sans-serif; }
@@ -445,7 +468,7 @@ p {
       width: 100%;
       background-color: #FFFFFF;
       border: 1px solid #000000;
-      border-radius: 0.625rem;
+      border-radius: 4px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -469,7 +492,7 @@ p {
 .submit-quiz-btn {
   display: inline-block;
   border: 0.125rem solid #4F2784;
-  border-radius: 0.375rem;
+  border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   background-color: #4F2784;
@@ -502,7 +525,7 @@ p {
 .recommended-club {
   padding: 3rem;
   border: 0.0625rem solid #E5E5E5;
-  border-radius: 0.625rem;
+  border-radius: 4px;
   box-shadow: 11px 11px 26px -6px rgba(0, 0, 0, 0.56); }
   @media (max-width: 599px) {
     .recommended-club {
@@ -536,7 +559,7 @@ p {
 .purchase-membership-btn {
   display: inline-block;
   border: 0.125rem solid #4F2784;
-  border-radius: 0.375rem;
+  border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   background-color: #4F2784;
@@ -556,7 +579,7 @@ p {
 .retake-quiz-btn {
   display: inline-block;
   border: 0.125rem solid #000000;
-  border-radius: 0.375rem;
+  border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -663,9 +686,11 @@ p {
       margin: 0 0 0 1rem; } }
 
 .update-account-input {
-  border: 2px solid #000000;
-  border-radius: 50px;
+  border: 0.0625rem solid #495057;
+  background-color: #FAFAFA;
+  border-radius: 4px;
   padding: 0.75rem;
+  font-size: 16px;
   width: 25rem; }
   @media (max-width: 599px) {
     .update-account-input {
