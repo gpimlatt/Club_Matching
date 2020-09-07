@@ -3,15 +3,17 @@
     {% include 'components/header.html' %}
 {% endblock header %}
 {% block content %}
-    <div class="container club-results-container">
-        <h1 class="confirmation-msg">Thank you, your club's answer have been recorded!</h1>
-        <h2 class="logout-msg">You may now <a href="{{ url_for('main.logout') }}">logout</a>.</h2>
+    <div class="container">
+        <h3 class="confirmation-msg">Thank you, your answers have been recorded!</h3>
         <div class="club-results-btn-container">
-            <div class="club-results-retake-quiz-btn-container">
-                <a class="club-results-retake-quiz-btn" href="{{ url_for('main.quiz') }}">Retake Quiz</a>
+            <div>
+                <a class="club-results-btn" href="{{ url_for('main.quiz') }}">Retake Quiz</a>
             </div>
-            <div class="club-results-update-account-btn-container">
-                <a class="club-results-update-account-btn" href="{{ url_for('main.account') }}">Update Club Information</a>
+            <div>
+                <a class="club-results-btn" href="{{ url_for('main.account') }}">Update Club Information</a>
+            </div>
+            <div>
+                <a class="club-results-btn" href="{{ url_for('main.logout') }}">Logout</a>
             </div>
         </div>
     </div>
