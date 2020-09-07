@@ -137,7 +137,7 @@ p {
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
-  background-color: #FFFFFF;
+  background-color: #FAFAFA;
   color: #000000;
   font-weight: 700;
   padding: 0.5rem;
@@ -346,9 +346,6 @@ p {
 
 .club-login-container {
   text-align: center; }
-  @media (max-width: 599px) {
-    .club-login-container {
-      border: none; } }
   @media (min-width: 600px) {
     .club-login-container {
       padding: 3rem;
@@ -389,8 +386,10 @@ p {
   background-color: #FAFAFA;
   border-radius: 4px;
   padding: 0.75rem;
-  font-size: 16px;
-  width: 100%; }
+  font-size: 16px; }
+  @media (max-width: 599px) {
+    .club-login-input {
+      width: 100%; } }
   @media (min-width: 600px) {
     .club-login-input {
       width: 25rem; } }
@@ -582,7 +581,7 @@ p {
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
-  background-color: #FFFFFF;
+  background-color: #FAFAFA;
   color: #000000;
   font-weight: 700;
   padding: 1rem; }
@@ -661,78 +660,112 @@ p {
     color: #FAFAFA;
     cursor: pointer; }
 
-.update-account-container {
-  margin-top: 3rem;
+.update-account-page {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center; }
+  @media (min-width: 600px) {
+    .update-account-page {
+      height: 100vh; } }
 
-.update-account-input-container {
-  margin-top: 3rem; }
+@media (max-width: 599px) {
+  .update-account-container {
+    margin-top: 3rem;
+    width: 100%; } }
+
+@media (min-width: 600px) {
+  .update-account-container {
+    border: 0.0625rem solid #E5E5E5;
+    border-radius: 4px;
+    padding: 3rem; } }
+
+.update-account-usc-logo-container {
+  margin: 0 auto 1rem auto;
+  display: block;
+  height: 4.6875rem;
+  width: 4.6875rem;
+  border-radius: 50%; }
+
+.update-account-usc-logo {
+  height: 100%; }
+  .update-account-usc-logo:hover {
+    height: 95%; }
 
 .update-account-legend {
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: center; }
+  margin: 0 auto 2rem auto;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700; }
+  @media (max-width: 599px) {
+    .update-account-legend {
+      font-size: 1.5rem; } }
+  @media (min-width: 600px) {
+    .update-account-legend {
+      font-size: 1.5rem; } }
+  @media (min-width: 900px) {
+    .update-account-legend {
+      font-size: 2rem; } }
+
+.update-account-input-container {
+  margin-bottom: 1rem; }
 
 .update-account-label {
+  margin-bottom: 0.5rem;
   display: block;
-  width: 8.75rem;
-  text-align: left;
-  font-weight: 700;
-  margin-bottom: 1rem; }
-  @media (min-width: 1200px) {
-    .update-account-label {
-      display: inline-block;
-      margin: 0 0 0 1rem; } }
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 700; }
 
 .update-account-input {
   border: 0.0625rem solid #495057;
   background-color: #FAFAFA;
   border-radius: 4px;
   padding: 0.75rem;
-  font-size: 16px;
-  width: 25rem; }
+  font-size: 16px; }
   @media (max-width: 599px) {
     .update-account-input {
-      width: 20rem; } }
+      width: 100%; } }
+  @media (min-width: 600px) {
+    .update-account-input {
+      width: 35rem; } }
 
-.btn-container {
-  display: flex;
-  justify-content: center; }
-
-.update-account-btn-container {
-  margin: 5rem 0 5rem 1rem; }
+.update-account-small-text {
+  margin-top: 0.25rem;
+  color: #666666; }
 
 .update-account-btn {
-  display: inline-block;
-  padding: 1rem 1.5rem;
-  border: 0.1875rem solid #000000;
-  border-radius: 3.125rem;
+  width: 100%;
+  padding: 0.75rem;
+  border: 0.0625rem solid #4F2784;
+  border-radius: 4px;
   background-color: #4F2784;
-  color: #FAFAFA;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px; }
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 1rem; }
   .update-account-btn:hover {
-    background-color: #6733ab;
-    color: #FAFAFA;
-    cursor: pointer; }
-
-.cancel-update-btn-container {
-  margin: 5rem 0 5rem 1rem; }
+    background-color: #FAFAFA;
+    color: #4F2784;
+    border-color: #4F2784;
+    transition: 0.3s; }
 
 .cancel-update-btn {
   display: inline-block;
-  padding: 1rem 1.5rem;
-  border: 0.1875rem solid #000000;
-  border-radius: 3.125rem;
-  background-color: #4F2784;
-  color: #FAFAFA;
+  border: 0.125rem solid #000000;
+  border-radius: 4px;
   font-family: "Roboto", sans-serif;
-  text-decoration: none; }
+  text-decoration: none;
+  background-color: #FAFAFA;
+  color: #000000;
+  font-weight: 700;
+  padding: 0.75rem;
+  width: 100%;
+  text-align: center; }
   .cancel-update-btn:hover {
-    background-color: #6733ab;
-    color: #FAFAFA;
-    cursor: pointer; }
+    background-color: #000000;
+    color: #FFFFFF;
+    border-color: #000000;
+    transition: 0.3s; }
 
 .confirmation-msg {
   margin-top: 3rem;

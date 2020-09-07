@@ -8,10 +8,6 @@
 .club-login-container {
   text-align: center;
 
-  @include for-phone-only {
-    border: none;
-  }
-
   @include for-tablet-portrait-up {
     padding: 3rem;
     border: pxToRem(1px) solid $light-grey;
@@ -37,20 +33,7 @@
 
 .club-login-legend {
   margin: 0 auto 0.5rem auto;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-
-  @include for-phone-only {
-    font-size: $h3-small;
-  }
-
-  @include for-tablet-portrait-up {
-    font-size: $h3-small;
-  }
-
-  @include for-tablet-landscape-up {
-    font-size: $h3-large;
-  }
+  @include form-legend;
 }
 
 .club-login-input-container {
@@ -59,7 +42,10 @@
 
 .club-login-input {
   @include text-input;
-  width: 100%;
+
+  @include for-phone-only {
+    width: 100%;
+  }
 
   @include for-tablet-portrait-up {
     width: 25rem;

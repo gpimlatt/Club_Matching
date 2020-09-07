@@ -13,7 +13,7 @@
                     <p class="pp">Add links to your club's social media profiles.</p>
                     <div class="club-login-input-container">
                         {% if form.email.errors %}
-                            {{ form.email(class="alert-error") }}
+                            {{ form.email(class="alert-error", placeholder="Email") }}
                             <div>
                                 {% for error in form.email.errors %}
                                     <span class="alert-error">{{ error }}</span><br>
@@ -25,7 +25,7 @@
                     </div>
                     <div class="club-login-input-container">
                         {% if form.password.errors %}
-                            {{ form.password(class="alert-error") }}
+                            {{ form.password(class="alert-error", placeholder="Password") }}
                             <div>
                                 {% for error in form.password.errors %}
                                     <span class="alert-error">{{ error }}</span><br>
