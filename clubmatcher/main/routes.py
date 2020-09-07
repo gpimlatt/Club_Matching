@@ -48,19 +48,9 @@ def logout():
     return redirect(url_for('main.index'))
 
 
-@main.route("/account")
+@main.route("/account", methods=['GET', 'POST'])
 @login_required
 def account():
-    return render_template(
-        'pages/account.html',
-        title='Club Information',
-        club=current_user
-    )
-
-
-@main.route("/account/update", methods=['GET', 'POST'])
-@login_required
-def update_account():
     form = UpdateClubForm()
     if form.validate_on_submit():
         current_user.ecommerce = form.ecommerce.data
