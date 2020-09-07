@@ -198,33 +198,21 @@ p {
   width: 100%; }
 
 .alert {
-  margin: 2rem auto 0 auto;
-  font-size: 1rem;
+  margin: auto;
+  padding: 1rem 0;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
   text-align: center; }
-  @media (max-width: 599px) {
-    .alert {
-      width: 95%; } }
-  @media (min-width: 600px) {
-    .alert {
-      width: 85%; } }
-  @media (min-width: 900px) {
-    .alert {
-      width: 50rem; } }
-  @media (min-width: 1200px) {
-    .alert {
-      width: 68.75rem; } }
-  @media (min-width: 1920px) {
-    .alert {
-      width: 107.5rem; } }
 
 .alert-error {
-  color: #E50000; }
+  background-color: #FFAFAF; }
 
 .alert-message {
-  color: #4F2784; }
+  background-color: #CBB5E9; }
 
 .alert-success {
-  color: #327F3E; }
+  background-color: #BBE4C1; }
 
 .banner-container {
   display: flex;
@@ -397,7 +385,7 @@ p {
 .club-login-btn {
   width: 100%;
   padding: 0.75rem;
-  border: 0.0625rem solid #4F2784;
+  border: 0.125rem solid #4F2784;
   border-radius: 4px;
   background-color: #4F2784;
   color: #FFFFFF;
@@ -591,82 +579,14 @@ p {
     border-color: #000000;
     transition: 0.3s; }
 
-.account-info-header {
-  margin: 3rem 0;
-  text-align: center;
-  font-size: 1rem; }
-  @media (max-width: 599px) {
-    .account-info-header {
-      font-size: 1rem; } }
-
-.account-info-container {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-column-gap: 2rem;
-  grid-row-gap: 2rem; }
-  @media (max-width: 599px) {
-    .account-info-container {
-      grid-template-columns: 1fr;
-      grid-row-gap: 1.5rem; } }
-
-.account-info-subheader {
-  text-align: right;
-  font-size: 1rem; }
-  @media (max-width: 599px) {
-    .account-info-subheader {
-      text-align: center; } }
-
-@media (max-width: 599px) {
-  .account-info {
-    text-align: center; } }
-
-.account-btn-container {
-  margin: 5rem 0;
-  width: 100%;
-  display: flex;
-  justify-content: center; }
-
-.account-info-btn-container {
-  margin: 1rem; }
-
-.account-info-btn {
-  display: inline-block;
-  padding: 1rem 1.5rem;
-  border: 0.1875rem solid #000000;
-  border-radius: 3.125rem;
-  background-color: #4F2784;
-  color: #FAFAFA;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none; }
-  .account-info-btn:hover {
-    background-color: #6733ab;
-    color: #FAFAFA;
-    cursor: pointer; }
-
-.account-retake-quiz-btn-container {
-  margin: 1rem; }
-
-.account-retake-quiz-btn {
-  display: inline-block;
-  padding: 1rem 1.5rem;
-  border: 0.1875rem solid #000000;
-  border-radius: 3.125rem;
-  background-color: #4F2784;
-  color: #FAFAFA;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none; }
-  .account-retake-quiz-btn:hover {
-    background-color: #6733ab;
-    color: #FAFAFA;
-    cursor: pointer; }
-
 .update-account-page {
+  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   align-items: center; }
-  @media (min-width: 600px) {
+  @media (min-width: 900px) {
     .update-account-page {
-      height: 100vh; } }
+      margin-top: 2rem; } }
 
 @media (max-width: 599px) {
   .update-account-container {
@@ -735,7 +655,7 @@ p {
 .update-account-btn {
   width: 100%;
   padding: 0.75rem;
-  border: 0.0625rem solid #4F2784;
+  border: 0.125rem solid #4F2784;
   border-radius: 4px;
   background-color: #4F2784;
   color: #FFFFFF;
@@ -762,6 +682,25 @@ p {
   width: 100%;
   text-align: center; }
   .cancel-update-btn:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+    border-color: #000000;
+    transition: 0.3s; }
+
+.account-retake-quiz {
+  display: inline-block;
+  border: 0.125rem solid #000000;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  background-color: #FAFAFA;
+  color: #000000;
+  font-weight: 700;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center; }
+  .account-retake-quiz:hover {
     background-color: #000000;
     color: #FFFFFF;
     border-color: #000000;

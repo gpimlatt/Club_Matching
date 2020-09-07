@@ -1,10 +1,11 @@
 .update-account-page {
+  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  @include for-tablet-portrait-up {
-    height: 100vh;
+  @include for-tablet-landscape-up {
+    margin-top: 2rem;
   }
 }
 
@@ -77,6 +78,13 @@
 
 .cancel-update-btn {
   @include btn-secondary-med;
+  width: 100%;
+  text-align: center;
+}
+
+.account-retake-quiz {
+  @include btn-secondary-med;
+  margin-top: 1rem;
   width: 100%;
   text-align: center;
 }

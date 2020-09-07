@@ -1,4 +1,7 @@
 {% extends 'components/layout.html' %}
+{% block header %}
+    {% include 'components/header.html' %}
+{% endblock header %}
 {% block content %}
     <div class="container update-account-page">
         <div class="update-account-container">
@@ -78,12 +81,17 @@
                         {% endif %}
                     </div>
                 </fieldset>
-                <div class="update-account-btn-container">
+                <div>
                     {{ form.submit(class="update-account-btn") }}
                 </div>
-                <div class="cancel-update-btn-container">
+                <div>
                     <a class="cancel-update-btn" href="{{ url_for('main.index') }}">Cancel</a>
                 </div>
+                {% if quiz_completed %}
+                    <div>
+                        <a class="account-retake-quiz" href="{{ url_for('main.quiz') }}">Retake Quiz</a>
+                    </div>
+                {% endif %} 
             </form>
         </div>
     </div>

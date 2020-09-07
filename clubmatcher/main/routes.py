@@ -60,7 +60,6 @@ def account():
         current_user.website = form.website.data
         db.session.commit()
         flash('Your club information has been updated!', 'success')
-        return redirect(url_for('main.account'))
     elif request.method == 'GET':
         form.ecommerce.data = current_user.ecommerce
         form.facebook.data = current_user.facebook
@@ -70,7 +69,8 @@ def account():
     return render_template(
         'pages/update_account.html',
         title='Update Club Information',
-        form=form
+        form=form,
+        quiz_completed=current_user.quiz_completed
     )
 
 
@@ -103,10 +103,8 @@ def results():
             current_user.answers = club_answers
             current_user.quiz_completed = True
             db.session.commit()
-            return render_template(
-                'pages/club_results.html',
-                title='Results'
-            )
+            flash('Thank you, your answers have been recorded!', 'success')
+            return redirect(url_for('main.account'))
         else:
             student_answers = q1 + q2
             student_answers.extend([q3, q4, q5])
@@ -149,7 +147,7 @@ def results():
             )
     else:
         form = QuizForm()
-        flash('Please answer all quiz questions.')
+        flash('Please answer all quiz questions.', 'error')
         return render_template(
             'pages/quiz.html',
             title='Quiz',
