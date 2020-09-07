@@ -1,60 +1,82 @@
-.update-account-container {
-  margin-top: 3rem;
+.update-account-page {
   display: flex;
   justify-content: center;
+  align-items: center;
+
+  @include for-tablet-portrait-up {
+    height: 100vh;
+  }
 }
 
-.update-account-input-container {
-  margin-top: 3rem;
+.update-account-container {
+  @include for-phone-only {
+    margin-top: 3rem;
+    width: 100%;
+  }
+  @include for-tablet-portrait-up {
+    border: pxToRem(1px) solid $light-grey;
+    border-radius: $border-radius;
+    padding: 3rem;
+  }
+}
+
+.update-account-usc-logo-container {
+  margin: 0 auto 1rem auto;
+  display: block;
+  height: pxToRem(75px);
+  width: pxToRem(75px);
+  border-radius: 50%;
+}
+
+.update-account-usc-logo {
+  height: 100%;
+
+  &:hover {
+    height: 95%;
+  }
 }
 
 .update-account-legend {
-  font-size: $h4;
-  font-weight: 700;
-  text-align: center;
+  margin: 0 auto 2rem auto;
+  @include form-legend;
+}
+
+.update-account-input-container {
+  margin-bottom: 1rem;
 }
 
 .update-account-label {
+  margin-bottom: 0.5rem;
   display: block;
-  width: pxToRem(140px);
-  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-size: $base;
   font-weight: 700;
-  margin-bottom: 1rem;
-
-  @include for-desktop-up {
-    display: inline-block;
-    margin: 0 0 0 1rem;
-  }
 }
 
 .update-account-input {
   @include text-input;
-  width: 25rem;
 
   @include for-phone-only {
-    width: 20rem;
+    width: 100%;
+  }
+
+  @include for-tablet-portrait-up {
+    width: 35rem;
   }
 }
 
-.btn-container {
-  display: flex;
-  justify-content: center;
-}
-
-.update-account-btn-container {
-  margin: 5rem 0 5rem 1rem;
+.update-account-small-text {
+  margin-top: 0.25rem;
+  color: lighten($black, 40%);
 }
 
 .update-account-btn {
-  @include btn;
-  font-size: $base;
-}
-
-.cancel-update-btn-container {
-  margin: 5rem 0 5rem 1rem;
+  @include submit-input-primary;
+  margin-bottom: 1rem;
 }
 
 .cancel-update-btn {
-  @include btn;
-  text-decoration: none;
+  @include btn-secondary-med;
+  width: 100%;
+  text-align: center;
 }

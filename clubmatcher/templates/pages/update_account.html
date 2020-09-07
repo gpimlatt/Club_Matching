@@ -1,84 +1,89 @@
 {% extends 'components/layout.html' %}
 {% block content %}
-    <div class="container update-account-container">
-        <form action="" method="POST" class="update-account-form">
-            {{ form.hidden_tag() }}
-            <fieldset>
-                <legend class="update-account-legend">Account Information</legend>
-                <div class="update-account-input-container">
-                    {{ form.ecommerce.label(class="update-account-label") }}
-                    {% if form.ecommerce.errors %}
-                        {{ form.ecommerce(class="alert-error") }}
-                        <div>
-                            {% for error in form.ecommerce.errors %}
-                                <span class="alert-error">{{ error }}</span><br>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.ecommerce(class="update-account-input") }}
-                    {% endif %}
-                </div>
-                <div class="update-account-input-container">
-                    {{ form.facebook.label(class="update-account-label") }}
-                    {% if form.facebook.errors %}
-                        {{ form.facebook(class="alert-error") }}
-                        <div>
-                            {% for error in form.facebook.errors %}
-                                <span class="alert-error">{{ error }}</span><br>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.facebook(class="update-account-input") }}
-                    {% endif %}
-                </div>
-                <div class="update-account-input-container">
-                    {{ form.instagram.label(class="update-account-label") }}
-                    {% if form.instagram.errors %}
-                        {{ form.instagram(class="alert-error") }}
-                        <div>
-                            {% for error in form.instagram.errors %}
-                                <span class="alert-error">{{ error }}</span><br>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.instagram(class="update-account-input") }}
-                    {% endif %}
-                </div>
-                <div class="update-account-input-container">
-                    {{ form.twitter.label(class="update-account-label") }}
-                    {% if form.twitter.errors %}
-                        {{ form.twitter(class="alert-error") }}
-                        <div>
-                            {% for error in form.twitter.errors %}
-                                <span class="alert-error">{{ error }}</span><br>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.twitter(class="update-account-input") }}
-                    {% endif %}
-                </div>
-                <div class="update-account-input-container">
-                    {{ form.website.label(class="update-account-label") }}
-                    {% if form.website.errors %}
-                        {{ form.website(class="alert-error") }}
-                        <div>
-                            {% for error in form.website.errors %}
-                                <span class="alert-error">{{ error }}</span><br>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.website(class="update-account-input") }}
-                    {% endif %}
-                </div>
-            </fieldset>
-            <div class="btn-container">
+    <div class="container update-account-page">
+        <div class="update-account-container">
+            <div class="update-account-usc-logo-container">
+                <img class="update-account-usc-logo" src="{{ url_for('static', filename='images/usc_logo.png') }}"
+                     alt="USC logo">
+            </div>
+            <form action="" method="POST" class="update-account-form">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend class="update-account-legend">Account Information</legend>
+                    <div class="update-account-input-container">
+                        {{ form.ecommerce.label(class="update-account-label") }}
+                        {% if form.ecommerce.errors %}
+                            {{ form.ecommerce(class="alert-error", placeholder="https://www.westernusc.store/club-memberships/") }}
+                            <div>
+                                {% for error in form.ecommerce.errors %}
+                                    <span class="alert-error">{{ error }}</span><br>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.ecommerce(class="update-account-input", placeholder="https://www.westernusc.store/club-memberships/") }}
+                        {% endif %}
+                    <p class="update-account-small-text"><small>For example, https://www.westernusc.store/product-category/world-vision/ </small></p>
+                    </div>
+                    <div class="update-account-input-container">
+                        {{ form.facebook.label(class="update-account-label") }}
+                        {% if form.facebook.errors %}
+                            {{ form.facebook(class="alert-error", placeholder="https://www.facebook.com/") }}
+                            <div>
+                                {% for error in form.facebook.errors %}
+                                    <span class="alert-error">{{ error }}</span><br>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.facebook(class="update-account-input", placeholder="https://www.facebook.com/") }}
+                        {% endif %}
+                    </div>
+                    <div class="update-account-input-container">
+                        {{ form.instagram.label(class="update-account-label") }}
+                        {% if form.instagram.errors %}
+                            {{ form.instagram(class="alert-error", placeholder="https://instagram.com/") }}
+                            <div>
+                                {% for error in form.instagram.errors %}
+                                    <span class="alert-error">{{ error }}</span><br>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.instagram(class="update-account-input", placeholder="https://instagram.com/") }}
+                        {% endif %}
+                    </div>
+                    <div class="update-account-input-container">
+                        {{ form.twitter.label(class="update-account-label") }}
+                        {% if form.twitter.errors %}
+                            {{ form.twitter(class="alert-error", placeholder="https://twitter.com/") }}
+                            <div>
+                                {% for error in form.twitter.errors %}
+                                    <span class="alert-error">{{ error }}</span><br>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.twitter(class="update-account-input", placeholder="https://twitter.com/") }}
+                        {% endif %}
+                    </div>
+                    <div class="update-account-input-container">
+                        {{ form.website.label(class="update-account-label") }}
+                        {% if form.website.errors %}
+                            {{ form.website(class="alert-error") }}
+                            <div>
+                                {% for error in form.website.errors %}
+                                    <span class="alert-error">{{ error }}</span><br>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.website(class="update-account-input") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
                 <div class="update-account-btn-container">
                     {{ form.submit(class="update-account-btn") }}
                 </div>
                 <div class="cancel-update-btn-container">
                     <a class="cancel-update-btn" href="{{ url_for('main.account') }}">Cancel</a>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 {% endblock content %}

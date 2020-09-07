@@ -9,37 +9,37 @@ from clubmatcher.main.questions import *
 
 class UpdateClubForm(FlaskForm):
     ecommerce = URLField(
-        'Western Store:',
+        'Western USC Store Page',
         validators=[
             Length(max=2083)
         ]
     )
     facebook = URLField(
-        'Facebook:',
+        'Facebook',
         validators=[
             Length(max=2083)
         ]
     )
     instagram = URLField(
-        'Instagram:',
+        'Instagram',
         validators=[
             Length(max=2083)
         ]
     )
     twitter = URLField(
-        'Twitter:',
+        'Twitter',
         validators=[
             Length(max=2083)
         ]
     )
     website = URLField(
-        'Club Website:',
+        'Club Website',
         validators=[
             Length(max=2083)
         ]
     )
     submit = SubmitField(
-        'Submit'
+        'Update'
     )
 
 

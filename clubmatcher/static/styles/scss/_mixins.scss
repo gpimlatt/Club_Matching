@@ -101,7 +101,7 @@
 @mixin btn-secondary {
   @include btn-base(
           $border-color: $black,
-          $background-color: $white,
+          $background-color: $off-white,
           $font-color: $black
   );
 
@@ -162,5 +162,22 @@
     color: $western-purple;
     border-color: $western-purple;
     transition: 0.3s;
+  }
+}
+
+@mixin form-legend {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+
+  @include for-phone-only {
+    font-size: $h3-small;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: $h3-small;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: $h3-large;
   }
 }
