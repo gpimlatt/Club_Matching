@@ -13,6 +13,7 @@ flask-bcrypt = "*"
 flask-login = "*"
 flask-mail = "*"
 numpy = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.8"
