@@ -15,5 +15,5 @@ resetdb.py
 *.pyc
 
 ### Config Variables ###
-clubmatcher/etc/config.json
+etc/config.json
 
