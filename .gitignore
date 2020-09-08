@@ -14,3 +14,6 @@ resetdb.py
 ### Compiled Python Files ###
 *.pyc
 
+### Config Variables ###
+clubmatcher/etc/config.json
+
