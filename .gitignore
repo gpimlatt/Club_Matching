@@ -7,8 +7,8 @@
 ### NPM Packages ###
 node_modules/
 
-### SQLite Database ###
-resetdb.py
+### SQLite Development Database ###
+
 
 ### Compiled Python Files ###
 *.pyc
