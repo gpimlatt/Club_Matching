@@ -24,7 +24,6 @@ def create_app():
     app.config['MAIL_USE_TLS'] = True
     app.config['MAIL_USERNAME'] = config.get('EMAIL_USERNAME')
     app.config['MAIL_PASSWORD'] = config.get('EMAIL_PASSWORD')
-    app.config['SERVER_NAME'] = 'localhost:5000'
 
     db.init_app(app)
     bcrypt.init_app(app)
