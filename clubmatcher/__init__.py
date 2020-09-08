@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -12,15 +13,17 @@ mail = Mail()
 
 
 def create_app():
+    with open('etc/config.json') as file:
+        config = json.load(file)
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
+    app.config['SECRET_KEY'] = config.get('FLASK_SECRET_KEY')
+    app.config['SQLALCHEMY_DATABASE_URI'] = config.get('SQLALCHEMY_DATABASE_URI')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
     app.config['MAIL_PORT'] = 587
     app.config['MAIL_USE_TLS'] = True
-    app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USERNAME')
-    app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASSWORD')
+    app.config['MAIL_USERNAME'] = config.get('EMAIL_USERNAME')
+    app.config['MAIL_PASSWORD'] = config.get('EMAIL_PASSWORD')
     app.config['SERVER_NAME'] = 'localhost:5000'
 
     db.init_app(app)
