@@ -27,7 +27,6 @@ class Club(db.Model, UserMixin):
     twitter = db.Column(db.Text)
     website = db.Column(db.Text)
     answers = db.Column(db.String(60), nullable=False, default='')
-    quiz_completed = db.Column(db.Boolean, nullable=False, default=False)
 
     def __repr__(self):
         return f"Club(name='{self.name}', answers=[{self.answers}])"

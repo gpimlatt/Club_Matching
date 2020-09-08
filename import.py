@@ -18,7 +18,9 @@ def import_tags(filepath):
 
 
 def import_clubs(filepath):
-    password = os.environ.get('USC_CLUB_MATCHER_PASSWORD')
+    with open('etc/config.json') as file:
+        config = json.load(file)
+    password = config.get('USC_CLUB_MATCHER_PASSWORD')
     with open(filepath) as file:
         clubs = json.load(file)
     for club in clubs:

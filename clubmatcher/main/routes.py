@@ -52,6 +52,7 @@ def logout():
 @login_required
 def account():
     form = UpdateClubForm()
+    quiz_completed = True if current_user.answers else False
     if form.validate_on_submit():
         current_user.ecommerce = form.ecommerce.data
         current_user.facebook = form.facebook.data
@@ -70,7 +71,7 @@ def account():
         'pages/update_account.html',
         title='Update Club Information',
         form=form,
-        quiz_completed=current_user.quiz_completed
+        quiz_completed=quiz_completed
     )
 
 
@@ -101,7 +102,6 @@ def results():
                            ''.join(q2).replace(' ', ',') + ',' + \
                            q3 + ',' + q4 + ',' + q5
             current_user.answers = club_answers
-            current_user.quiz_completed = True
             db.session.commit()
             flash('Thank you, your answers have been recorded!', 'success')
             return redirect(url_for('main.account'))
