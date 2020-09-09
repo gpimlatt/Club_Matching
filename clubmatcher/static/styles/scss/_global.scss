@@ -72,6 +72,12 @@ p {
   font-size: $base;
 }
 
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 .container {
   margin: auto;
 

@@ -98,6 +98,11 @@ a {
 p {
   font-size: 16px; }
 
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
 .container {
   margin: auto; }
   @media (max-width: 599px) {
