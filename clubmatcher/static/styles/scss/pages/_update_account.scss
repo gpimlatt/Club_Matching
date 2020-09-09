@@ -3,15 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @include for-tablet-landscape-up {
-    margin-top: 2rem;
-  }
 }
 
 .update-account-container {
+  margin-top: 3rem;
+
   @include for-phone-only {
-    margin-top: 3rem;
     width: 100%;
   }
   @include for-tablet-portrait-up {

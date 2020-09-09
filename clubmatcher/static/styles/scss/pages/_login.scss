@@ -2,10 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
 }
 
 .club-login-container {
+  margin-top: 3rem;
   text-align: center;
 
   @include for-tablet-portrait-up {
