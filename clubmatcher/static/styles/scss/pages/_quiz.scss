@@ -66,6 +66,7 @@
     }
 
     & > label {
+      padding: 0 1rem;
       width: 100%;
       background-color: $white;
       border: 1px solid $black;
@@ -75,6 +76,7 @@
       align-items: center;
       color: $black;
       text-align: center;
+      line-height: 140%;
       cursor: pointer;
 
       &:hover {
