@@ -98,6 +98,11 @@ a {
 p {
   font-size: 16px; }
 
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
 .container {
   margin: auto; }
   @media (max-width: 599px) {
@@ -452,6 +457,7 @@ p {
       margin: 0;
       display: none; }
     .question > li > label {
+      padding: 0 1rem;
       width: 100%;
       background-color: #FFFFFF;
       border: 1px solid #000000;
@@ -461,6 +467,7 @@ p {
       align-items: center;
       color: #000000;
       text-align: center;
+      line-height: 140%;
       cursor: pointer; }
       .question > li > label:hover {
         border: 2px solid #4F2784;
