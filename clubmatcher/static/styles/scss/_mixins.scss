@@ -101,7 +101,7 @@
 @mixin btn-secondary {
   @include btn-base(
           $border-color: $black,
-          $background-color: $off-white,
+          $background-color: $background-color,
           $font-color: $black
   );
 
@@ -140,7 +140,7 @@
 
 @mixin text-input {
   border: pxToRem(1px) solid $dark-grey;
-  background-color: $off-white;
+  background-color: $background-color;
   border-radius: $border-radius;
   padding: 0.75rem;
   font-size: $base;
@@ -158,7 +158,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: $off-white;
+    background-color: $background-color;
     color: $western-purple;
     border-color: $western-purple;
     transition: 0.3s;
