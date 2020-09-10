@@ -103,20 +103,13 @@
 
   @include for-tablet-portrait-up {
     grid-template-columns: 1fr 1fr;
-  }
-
-  @include for-tablet-landscape-up {
-    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.5rem;
   }
 }
 
 .more-info-item {
   padding: 2rem;
-
-  @include for-phone-only {
-    border-radius: $border-radius;
-    &:nth-of-type(odd) {
-      background-color: $light-grey;
-    }
-  }
+  box-shadow: 0 10px 20px rgba(#000, .19), 0 6px 6px rgba(#000, .23);
+  border-radius: $border-radius;
+  background-color: $light-grey;
 }

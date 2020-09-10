@@ -37,7 +37,7 @@ ol, ul {
   box-sizing: inherit; }
 
 body {
-  background-color: #FAFAFA; }
+  background-color: #FFFFFF; }
 
 h1, h2, h3, h4, h5, h6, p {
   font-family: "Roboto", sans-serif;
@@ -142,7 +142,7 @@ input {
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   color: #000000;
   font-weight: 700;
   padding: 0.5rem;
@@ -154,7 +154,7 @@ input {
     transition: 0.3s; }
 
 .footer {
-  border-top: 0.0625rem solid #E5E5E5; }
+  border-top: 0.0625rem solid #EDEDED; }
 
 .footer-grid-container {
   margin-top: 2rem;
@@ -196,7 +196,7 @@ input {
   width: 1.875rem;
   border-radius: 50%; }
   .footer-social-icon:hover {
-    background: #E5E5E5;
+    background: #EDEDED;
     margin-bottom: 0.3125rem; }
 
 .social-icon-img {
@@ -318,18 +318,14 @@ input {
       grid-row-gap: 2rem; } }
   @media (min-width: 600px) {
     .index-more-info-container {
-      grid-template-columns: 1fr 1fr; } }
-  @media (min-width: 900px) {
-    .index-more-info-container {
-      grid-template-columns: 1fr 1fr; } }
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1.5rem; } }
 
 .more-info-item {
-  padding: 2rem; }
-  @media (max-width: 599px) {
-    .more-info-item {
-      border-radius: 4px; }
-      .more-info-item:nth-of-type(odd) {
-        background-color: #E5E5E5; } }
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  background-color: #EDEDED; }
 
 .club-login-page {
   display: flex;
@@ -342,7 +338,7 @@ input {
   @media (min-width: 600px) {
     .club-login-container {
       padding: 3rem;
-      border: 0.0625rem solid #E5E5E5;
+      border: 0.0625rem solid #EDEDED;
       border-radius: 4px; } }
 
 .login-usc-logo-container {
@@ -376,7 +372,7 @@ input {
 
 .club-login-input {
   border: 0.0625rem solid #495057;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   border-radius: 4px;
   padding: 0.75rem;
   font-size: 16px; }
@@ -399,7 +395,7 @@ input {
   cursor: pointer;
   margin-bottom: 1rem; }
   .club-login-btn:hover {
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
     color: #4F2784;
     border-color: #4F2784;
     transition: 0.3s; }
@@ -411,7 +407,7 @@ input {
   display: none; }
 
 .individual-question-container {
-  border-bottom: 0.0625rem solid #E5E5E5; }
+  border-bottom: 0.0625rem solid #EDEDED; }
   @media (max-width: 599px) {
     .individual-question-container {
       padding: 3rem 0; } }
@@ -459,8 +455,8 @@ input {
     .question > li > label {
       padding: 0 1rem;
       width: 100%;
-      background-color: #FFFFFF;
-      border: 1px solid #000000;
+      background-color: #EDEDED;
+      border: 1px solid #EDEDED;
       border-radius: 4px;
       display: flex;
       justify-content: center;
@@ -518,7 +514,7 @@ input {
 
 .recommended-club {
   padding: 3rem;
-  border: 0.0625rem solid #E5E5E5;
+  border: 0.0625rem solid #EDEDED;
   border-radius: 4px;
   box-shadow: 11px 11px 26px -6px rgba(0, 0, 0, 0.56); }
   @media (max-width: 599px) {
@@ -576,7 +572,7 @@ input {
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   color: #000000;
   font-weight: 700;
   padding: 1rem; }
@@ -599,7 +595,7 @@ input {
       width: 100%; } }
   @media (min-width: 600px) {
     .update-account-container {
-      border: 0.0625rem solid #E5E5E5;
+      border: 0.0625rem solid #EDEDED;
       border-radius: 4px;
       padding: 3rem; } }
 
@@ -641,7 +637,7 @@ input {
 
 .update-account-input {
   border: 0.0625rem solid #495057;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   border-radius: 4px;
   padding: 0.75rem;
   font-size: 16px; }
@@ -668,7 +664,7 @@ input {
   cursor: pointer;
   margin-bottom: 1rem; }
   .update-account-btn:hover {
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
     color: #4F2784;
     border-color: #4F2784;
     transition: 0.3s; }
@@ -679,7 +675,7 @@ input {
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   color: #000000;
   font-weight: 700;
   padding: 0.75rem;
@@ -697,7 +693,7 @@ input {
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   color: #000000;
   font-weight: 700;
   padding: 0.75rem;
@@ -732,7 +728,7 @@ input {
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   color: #000000;
   font-weight: 700;
   padding: 1rem; }
