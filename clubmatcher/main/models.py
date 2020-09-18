@@ -8,13 +8,6 @@ def load_user(user_id):
     return Club.query.get(int(user_id))
 
 
-club_tags = db.Table(
-    'club_tags',
-    db.Column('club_id', db.Integer, db.ForeignKey('club.id')),
-    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id'))
-)
-
-
 class Club(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True, nullable=False)
@@ -26,6 +19,8 @@ class Club(db.Model, UserMixin):
     instagram = db.Column(db.Text)
     twitter = db.Column(db.Text)
     website = db.Column(db.Text)
+    western_link = db.Column(db.Text)
+    tag_id = db.Column(db.Integer, db.ForeignKey('tag.id'))
     answers = db.Column(db.String(60), nullable=False, default='')
 
     def __repr__(self):
@@ -35,7 +30,15 @@ class Club(db.Model, UserMixin):
 class Tag(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True, nullable=False)
-    clubs = db.relationship('Club', secondary=club_tags, backref='tags', lazy=True)
+    clubs = db.relationship('Club', backref='tag', lazy=True)
 
     def __repr__(self):
         return f"Tag(name={self.name})"
+
+
+class Counter(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    submissions = db.Column(db.Integer)
+
+    def __repr__(self):
+        return f"Number of Quiz Submissions: {self.submissions}"
