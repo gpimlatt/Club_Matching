@@ -14,75 +14,60 @@
                 <fieldset>
                     <legend class="update-account-legend">Club Information</legend>
                     <div class="update-account-input-container">
-                        {{ form.ecommerce.label(class="update-account-label") }}
-                        {% if form.ecommerce.errors %}
-                            {{ form.ecommerce(class="alert-error", placeholder="https://www.westernusc.store/club-memberships/") }}
-                            <div>
-                                {% for error in form.ecommerce.errors %}
-                                    <span class="alert-error">{{ error }}</span><br>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            {{ form.ecommerce(class="update-account-input", placeholder="https://www.westernusc.store/club-memberships/") }}
-                        {% endif %}
-                        <p class="update-account-small-text"><small>For example:
-                            https://www.westernusc.store/product-category/world-vision/ </small></p>
-                    </div>
-                    <div class="update-account-input-container">
                         {{ form.facebook.label(class="update-account-label") }}
                         {% if form.facebook.errors %}
-                            {{ form.facebook(class="alert-error", placeholder="https://www.facebook.com/") }}
+                            {{ form.facebook(id="facebook", class="alert-error", placeholder="https://www.facebook.com/") }}
                             <div>
                                 {% for error in form.facebook.errors %}
                                     <span class="alert-error">{{ error }}</span><br>
                                 {% endfor %}
                             </div>
                         {% else %}
-                            {{ form.facebook(class="update-account-input", placeholder="https://www.facebook.com/") }}
+                            {{ form.facebook(id="facebook", class="update-account-input", placeholder="https://www.facebook.com/") }}
                         {% endif %}
                     </div>
                     <div class="update-account-input-container">
                         {{ form.instagram.label(class="update-account-label") }}
                         {% if form.instagram.errors %}
-                            {{ form.instagram(class="alert-error", placeholder="https://instagram.com/") }}
+                            {{ form.instagram(id="instagram", class="alert-error", placeholder="https://instagram.com/") }}
                             <div>
                                 {% for error in form.instagram.errors %}
                                     <span class="alert-error">{{ error }}</span><br>
                                 {% endfor %}
                             </div>
                         {% else %}
-                            {{ form.instagram(class="update-account-input", placeholder="https://instagram.com/") }}
+                            {{ form.instagram(id="instagram", class="update-account-input", placeholder="https://instagram.com/") }}
                         {% endif %}
                     </div>
                     <div class="update-account-input-container">
                         {{ form.twitter.label(class="update-account-label") }}
                         {% if form.twitter.errors %}
-                            {{ form.twitter(class="alert-error", placeholder="https://twitter.com/") }}
+                            {{ form.twitter(id="twitter", class="alert-error", placeholder="https://twitter.com/") }}
                             <div>
                                 {% for error in form.twitter.errors %}
                                     <span class="alert-error">{{ error }}</span><br>
                                 {% endfor %}
                             </div>
                         {% else %}
-                            {{ form.twitter(class="update-account-input", placeholder="https://twitter.com/") }}
+                            {{ form.twitter(id="twitter", class="update-account-input", placeholder="https://twitter.com/") }}
                         {% endif %}
                     </div>
                     <div class="update-account-input-container">
                         {{ form.website.label(class="update-account-label") }}
                         {% if form.website.errors %}
-                            {{ form.website(class="alert-error") }}
+                            {{ form.website(id="website", class="alert-error") }}
                             <div>
                                 {% for error in form.website.errors %}
                                     <span class="alert-error">{{ error }}</span><br>
                                 {% endfor %}
                             </div>
                         {% else %}
-                            {{ form.website(class="update-account-input") }}
+                            {{ form.website(id="website", class="update-account-input") }}
                         {% endif %}
                     </div>
                 </fieldset>
                 <div>
-                    {{ form.submit(class="update-account-btn") }}
+                    {{ form.submit(class="update-account-btn", onclick="onSubmit()") }}
                 </div>
                 <div>
                     <a class="cancel-update-btn" href="{{ url_for('main.index') }}">Cancel</a>
