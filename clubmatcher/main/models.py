@@ -34,11 +34,3 @@ class Tag(db.Model):
 
     def __repr__(self):
         return f"Tag(name={self.name})"
-
-
-class Counter(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    quiz_submissions = db.Column(db.Integer)
-
-    def __repr__(self):
-        return f"Quiz Submissions: {self.submissions}"
