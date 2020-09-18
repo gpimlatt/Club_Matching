@@ -97,17 +97,24 @@ def results():
         q3 = form.q3_field.data
         q4 = form.q4_field.data
         q5 = form.q5_field.data
+        q6 = form.q6_field.data
+        q7 = form.q7_field.data
+        q8 = form.q8_field.data
+        q9 = form.q9_field.data
+        q10 = form.q10_field.data[1:-1].split(',')
         if current_user.is_authenticated:
             club_answers = ''.join(q1).replace(' ', ',') + ',' + \
                            ''.join(q2).replace(' ', ',') + ',' + \
-                           q3 + ',' + q4 + ',' + q5
+                           q3 + ',' + q4 + ',' + q5 + ',' + q6 + ',' + q7 + ',' + q8 + ',' + q9 + ',' + \
+                           ''.join(q10).replace(' ', ',')
             current_user.answers = club_answers
             db.session.commit()
             flash('Thank you, your answers have been recorded!', 'success')
             return redirect(url_for('main.account'))
         else:
             student_answers = q1 + q2
-            student_answers.extend([q3, q4, q5])
+            student_answers.extend([q3, q4, q5, q6, q7, q8, q9])
+            student_answers = student_answers + q10
             student_answers = [int(answer) for answer in student_answers]
             recommended_club_ids = {}
             clubs = Club.query.all()
