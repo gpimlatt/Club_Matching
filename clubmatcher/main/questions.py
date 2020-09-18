@@ -34,7 +34,7 @@ q4_answers = {
     3: "Once or more a week would be awesome!"
 }
 
-q5 = "Let’s talk money. Would you be willing to spend money throughout the year to attend special events (ie, bar nights, speakers, or trips) with your new friends?"
+q5 = "Would you be willing to spend money throughout the year to participate in special virtual events?"
 q5_answers = {
     1: "I really hope to avoid spending additional money throughout the year.",
     2: "Maybe the rare occasion.",
@@ -55,25 +55,8 @@ q7_answers = {
     3: "Any opportunity to get dressed up and I'll take it!"
 }
 
-q8 = "How comfortable are you with events that involve alcohol?"
+q8 = "It is important for you that any organization you join be fully accessible for those with disabilities?"
 q8_answers = {
-    1: "I would really prefer to avoid alcohol.",
-    2: "I prefer to abstain, but I don’t mind if other people are drinking.",
-    3: "I don’t mind the occasional drink here and there.",
-    4: "Exceedingly comfortable."
-}
-
-q9 = "Given the choice, how far would you be willing to travel?"
-q9_answers = {
-    1: "I would prefer to stay on campus. I love the Western Bubble.",
-    2: "Wouldn't mind checking out the city.",
-    3: "I would be willing to travel outside of London, but let’s keep it within a couple hours.",
-    4: "I’m open to travelling anywhere within Canada.",
-    5: "I am comfortable travelling internationally."
-}
-
-q10 = "It is important for you that any organization you join be fully accessible for those with disabilities?"
-q10_answers = {
     1: "Yes, absolutely.",
     2: "Obviously it would be ideal, but it is not a particular need for me."
 }

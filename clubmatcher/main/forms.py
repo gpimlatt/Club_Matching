@@ -119,29 +119,8 @@ class QuizForm(FlaskForm):
         flask.Markup(f"{q8}"),
         validators=[DataRequired()],
         choices=[
-            (1, flask.Markup(f'<span>{q8_answers[1]}</span>')),
-            (2, flask.Markup(f'<span>{q8_answers[2]}</span>')),
-            (3, flask.Markup(f'<span>{q8_answers[3]}</span>')),
-            (4, flask.Markup(f'<span>{q8_answers[4]}</span>'))
-        ]
-    )
-    q9_field = RadioField(
-        flask.Markup(f"{q9}"),
-        validators=[DataRequired()],
-        choices=[
-            (1, flask.Markup(f'<span>{q9_answers[1]}</span>')),
-            (2, flask.Markup(f'<span>{q9_answers[2]}</span>')),
-            (3, flask.Markup(f'<span>{q9_answers[3]}</span>')),
-            (4, flask.Markup(f'<span>{q9_answers[4]}</span>')),
-            (5, flask.Markup(f'<span>{q9_answers[5]}</span>'))
-        ]
-    )
-    q10_field = RadioField(
-        flask.Markup(f"{q10}"),
-        validators=[DataRequired()],
-        choices=[
-            ([1, 0], flask.Markup(f'<span>{q10_answers[1]}</span>')),
-            ([0, 1], flask.Markup(f'<span>{q10_answers[2]}</span>'))
+            ([1, 0], flask.Markup(f'<span>{q8_answers[1]}</span>')),
+            ([0, 1], flask.Markup(f'<span>{q8_answers[2]}</span>'))
         ]
     )
     submit = SubmitField(

@@ -120,34 +120,6 @@
                         {{ form.q8_field(class="question") }}
                     {% endif %}
                 </div>
-                <div class="individual-question-container">
-                    <h2 class="question-number">Q9</h2>
-                    {{ form.q9_field.label(class="question-header") }}
-                    {% if form.q9_field.errors %}
-                        {{ form.q9_field(class="alert-error") }}
-                        <div>
-                            {% for error in form.q9_field.errors %}
-                                <span class="alert-error">{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.q9_field(class="question") }}
-                    {% endif %}
-                </div>
-                <div class="individual-question-container">
-                    <h2 class="question-number">Q10</h2>
-                    {{ form.q10_field.label(class="question-header") }}
-                    {% if form.q10_field.errors %}
-                        {{ form.q10_field(class="alert-error") }}
-                        <div>
-                            {% for error in form.q10_field.errors %}
-                                <span class="alert-error">{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.q10_field(class="question") }}
-                    {% endif %}
-                </div>
             </fieldset>
             <div class="submit-quiz-btn-container">
                 {{ form.submit(class="submit-quiz-btn") }}
