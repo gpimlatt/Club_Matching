@@ -39,7 +39,6 @@ class Tag(db.Model):
 class Counter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     quiz_submissions = db.Column(db.Integer)
-    purchase_clicks = db.Column(db.Integer)
 
     def __repr__(self):
-        return f"Quiz Submissions: {self.submissions}, Purchase Membership Clicks: {self.purchase_clicks}"
+        return f"Quiz Submissions: {self.submissions}"
