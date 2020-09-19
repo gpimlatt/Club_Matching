@@ -16,7 +16,7 @@ q2_answers = {
     5: "Health and Wellness",
     6: "Hobbies / Special Interests",
     7: "Music / Performing Arts",
-    8: "Politics/Social Justice",
+    8: "Politics / Social Justice",
     9: "Sports"
 }
 
@@ -50,7 +50,7 @@ q6_answers = {
 
 q7 = "What about a dress code?"
 q7_answers = {
-    1: "I don't want to go anywhere I can't wear my O-Week T-shirt and sweatpants.",
+    1: "I'd like to stick to my wardrobe.",
     2: "I'm malleable. I'll dress up if I have to.",
     3: "Any opportunity to get dressed up and I'll take it!"
 }
