@@ -54,7 +54,6 @@ def account():
     form = UpdateClubForm()
     quiz_completed = True if current_user.answers else False
     if form.validate_on_submit():
-        current_user.ecommerce = form.ecommerce.data
         current_user.facebook = form.facebook.data
         current_user.instagram = form.instagram.data
         current_user.twitter = form.twitter.data
@@ -62,7 +61,6 @@ def account():
         db.session.commit()
         flash('Your club information has been updated!', 'success')
     elif request.method == 'GET':
-        form.ecommerce.data = current_user.ecommerce
         form.facebook.data = current_user.facebook
         form.instagram.data = current_user.instagram
         form.twitter.data = current_user.twitter
@@ -121,7 +119,7 @@ def results():
                     club_answers = club.answers.split(',')
                     club_answers = [int(answer) for answer in club_answers]
                     similarity_score = cosine_similarity(student_answers, club_answers)
-                    if len(recommended_club_ids) < 3:
+                    if len(recommended_club_ids) < 5:
                         recommended_club_ids[club.id] = similarity_score
                         recommended_club_ids = {k: v for k, v in sorted(
                             recommended_club_ids.items(),
