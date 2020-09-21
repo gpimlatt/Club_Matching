@@ -42,7 +42,6 @@ def update_ecommerce(filepath):
                 club.ecommerce = row['Storefront Link']
     db.session.commit()
 
-
 def update_clubs(filepath):
     with open('etc/config.json') as file:
         config = json.load(file)
@@ -81,4 +80,4 @@ def update_clubs(filepath):
 app = create_app()
 if __name__ == '__main__':
     with app.app_context():
-        update_clubs('data/clubs_updated.json')
+        update_clubs('data/clubs_updated_2.json')
