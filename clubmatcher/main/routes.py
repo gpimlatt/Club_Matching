@@ -3,8 +3,8 @@ from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
 from clubmatcher import db, bcrypt, mail
 from clubmatcher.main.forms import UpdateClubForm, QuizForm, LoginForm
-from clubmatcher.main.models import Club
-from clubmatcher.main.utils import cosine_similarity
+from clubmatcher.main.models import Club, Statistic
+from clubmatcher.main.utils import cosine_similarity, update_quiz_counter
 
 main = Blueprint('main', __name__)
 
@@ -108,6 +108,7 @@ def results():
             flash('Thank you, your answers have been recorded!', 'success')
             return redirect(url_for('main.account'))
         else:
+            update_quiz_counter()
             student_answers = q1 + q2
             student_answers.extend([q3, q4, q5, q6, q7])
             student_answers = student_answers + q8

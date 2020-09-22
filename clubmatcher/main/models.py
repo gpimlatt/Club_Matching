@@ -34,3 +34,11 @@ class Tag(db.Model):
 
     def __repr__(self):
         return f"Tag(name={self.name})"
+
+
+class Statistic(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_quiz_submissions = db.Column(db.Integer, default=0)
+
+    def __repr__(self):
+        return f"Number of Quiz Submissions: {self.user_quiz_submissions}"
