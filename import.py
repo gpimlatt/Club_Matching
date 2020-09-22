@@ -5,13 +5,6 @@ from clubmatcher import create_app, db, bcrypt
 from clubmatcher.main.models import Club, Tag, Statistic
 
 
-def add_counter():
-    db.create_all()
-    statistic = Statistic()
-    db.session.add(statistic)
-    db.session.commit()
-
-
 def import_clubs(filepath):
     with open('etc/config.json') as file:
         config = json.load(file)
@@ -88,4 +81,4 @@ def update_clubs(filepath):
 app = create_app()
 if __name__ == '__main__':
     with app.app_context():
-        add_counter()
+        update_clubs('data/clubs_updated_2.json')
