@@ -81,4 +81,11 @@ def update_clubs(filepath):
 app = create_app()
 if __name__ == '__main__':
     with app.app_context():
-        update_clubs('data/clubs_updated_2.json')
+        statistic = Statistic.query.get(1)
+        if not statistic:
+            statistic = Statistic()
+            db.session.add(statistic)
+            db.session.commit()
+        Club.query.filter_by(id=5539).delete()
+        db.session.commit()
+        update_clubs('data/new_clubs.json')
