@@ -86,6 +86,4 @@ if __name__ == '__main__':
             statistic = Statistic()
             db.session.add(statistic)
             db.session.commit()
-        Club.query.filter_by(id=5539).delete()
-        db.session.commit()
         update_clubs('data/new_clubs.json')

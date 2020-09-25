@@ -1,32 +1,22 @@
 [
   {
-    "ProductID": 12882,
-    "SKU": 1639,
-    "Name": "OHM",
-    "Email": "ohm.club@westernusc.ca",
-    "Storefront Link": "https://westernusc.store/?p=12882",
-    "WL Address": "https://www.westernlink.ca/actioncenter/organization/ohm",
-    "Tags": "Hobbies/Special Interests",
-    "Short description": "OHM Charity Fashion Show is an organization that has been led by the students of the University of Western Ontario for the past 18 years. This incredible organization combines elements of dance and fashion, truly allowing each student to shine. The main event during the year is a large performance showcasing dancers and models at our school, but the work that OHM does goes far beyond the stage. As a team, we run events and fundraisers throughout the year, donating all money raised from these events and from the show itself to the Canadian Cancer Society. To date, OHM has raised over $130,000 for the society, and we could not be more proud. Although this year may look different, we are as excited as ever to continue this tradition. We have an amazing team, and we are looking forward to you joining it in our efforts to support cancer research!"
+    "ProductID": 33019,
+    "SKU": 1665,
+    "Name": "UWO Serbian Society",
+    "Email": "serbian.club@westernusc.ca",
+    "Storefront Link": "https://westernusc.store/?p=33019",
+    "WL Address": "https://www.westernlink.ca/organization/serbiansociety",
+    "Tags": "Cultural",
+    "Short description": "The objective of the UWO Serbian Society is to create a community in which students can connect through Serbian culture and where Serbian culture can be enjoyed and explored in a fun and social way."
   },
   {
-    "ProductID": 12894,
-    "SKU": 1784,
-    "Name": "Pre-Optometry Club",
-    "Email": "preoptometry.club@westernusc.ca",
-    "Storefront Link": "https://westernusc.store/?p=12894",
-    "WL Address": "https://www.westernlink.ca/actioncenter/organization/pre-optometryclub",
-    "Tags": "Academics",
-    "Short description": "The Pre-Optometry Club strives to provide students with resources that will help them become involved in the field of optometry."
-  },
-  {
-    "ProductID": 31003,
-    "SKU": 8583,
-    "Name": "New Democratic Party Western (NDP Western)",
-    "Email": "newdemocrats.club@westernusc.ca",
-    "Storefront Link": "https://westernusc.store/?p=31003",
-    "WL Address": "https://www.westernlink.ca/actioncenter/organization/WNDP",
-    "Tags": "Politics/Social Justice",
-    "Short description": "NDP Western's aim is to promote social democratic values on campus and around London. The club hosts a number of events and talks intended to promote the debate of political and social issues. Events often have sitting MPPs and professors with a diversity of views in order to facilitate discussion and broaden views. The club maintains close ties to the NDP on both levels of government and provides real-world political experience."
+    "ProductID": 12923,
+    "SKU": 9488,
+    "Name": "The Well",
+    "Email": "thewell.club@westernusc.ca",
+    "Storefront Link": "https://westernusc.store/?p=12923",
+    "WL Address": "https://www.westernlink.ca/organization/thewell",
+    "Tags": "Cultural",
+    "Short description": "The WELL is a Christ-centered community focused on wellness. Our goal is to cultivate complete well-being based on the foundation of the Word of God through prayer, worship, discussion, and activities. We are a safe haven for those searching for a spiritual retreat from the struggles of everyday life, aiming to see individuals thrive in every area of their lives with and through Christ."
   }
 ]
