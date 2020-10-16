@@ -1,3 +1,5 @@
+"""List of questions and answers for the quiz."""
+
 q1 = "Which are the activities you would most prefer to be engaged in?"
 q1_answers = {
     1: "Just generally being social with other like-minded students.",

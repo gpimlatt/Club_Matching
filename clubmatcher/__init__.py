@@ -11,6 +11,15 @@ login_manager = LoginManager()
 
 
 def create_app():
+    """Initializes a new Flask app.
+
+    Initializes a new Flask app with configurations. Initializes
+    database, bcrypt, login_manager. Registers main and errors modules
+    (blueprints).
+
+    Returns:
+        An instance of Flask app.
+    """
     with open('etc/config.json') as file:
         config = json.load(file)
     app = Flask(__name__)

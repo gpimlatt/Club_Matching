@@ -8,6 +8,22 @@ from clubmatcher.main.questions import *
 
 
 class UpdateClubForm(FlaskForm):
+    """Form for updating a Club's acccount information.
+
+    Attributes:
+        ecommerce:
+            An input element of type url for the Club's Western eCommerce page.
+        facebook:
+            An input element of type url for the Club's Facebook page.
+        instagram:
+            An input element of type url for the Club's Instagram page.
+        twitter:
+            An input element of type url for the Club's Twitter page.
+        website:
+            An input element of type url for the Club's official website.
+        submit:
+            An input element of type submit.
+    """
     ecommerce = URLField(
         'Western USC Store Page',
         validators=[
@@ -44,6 +60,28 @@ class UpdateClubForm(FlaskForm):
 
 
 class QuizForm(FlaskForm):
+    """Form for displaying/capturing quiz questions/answers.
+
+    Attributes:
+        q1_field:
+            An input element of type radio for the question 1.
+        q2_field:
+            An input element of type radio for the question 2.
+        q3_field:
+            An input element of type radio for the question 3.
+        q4_field:
+            An input element of type radio for the question 4.
+        q5_field:
+            An input element of type radio for the question 5.
+        q6_field:
+            An input element of type radio for the question 6.
+        q7_field:
+            An input element of type radio for the question 7.
+        q8_field:
+            An input element of type radio for the question 8.
+        submit:
+            An input element of type submit.
+    """
     q1_field = RadioField(
         flask.Markup(f"{q1}"),
         validators=[DataRequired()],
@@ -59,15 +97,24 @@ class QuizForm(FlaskForm):
         flask.Markup(f"{q2}"),
         validators=[DataRequired()],
         choices=[
-            ([1, 0, 0, 0, 0, 0, 0, 0, 0], flask.Markup(f'<span>{q2_answers[1]}</span>')),
-            ([0, 1, 0, 0, 0, 0, 0, 0, 0], flask.Markup(f'<span>{q2_answers[2]}</span>')),
-            ([0, 0, 1, 0, 0, 0, 0, 0, 0], flask.Markup(f'<span>{q2_answers[3]}</span>')),
-            ([0, 0, 0, 1, 0, 0, 0, 0, 0], flask.Markup(f'<span>{q2_answers[4]}</span>')),
-            ([0, 0, 0, 0, 1, 0, 0, 0, 0], flask.Markup(f'<span>{q2_answers[5]}</span>')),
-            ([0, 0, 0, 0, 0, 1, 0, 0, 0], flask.Markup(f'<span>{q2_answers[6]}</span>')),
-            ([0, 0, 0, 0, 0, 0, 1, 0, 0], flask.Markup(f'<span>{q2_answers[7]}</span>')),
-            ([0, 0, 0, 0, 0, 0, 0, 1, 0], flask.Markup(f'<span>{q2_answers[8]}</span>')),
-            ([0, 0, 0, 0, 0, 0, 0, 0, 1], flask.Markup(f'<span>{q2_answers[9]}</span>'))
+            ([1, 0, 0, 0, 0, 0, 0, 0, 0],
+             flask.Markup(f'<span>{q2_answers[1]}</span>')),
+            ([0, 1, 0, 0, 0, 0, 0, 0, 0],
+             flask.Markup(f'<span>{q2_answers[2]}</span>')),
+            ([0, 0, 1, 0, 0, 0, 0, 0, 0],
+             flask.Markup(f'<span>{q2_answers[3]}</span>')),
+            ([0, 0, 0, 1, 0, 0, 0, 0, 0],
+             flask.Markup(f'<span>{q2_answers[4]}</span>')),
+            ([0, 0, 0, 0, 1, 0, 0, 0, 0],
+             flask.Markup(f'<span>{q2_answers[5]}</span>')),
+            ([0, 0, 0, 0, 0, 1, 0, 0, 0],
+             flask.Markup(f'<span>{q2_answers[6]}</span>')),
+            ([0, 0, 0, 0, 0, 0, 1, 0, 0],
+             flask.Markup(f'<span>{q2_answers[7]}</span>')),
+            ([0, 0, 0, 0, 0, 0, 0, 1, 0],
+             flask.Markup(f'<span>{q2_answers[8]}</span>')),
+            ([0, 0, 0, 0, 0, 0, 0, 0, 1],
+             flask.Markup(f'<span>{q2_answers[9]}</span>'))
         ]
     )
     q3_field = RadioField(
@@ -129,6 +176,16 @@ class QuizForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
+    """Form allowing club admin to log in to their account.
+
+    Attributes:
+        email:
+            An input element of type email for the Club's email.
+        password:
+            An input element of type password for the Club's password.
+        submit:
+            An input element of type submit.
+    """
     email = EmailField(
         'Email:',
         validators=[

@@ -10,6 +10,11 @@ main = Blueprint('main', __name__)
 
 @main.route("/")
 def index():
+    """Route for the website's index page.
+
+    Returns:
+        A rendered html template for this route.
+    """
     return render_template(
         'pages/index.html',
         title='USC Club Matcher'
@@ -18,6 +23,17 @@ def index():
 
 @main.route("/login", methods=['GET', 'POST'])
 def login():
+    """Route for club login page.
+
+    Returns:
+        If the club is logged-in and then have not yet completed
+        the quiz, then a redirect to the quiz route in the main module will be
+        returned.
+        If the club is logged-in and they have previously completed
+        the quiz, then a redirect to the account route in the main module will
+        be returned.
+        Otherwise, a rendered html template for this route will be returned.
+    """
     if current_user.is_authenticated:
         if current_user.answers:
             return redirect(url_for('main.account'))
@@ -43,6 +59,11 @@ def login():
 
 @main.route("/logout")
 def logout():
+    """Route for logging a club out of their account.
+
+    Returns:
+        A redirect for the index route in the main module.
+    """
     logout_user()
     return redirect(url_for('main.index'))
 
@@ -50,6 +71,11 @@ def logout():
 @main.route("/account", methods=['GET', 'POST'])
 @login_required
 def account():
+    """Route for the club's account page.
+
+    Returns:
+        A rendered html page for this route.
+    """
     form = UpdateClubForm()
     quiz_completed = True if current_user.answers else False
     if form.validate_on_submit():
@@ -74,6 +100,11 @@ def account():
 
 @main.route("/quiz", methods=['GET', 'POST'])
 def quiz():
+    """Route for the quiz page.
+
+    Returns:
+        A rendered html template for this route.
+    """
     form = QuizForm()
     return render_template(
         'pages/quiz.html',
@@ -84,6 +115,18 @@ def quiz():
 
 @main.route("/results", methods=['GET', 'POST'])
 def results():
+    """Route for displaying the quiz results
+
+    Returns:
+        If the quiz has not yet been completed, a redirect to the quiz route
+        in the main module will be returned.
+        If the all the quiz question have not been answered, then a rendered
+        html template for the quiz route will be returned.
+        If a club admin submits the quiz, then a redirect to the club's account
+        page will be returned.
+        If a user submits the quiz, then a rendered html template for this route
+        will be returned.
+    """
     if request.method == 'GET':
         flash("You must complete the quiz first.", "error")
         return redirect(url_for('main.quiz'))
@@ -118,7 +161,10 @@ def results():
                 if club.answers:
                     club_answers = club.answers.split(',')
                     club_answers = [int(answer) for answer in club_answers]
-                    similarity_score = cosine_similarity(student_answers, club_answers)
+                    similarity_score = cosine_similarity(
+                        student_answers,
+                        club_answers
+                    )
                     if len(recommended_club_ids) < 5:
                         recommended_club_ids[club.id] = similarity_score
                         recommended_club_ids = {k: v for k, v in sorted(
