@@ -1,7 +1,6 @@
 from flask import render_template, redirect, url_for, request, flash, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
-from flask_mail import Message
-from clubmatcher import db, bcrypt, mail
+from clubmatcher import db, bcrypt
 from clubmatcher.main.forms import UpdateClubForm, QuizForm, LoginForm
 from clubmatcher.main.models import Club, Statistic
 from clubmatcher.main.utils import cosine_similarity, update_quiz_counter
