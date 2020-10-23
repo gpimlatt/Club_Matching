@@ -82,7 +82,7 @@ be stored inside of `Club_Matcher/data/` prior to executing the command. Otherwi
 ## JSON Club Data Format
 Unless `import.py` is changed to support another format, your JSON club data file should be in the following format:
 ```json
-[ // File located in `Club_Matcher/data/`
+[
   {
     "ProductID": 1,
     "SKU": 1,
@@ -102,8 +102,7 @@ Unless `import.py` is changed to support another format, your JSON club data fil
     "WL Address": "https://www.westernlink.ca/organization/...",
     "Tags": "",
     "Short description": ""
-  },
-  // ...
+  }
 ]
 ```
 **Note**: Each club uses the `SKU` as its primary key when stored in the database. Therefore, all SKU's should be
