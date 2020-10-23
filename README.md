@@ -1,12 +1,11 @@
 # USC Club Matcher
 
 ## Description
-USC Club Matcher attempts to match users to organized clubs based off a questionnaire provided by the user. A 
-representative for each club will take an identical questionnaire. We find the 5 clubs with the closest similarity in 
-terms of answers provided by the user.
+USC Club Matcher attempts to match users to organized clubs based off a questionnaire. A representative for each club 
+will take an identical questionnaire. We find clubs with the closest similarity in terms of answers provided by the user.
 
 The answer set for the user and each club are stored in separate vectors. The matching algorithm computes the [cosine
-similarity](https://en.wikipedia.org/wiki/Cosine_similarity) between the users vector and the vector for each club.
+similarity](https://en.wikipedia.org/wiki/Cosine_similarity) between the user's vector and the vector for each club.
 
 ## Install
 
