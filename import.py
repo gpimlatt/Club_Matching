@@ -29,33 +29,36 @@ def add_club(clubs):
         False otherwise.
 
     Raises:
-        ValueError: An error occured querying the database for
+        ValueError: An error occurred querying the database for
     """
-    for club in club_data:
-        existing_club = Club.query.get(int(row['SKU']))
-        tag = Tag.query.filter_by(name=row['Tags']).first()
-        if not existing_tag:
-            tag = Tag(name=row['Tags'])
+    with open('etc/config.json') as file:
+        config = json.load(file)
+    password = config.get('USC_CLUB_MATCHER_PASSWORD')
+    for club in clubs:
+        existing_club = Club.query.get(int(club['SKU']))
+        tag = Tag.query.filter_by(name=club['Tags']).first()
+        if not tag:
+            tag = Tag(name=club['Tags'])
             db.session.add(tag)
         if existing_club:
-            existing_club.name = row['Name']
-            existing_club.email = row['Email']
-            existing_club.description = row['Short description']
-            existing_club.ecommerce = row['Storefront Link']
-            existing_club.western_link = row['WL Address']
+            existing_club.name = club['Name']
+            existing_club.email = club['Email']
+            existing_club.description = club['Short description']
+            existing_club.ecommerce = club['Storefront Link']
+            existing_club.western_link = club['WL Address']
             existing_club.tag = tag
         else:
             hashed_password = bcrypt.generate_password_hash(
                 password
             ).decode('utf-8')
             new_club = Club(
-                id=row['SKU'],
-                name=row['Name'],
-                email=row['Email'],
+                id=club['SKU'],
+                name=club['Name'],
+                email=club['Email'],
                 password=hashed_password,
-                description=row['Short description'],
-                ecommerce=row['Storefront Link'],
-                western_link=row['WL Address'],
+                description=club['Short description'],
+                ecommerce=club['Storefront Link'],
+                western_link=club['WL Address'],
                 tag=tag
             )
             db.session.add(new_club)
