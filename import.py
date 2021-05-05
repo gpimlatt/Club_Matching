@@ -73,7 +73,7 @@ def main():
         None
     """
     try:
-        with open("data/" + sys.argv[1]) as file:
+        with open(sys.argv[1]) as file:
             clubs = json.load(file)
         is_uploaded = add_club(clubs)
         if is_uploaded:

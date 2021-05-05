@@ -16,27 +16,31 @@ to working on this project.
 [How to install `pipenv`](https://pipenv.pypa.io/en/latest/#install-pipenv-today)
 
 ### NPM
-This project uses `npm` as a package manager for javascript dev dependencies. `NPM` is helpful when working on static
-files (`js` and `scss`).  
+This project uses `npm` as a package manager for javascript dev dependencies.
+
 [How to install `npm`](https://www.npmjs.com/get-npm)
 
 ### Clone `Club_Matching` from Github
 ```commandline
 git clone git@github.com:WesternUSC/Club_Matching.git && cd Club_Matching/
 ```
-### Python dependencies from `Pipfile`
+### Download Python dependencies from `Pipfile`
 ```commandline
 pipenv install
 ```
-### Javascript dev dependencies from `package.json`
+### Download Javascript dependencies from `package.json`
 ```commandline
 npm install
 ```
 
 ## Setup
 
-### Start `gulpfile.js`
-This project uses [Gulp](https://gulpjs.com/) as a build tool for automatically compiling Sass into CSS.  
+### Run Gulp
+This project uses [Gulp](https://gulpjs.com/) to compile Scss into CSS.
+- `gulp` will compile Scss and watch for file changes.
+- `gulp watch`: 
+
+Run Gulp with the following command:
 ```commandline
 gulp
 ```
